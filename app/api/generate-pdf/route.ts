@@ -60,9 +60,6 @@ export async function POST(req: NextRequest) {
         // Find and update the professional summary content
         const summaryElement = card.querySelector('section:first-of-type p');
         if (summaryElement && summaryElement.textContent) {
-          // Get the current role from the header
-          const originalRole = document.querySelector('h2')?.textContent || '';
-          
           // Replace the first sentence to start with the new job title
           const summaryText = summaryElement.textContent;
           const firstSentenceRegex = new RegExp(`^[^.]+(with[^.]+\\.)`);
