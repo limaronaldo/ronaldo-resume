@@ -60,8 +60,18 @@ export async function POST(req: NextRequest) {
         // Find and update the professional summary content
         const summaryElement = card.querySelector('section:first-of-type p');
         if (summaryElement && summaryElement.textContent) {
+          // Get the current role from the header
           const originalRole = document.querySelector('h2')?.textContent || '';
-          summaryElement.textContent = summaryElement.textContent.replace(originalRole, jobTitle);
+          
+          // Replace both the role at the start of the sentence and anywhere else
+          const summaryText = summaryElement.textContent;
+          const updatedText = summaryText
+            // Replace at the start of the sentence
+            .replace(new RegExp(`^${originalRole.split(' ').join('\\s+')}\\s+with`, 'i'), `${jobTitle} with`)
+            // Replace in the rest of the text
+            .replace(new RegExp(originalRole, 'g'), jobTitle);
+            
+          summaryElement.textContent = updatedText;
         }
       }
 
