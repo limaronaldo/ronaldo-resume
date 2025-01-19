@@ -12,7 +12,6 @@ i18next
   .init({
     fallbackLng: 'en',
     supportedLngs: ['en', 'pt', 'es'],
-    lng: 'en',
     interpolation: {
       escapeValue: false,
     },
