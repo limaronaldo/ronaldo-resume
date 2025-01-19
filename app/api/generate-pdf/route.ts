@@ -45,19 +45,38 @@ export async function POST(req: NextRequest) {
     // Wait for the card content to be loaded
     await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
 
-    // Get the card element and its dimensions
-    const cardDimensions = await page.evaluate(() => {
+    // Modify the page to only show the card content
+    await page.evaluate(() => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
       if (!card) throw new Error('Card content not found');
-      const { width, height } = card.getBoundingClientRect();
-      return { width, height };
-    });
 
-    // Set viewport to match card dimensions with some padding
-    await page.setViewport({
-      width: Math.ceil(cardDimensions.width) + 80, // Add padding for margins
-      height: Math.ceil(cardDimensions.height) + 80,
-      deviceScaleFactor: 1
+      // Create a wrapper for the card
+      const wrapper = document.createElement('div');
+      wrapper.style.background = 'white';
+      wrapper.style.width = '100%';
+      wrapper.style.minHeight = '100vh';
+      wrapper.style.padding = '40px';
+      wrapper.style.display = 'flex';
+      wrapper.style.alignItems = 'flex-start';
+      wrapper.style.justifyContent = 'center';
+
+      // Clone the card and remove shadow/border
+      const clonedCard = card.cloneNode(true) as HTMLElement;
+      clonedCard.style.boxShadow = 'none';
+      clonedCard.style.borderRadius = '0';
+      clonedCard.style.margin = '0';
+      clonedCard.style.maxWidth = '800px';
+      clonedCard.style.width = '100%';
+
+      // Replace the body content with just the card
+      wrapper.appendChild(clonedCard);
+      document.body.innerHTML = '';
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
+      document.body.style.background = 'white';
+      document.body.appendChild(wrapper);
+
+      return clonedCard.getBoundingClientRect();
     });
 
     // Generate PDF with the card content only
