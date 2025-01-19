@@ -42,13 +42,15 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          type: 'resume',
           url: window.location.href,
           jobTitle: customJobTitle,
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to generate PDF');
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error || 'Failed to generate PDF');
+      }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
@@ -61,6 +63,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
       document.body.removeChild(a);
     } catch (error) {
       console.error('Error generating PDF:', error);
+      alert('Failed to generate PDF. Please try again.');
     }
   };
 

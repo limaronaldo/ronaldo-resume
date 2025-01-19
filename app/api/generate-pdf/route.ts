@@ -8,13 +8,14 @@ interface GeneratePdfRequest {
 }
 
 export async function POST(req: NextRequest) {
+  let browser;
   try {
     const { url, jobTitle } = await req.json() as GeneratePdfRequest;
     
     // Configure Chrome for serverless environment
     const executablePath = await chrome.executablePath();
     
-    const browser = await puppeteer.launch({
+    browser = await puppeteer.launch({
       args: [...chrome.args, '--font-render-hinting=none'],
       executablePath,
       headless: chrome.headless,
@@ -26,6 +27,8 @@ export async function POST(req: NextRequest) {
     });
     
     const page = await browser.newPage();
+    
+    // Navigate to the page and wait for network to be idle
     await page.goto(url, { 
       waitUntil: ['networkidle0', 'load', 'domcontentloaded'],
       timeout: 30000 
@@ -38,7 +41,7 @@ export async function POST(req: NextRequest) {
     await page.evaluate(() => {
       // Get the resume content
       const content = document.querySelector('#resume-content');
-      if (!content) return;
+      if (!content) throw new Error('Resume content not found');
 
       // Create a new wrapper
       const wrapper = document.createElement('div');
@@ -73,9 +76,7 @@ export async function POST(req: NextRequest) {
       document.body.appendChild(wrapper);
     });
 
-    // Wait a bit for any fonts to load
-    await page.waitForTimeout(1000);
-
+    // Generate PDF
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
@@ -88,8 +89,6 @@ export async function POST(req: NextRequest) {
       preferCSSPageSize: true,
       scale: 0.98
     });
-
-    await browser.close();
 
     // Create initials from job title if provided
     let filename = 'RonaldoLima';
@@ -115,6 +114,13 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error('PDF generation error:', error);
-    return NextResponse.json({ error: 'Failed to generate PDF' }, { status: 500 });
+    return new NextResponse(
+      error instanceof Error ? error.message : 'Failed to generate PDF',
+      { status: 500 }
+    );
+  } finally {
+    if (browser) {
+      await browser.close().catch(console.error);
+    }
   }
 } 
