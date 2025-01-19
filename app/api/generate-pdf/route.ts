@@ -86,13 +86,6 @@ export async function POST(req: NextRequest) {
         section:has(h3:contains('EDUCATION')) {
           break-before: page;
         }
-        section:has(h3:contains('ADDITIONAL INFORMATION')) {
-          break-before: avoid;
-          break-after: avoid;
-        }
-        section:has(h3:contains('TOOLS & CERTIFICATIONS')) {
-          break-after: avoid;
-        }
       `;
       document.head.appendChild(style);
 

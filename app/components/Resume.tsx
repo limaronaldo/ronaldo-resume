@@ -172,7 +172,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           </section>
 
           {/* Education */}
-          <section className="mb-12">
+          <section className="mt-24 mb-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.education.title')}</h3>
             <div className="space-y-4">
               {Array.isArray(educationItems) && educationItems.map((item, index) => (
