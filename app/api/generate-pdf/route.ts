@@ -16,9 +16,17 @@ export async function POST(req: NextRequest) {
     const executablePath = await chrome.executablePath();
     
     browser = await puppeteer.launch({
-      args: [...chrome.args, '--font-render-hinting=none'],
+      args: [
+        ...chrome.args,
+        '--hide-scrollbars',
+        '--disable-web-security',
+        '--font-render-hinting=none',
+        '--disable-setuid-sandbox',
+        '--no-sandbox',
+        '--disable-dev-shm-usage'
+      ],
       executablePath,
-      headless: chrome.headless,
+      headless: true,
       defaultViewport: {
         width: 1100,
         height: 1400,
@@ -34,54 +42,14 @@ export async function POST(req: NextRequest) {
       timeout: 30000 
     });
 
-    // Wait for content to be fully loaded
-    await page.waitForSelector('#resume-content', { timeout: 5000 });
+    // Wait for specific content to be loaded
+    await page.waitForSelector('.bg-white', { timeout: 10000 });
+    await page.waitForSelector('h1', { timeout: 10000 });
 
-    // Modify the page for PDF generation
-    const contentHeight = await page.evaluate(() => {
-      // Get the resume content
-      const content = document.querySelector('#resume-content');
-      if (!content) throw new Error('Resume content not found');
-
-      // Create a new wrapper
-      const wrapper = document.createElement('div');
-      wrapper.style.background = 'white';
-      wrapper.style.width = '100%';
-      wrapper.style.minHeight = '100vh';
-      wrapper.style.padding = '40px';
-      wrapper.style.boxSizing = 'border-box';
-      wrapper.style.display = 'flex';
-      wrapper.style.alignItems = 'flex-start';
-      wrapper.style.justifyContent = 'center';
-
-      // Clone the content
-      const clonedContent = content.cloneNode(true) as HTMLElement;
-      clonedContent.style.boxShadow = 'none';
-      clonedContent.style.border = 'none';
-      clonedContent.style.margin = '0';
-      clonedContent.style.width = '100%';
-      clonedContent.style.maxWidth = '800px';
-      clonedContent.style.background = 'white';
-      clonedContent.style.height = 'auto';
-
-      // Add the cloned content to the wrapper
-      wrapper.appendChild(clonedContent);
-
-      // Replace the body content
-      document.body.innerHTML = '';
-      document.body.style.margin = '0';
-      document.body.style.padding = '0';
-      document.body.style.background = 'white';
-      document.body.appendChild(wrapper);
-
-      // Return the actual content height
-      return clonedContent.getBoundingClientRect().height;
-    });
-
-    // Set viewport to match content height
+    // Set viewport to match content
     await page.setViewport({
       width: 1100,
-      height: Math.ceil(contentHeight) + 100, // Add padding
+      height: 1400,
       deviceScaleFactor: 1
     });
 
@@ -89,23 +57,21 @@ export async function POST(req: NextRequest) {
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
-        top: '0.5in',
-        right: '0.5in',
-        bottom: '0.5in',
-        left: '0.5in'
+        top: '0.4in',
+        right: '0.4in',
+        bottom: '0.4in',
+        left: '0.4in'
       },
       printBackground: true,
-      preferCSSPageSize: false,
-      scale: 0.95,
-      height: '11in'
+      preferCSSPageSize: true
     });
 
-    // Create initials from job title if provided
+    // Create filename with initials if job title is provided
     let filename = 'RonaldoLima';
     if (jobTitle) {
       const initials = jobTitle
         .split(' ')
-        .map((word: string) => word[0])
+        .map(word => word[0])
         .join('')
         .toUpperCase();
       filename = `RonaldoLima-${initials}`;
@@ -115,22 +81,24 @@ export async function POST(req: NextRequest) {
     const lang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
     filename = `${filename}-${lang}.pdf`;
 
+    // Return PDF with appropriate headers
     return new NextResponse(pdf, {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="${filename}"`,
-        'Cache-Control': 'no-cache'
+        'Content-Length': pdf.length.toString()
       }
     });
-  } catch (error) {
-    console.error('PDF generation error:', error);
-    return new NextResponse(
-      error instanceof Error ? error.message : 'Failed to generate PDF',
+  } catch (error: unknown) {
+    console.error('Error generating PDF:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    return NextResponse.json(
+      { error: `Error generating PDF: ${errorMessage}` },
       { status: 500 }
     );
   } finally {
     if (browser) {
-      await browser.close().catch(console.error);
+      await browser.close();
     }
   }
 } 
