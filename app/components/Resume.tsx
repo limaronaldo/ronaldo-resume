@@ -109,10 +109,10 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
           {/* Header */}
-          <header className="text-center mb-12">
-            <h1 className="text-4xl font-light text-slate-900 mb-4">{t('contact.name')}</h1>
-            <h2 className="text-2xl text-slate-600 font-light mb-6">{jobTitle}</h2>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-slate-500 font-light">
+          <header className="text-center mb-8">
+            <h1 className="text-4xl font-light text-slate-900 mb-2">{t('contact.name')}</h1>
+            <h2 className="text-2xl text-slate-600 font-light mb-4">{jobTitle}</h2>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-slate-500 font-light">
               <a href={`mailto:${t('contact.email')}`} className="hover:text-slate-700 transition-colors">
                 {t('contact.email')}
               </a>
@@ -124,16 +124,16 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           </header>
 
           {/* Professional Summary */}
-          <section className="mb-12">
+          <section className="mb-6">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.professional_summary.title')}</h3>
-            <p className="text-lg text-slate-600 font-light leading-relaxed">
+            <p className="text-md text-slate-600 font-light leading-relaxed">
               {t('sections.professional_summary.content')}
             </p>
           </section>
 
           {/* Professional Experience */}
-          <section className="mb-12">
-            <h3 className="text-2xl font-light text-slate-900 mb-8 tracking-wide uppercase">{t('sections.experience.title')}</h3>
+          <section className="mb-8">
+            <h3 className="text-2xl font-light text-slate-900 mb-4 tracking-wide uppercase">{t('sections.experience.title')}</h3>
             
             {Array.isArray(roles) && roles.map((role, index) => (
               <div key={index} className="mb-10 last:mb-0 relative pl-6">
