@@ -62,9 +62,13 @@ export async function POST(req: NextRequest) {
         if (summaryElement && summaryElement.textContent) {
           // Replace the first sentence to start with the new job title
           const summaryText = summaryElement.textContent;
-          const firstSentenceRegex = new RegExp(`^[^.]+(with[^.]+\\.)`);
+          // Match everything from the start until "with" and capture the rest of the sentence
+          const firstSentenceRegex = /^.*?with\s*(.*?\.)/;
+          const match = summaryText.match(firstSentenceRegex);
           const restOfText = summaryText.replace(firstSentenceRegex, '');
-          const newFirstSentence = `${jobTitle} with${summaryText.match(firstSentenceRegex)?.[1] || ''}`;
+          
+          // Create new first sentence with the job title
+          const newFirstSentence = `${jobTitle} with ${match?.[1] || ''}`;
           
           // Combine the new first sentence with the rest of the text
           summaryElement.textContent = newFirstSentence + restOfText;
