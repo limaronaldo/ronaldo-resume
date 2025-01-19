@@ -109,7 +109,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
           {/* Header */}
-          <header className="text-center mb-8">
+          <header className="text-center mb-0">
             <h1 className="text-4xl font-light text-slate-900 mb-2">{t('contact.name')}</h1>
             <h2 className="text-2xl text-slate-600 font-light mb-4">{jobTitle}</h2>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-slate-500 font-light">
