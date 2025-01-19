@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
       wrapper.style.background = 'white';
       wrapper.style.width = '100%';
       wrapper.style.minHeight = '100vh';
-      wrapper.style.padding = '20px';
+      wrapper.style.padding = '15x';
       wrapper.style.display = 'flex';
       wrapper.style.alignItems = 'flex-start';
       wrapper.style.justifyContent = 'center';
@@ -71,9 +71,6 @@ export async function POST(req: NextRequest) {
       // Add page break rules
       const style = document.createElement('style');
       style.textContent = `
-        section {
-          break-inside: avoid;
-        }
         .border-t {
           display: none !important;
         }
