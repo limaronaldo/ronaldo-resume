@@ -82,7 +82,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
     return null;
   }
 
-  const competencies = t('sections.core_competencies.items', { returnObjects: true }) as string[];
+  const competencies = t('sections.skills_competencies.items', { returnObjects: true }) as string[];
   const roles = t('sections.experience.roles', { returnObjects: true }) as ExperienceRole[];
   const educationItems = t('sections.education.items', { returnObjects: true }) as EducationItem[];
   const languageItems = t('sections.languages.items', { returnObjects: true }) as LanguageItem[];
@@ -95,37 +95,29 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
   return (
     <div className={`min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 ${hideControls ? 'pdf-version' : ''}`}>
-      <div className={`absolute top-4 right-4 flex items-center gap-4 ${hideControls ? 'hidden' : ''}`}>
-        <button
-          onClick={downloadPDF}
-          className="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors duration-200 font-light disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-        >
-          Download PDF
-        </button>
-      </div>
-      
-      <main className={`max-w-[210mm] mx-auto px-4 py-16 sm:px-6 lg:px-8 ${hideControls ? 'pt-8' : ''}`}>
-        <div id="resume-content" className="bg-white shadow-lg ring-1 ring-slate-100 rounded-2xl p-8 sm:p-10 print:shadow-none print:ring-0 print:rounded-none print:p-0">
-          
-          {/* Header / Contact Section */}
+      <main className="container mx-auto px-4 py-8 max-w-5xl">
+        {!hideControls && (
+          <div className="flex justify-end mb-8">
+            <button
+              onClick={downloadPDF}
+              className="bg-slate-800 text-white px-6 py-2 rounded-lg hover:bg-slate-700 transition-colors"
+            >
+              Download PDF
+            </button>
+          </div>
+        )}
+
+        <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
+          {/* Header */}
           <header className="text-center mb-12">
-            <h1 className="text-6xl font-extralight text-slate-900 mb-4 tracking-wide">{t('contact.name')}</h1>
-            <h2 className="text-2xl font-light text-slate-600 mb-6 tracking-wider">{jobTitle}</h2>
-            
-            <div className="flex flex-wrap justify-center items-center gap-6 text-slate-600 font-light">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-slate-900 transition-colors duration-300"
-              >
-                {t('contact.phone')}
-              </a>
-              <a
-                href={`mailto:${t('contact.email')}`}
-                className="hover:text-slate-900 transition-colors duration-300"
-              >
+            <h1 className="text-4xl font-light text-slate-900 mb-4">{t('contact.name')}</h1>
+            <h2 className="text-2xl text-slate-600 font-light mb-6">{jobTitle}</h2>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-slate-500 font-light">
+              <a href={`mailto:${t('contact.email')}`} className="hover:text-slate-700 transition-colors">
                 {t('contact.email')}
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:text-slate-700 transition-colors">
+                {t('contact.phone')}
               </a>
               <span>{t('contact.location')}</span>
             </div>
@@ -133,23 +125,10 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
           {/* Professional Summary */}
           <section className="mb-12">
-            <h3 className="text-lg font-light text-slate-900 mb-4 tracking-wide uppercase">{t('sections.professional_summary.title')}</h3>
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.professional_summary.title')}</h3>
             <p className="text-lg text-slate-600 font-light leading-relaxed">
-              {t('sections.professional_summary.content').replace(t('contact.role'), jobTitle)}
+              {t('sections.professional_summary.content')}
             </p>
-          </section>
-
-          {/* Core Competencies */}
-          <section className="mb-12">
-            <h3 className="text-lg font-light text-slate-900 mb-4 tracking-wide uppercase">{t('sections.core_competencies.title')}</h3>
-            <div className="grid grid-cols-2 gap-6 text-slate-600 font-light">
-              {Array.isArray(competencies) && competencies.map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="text-slate-400 mr-3">•</span>
-                  <span className="text-lg">{item}</span>
-                </div>
-              ))}
-            </div>
           </section>
 
           {/* Professional Experience */}
@@ -177,6 +156,19 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
                 </div>
               </div>
             ))}
+          </section>
+
+          {/* Skills & Competencies */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.skills_competencies.title')}</h3>
+            <div className="grid grid-cols-2 gap-6 text-slate-600 font-light">
+              {Array.isArray(competencies) && competencies.map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="text-slate-400 mr-3">•</span>
+                  <span className="text-lg">{item}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* Education */}

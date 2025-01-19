@@ -12,21 +12,7 @@
   "sections": {
     "professional_summary": {
       "title": "Professional Summary",
-      "content": "Product Marketing Manager with over 12 years of experience in growth marketing, product strategy, and AI-driven solutions. Recognized for bridging Product, Sales, and Data teams to deliver market-leading campaigns, optimize customer journeys, and drive measurable outcomes. Expert in implementing Large Language Models (LLMs) — including Google Gemini, ChatGPT, Claude, and Meta Llama — in marketing operations to reduce acquisition costs and accelerate conversions."
-    },
-    "core_competencies": {
-      "title": "Core Competencies",
-      "items": [
-        "Product Marketing & Go-to-Market Strategy",
-        "Growth Hacking & Conversion Rate Optimization (CRO)",
-        "AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)",
-        "Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)",
-        "CRM Implementation & Marketing Automation",
-        "Full-Stack Development (Python, Node.js, React, Rust, Go)",
-        "Data Analytics (SQL, Data Studio, Advanced Excel)",
-        "Agile Project Management (Scrum, Jira)",
-        "Team Leadership & Cross-functional Collaboration"
-      ]
+      "content": "Product Marketing Manager with 12+ years of experience in growth marketing, product strategy, and AI-driven solutions. Recognized for bridging Product, Sales, and Data teams to deliver market-leading campaigns, optimize customer journeys, and drive measurable outcomes. Expert in implementing Large Language Models (LLMs)—including Google Gemini, ChatGPT, Claude, and Meta Llama—to reduce acquisition costs and accelerate conversions."
     },
     "experience": {
       "title": "Professional Experience",
@@ -37,9 +23,9 @@
           "period": "Aug 2022 – Present",
           "location": "São Paulo, Brazil",
           "highlights": [
-            "AI-Driven Growth: Led a digital transformation initiative supported by Google for Startups, incorporating advanced AI models into key business processes.",
-            "Team Alignment: Collaborated with Product, Sales, and Data teams to refine customer journeys, resulting in significant increases in lead quality and conversion.",
-            "Predictive Analytics: Implemented LLM-based models for precise customer segmentation, driving retention and upselling opportunities."
+            "Led a digital transformation initiative supported by Google for Startups, incorporating advanced AI models into key business processes",
+            "Collaborated with Product, Sales, and Data teams to refine customer journeys, resulting in significant increases in lead quality and conversion",
+            "Implemented LLM-based models for precise customer segmentation, driving retention and upselling opportunities"
           ]
         },
         {
@@ -48,9 +34,9 @@
           "period": "Oct 2021 – Present",
           "location": "São Paulo, Brazil",
           "highlights": [
-            "Luxury Market Leadership: Strengthened MBRAS brand in the high-end real estate segment through data-driven marketing initiatives.",
-            "Omnichannel Strategy: Unified brand communication across offline channels and digital platforms (Google Ads, Meta Ads, LinkedIn Ads), maximizing ROI and engagement.",
-            "Team Development: Mentored a high-performance marketing team, fostering experimentation in AI, advanced analytics, and continuous learning."
+            "Strengthened MBRAS brand in the high-end real estate segment through data-driven marketing initiatives",
+            "Unified brand communication across offline channels and digital platforms (Google Ads, Meta Ads, LinkedIn Ads), maximizing ROI and engagement",
+            "Mentored a high-performance marketing team, fostering experimentation in AI, advanced analytics, and continuous learning"
           ]
         },
         {
@@ -59,11 +45,11 @@
           "period": "Dec 2019 – Nov 2021",
           "location": "São Paulo, Brazil",
           "highlights": [
-            "Campaign Automation: Launched sophisticated email marketing and lead-nurturing funnels, significantly improving lead qualification.",
-            "Data-Driven Optimization: Leveraged Python scripts and SQL queries for A/B testing and funnel analytics.",
+            "Launched sophisticated email marketing and lead-nurturing funnels, significantly improving lead qualification",
+            "Leveraged Python scripts and SQL queries for A/B testing and funnel analytics",
             "Key Projects:",
-            "• Bebêmax: Grew online sales via integrated paid media, chatbots, and optimized landing pages.",
-            "• Ziro (Vesti): Combined CRM automation, SEO, and partnership tactics to bolster brand awareness."
+            "• Bebêmax: Grew online sales via integrated paid media, chatbots, and optimized landing pages",
+            "• Ziro (Vesti): Combined CRM automation, SEO, and partnership tactics to bolster brand awareness"
           ]
         },
         {
@@ -72,11 +58,25 @@
           "period": "2016 – Dec 2019",
           "location": "Sete Lagoas, Brazil",
           "highlights": [
-            "Fast-Fashion Pivot: Led a marketing overhaul to align with a fast-fashion model, tripling the customer base.",
-            "Omnichannel Approach: Integrated digital and offline campaigns, elevating overall brand experience.",
-            "Team Building: Created a high-performing marketing squad focused on experimentation and data insight."
+            "Led a marketing overhaul to align with a fast-fashion model, tripling the customer base",
+            "Integrated digital and offline campaigns, elevating overall brand experience",
+            "Created a high-performing marketing squad focused on experimentation and data insight"
           ]
         }
+      ]
+    },
+    "skills_competencies": {
+      "title": "Skills & Competencies",
+      "items": [
+        "Product Marketing & Go-to-Market Strategy",
+        "Growth Hacking & Conversion Rate Optimization (CRO)",
+        "AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)",
+        "Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)",
+        "CRM Implementation & Marketing Automation",
+        "Full-Stack Development (Python, Node.js, React, Rust, Go)",
+        "Data Analytics (SQL, Data Studio, Advanced Excel)",
+        "Agile Project Management (Scrum, Jira)",
+        "Team Leadership & Cross-functional Collaboration"
       ]
     },
     "education": {

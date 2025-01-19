@@ -11,21 +11,7 @@
   "sections": {
     "professional_summary": {
       "title": "Resumo Profissional",
-      "content": "Product Marketing Manager com mais de 12 anos de experiência em growth marketing, estratégia de produtos e soluções baseadas em IA. Reconhecido por integrar as áreas de Produto, Vendas e Dados para entregar campanhas líderes de mercado, otimizar jornadas do cliente e alcançar resultados mensuráveis. Especialista em implementar Modelos de Linguagem (LLMs) — incluindo Google Gemini, ChatGPT, Claude e Meta Llama — em operações de marketing para reduzir custos de aquisição e acelerar conversões."
-    },
-    "core_competencies": {
-      "title": "Competências Principais",
-      "items": [
-        "Marketing de Produto & Estratégia de Go-to-Market",
-        "Growth Hacking & Otimização de Conversão (CRO)",
-        "Integração de IA (Google Gemini, ChatGPT, Claude, Meta Llama)",
-        "Compra de Mídia (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)",
-        "Implementação de CRM & Automação de Marketing",
-        "Desenvolvimento Full-Stack (Python, Node.js, React, Rust, Go)",
-        "Análise de Dados (SQL, Data Studio, Excel Avançado)",
-        "Gestão Ágil de Projetos (Scrum, Jira)",
-        "Liderança de Equipes & Colaboração Multifuncional"
-      ]
+      "content": "Product Marketing Manager com mais de 12 anos de experiência em growth marketing, estratégia de produtos e soluções baseadas em IA. Reconhecido por integrar as áreas de Produto, Vendas e Dados para entregar campanhas líderes de mercado, otimizar jornadas do cliente e alcançar resultados mensuráveis. Especialista em implementar Modelos de Linguagem (LLMs)—incluindo Google Gemini, ChatGPT, Claude e Meta Llama—em operações de marketing para reduzir custos de aquisição e acelerar conversões."
     },
     "experience": {
       "title": "Experiência Profissional",
@@ -36,9 +22,9 @@
           "period": "ago 2022 – Presente",
           "location": "São Paulo, Brasil",
           "highlights": [
-            "Crescimento Impulsionado por IA: Liderei uma iniciativa de transformação digital apoiada pelo Google for Startups, incorporando modelos avançados de IA em processos-chave de negócios.",
-            "Alinhamento Entre Equipes: Colaborei com as áreas de Produto, Vendas e Dados para refinar as jornadas do cliente, resultando em um aumento significativo na qualidade de leads e na conversão.",
-            "Análise Preditiva: Implantei modelos baseados em LLM para segmentação precisa de clientes, ampliando retenção e oportunidades de upselling."
+            "Liderei uma iniciativa de transformação digital apoiada pelo Google for Startups, incorporando modelos avançados de IA em processos-chave de negócios",
+            "Colaborei com as áreas de Produto, Vendas e Dados para refinar as jornadas do cliente, resultando em um aumento significativo na qualidade de leads e na conversão",
+            "Implantei modelos baseados em LLM para segmentação precisa de clientes, ampliando retenção e oportunidades de upselling"
           ]
         },
         {
@@ -47,9 +33,9 @@
           "period": "out 2021 – Presente",
           "location": "São Paulo, Brasil",
           "highlights": [
-            "Liderança no Mercado de Luxo: Fortaleci a marca da MBRAS no segmento imobiliário de alto padrão por meio de iniciativas de marketing orientadas por dados.",
-            "Estratégia Omnichannel: Unifiquei a comunicação da marca em canais offline e plataformas digitais (Google Ads, Meta Ads, LinkedIn Ads), maximizando ROI e engajamento.",
-            "Desenvolvimento de Equipe: Mentorei uma equipe de marketing de alta performance, estimulando experimentação em IA, análises avançadas e aprendizado contínuo."
+            "Fortaleci a marca da MBRAS no segmento imobiliário de alto padrão por meio de iniciativas de marketing orientadas por dados",
+            "Unifiquei a comunicação da marca em canais offline e plataformas digitais (Google Ads, Meta Ads, LinkedIn Ads), maximizando ROI e engajamento",
+            "Mentorei uma equipe de marketing de alta performance, estimulando experimentação em IA, análises avançadas e aprendizado contínuo"
           ]
         },
         {
@@ -58,11 +44,11 @@
           "period": "dez 2019 – nov 2021",
           "location": "São Paulo, Brasil",
           "highlights": [
-            "Automação de Campanhas: Lancei fluxos sofisticados de e-mail marketing e nutrição de leads, melhorando significativamente a qualificação de leads.",
-            "Otimização Baseada em Dados: Utilizei scripts em Python e consultas SQL para testes A/B e análise de funil.",
+            "Lancei fluxos sofisticados de e-mail marketing e nutrição de leads, melhorando significativamente a qualificação de leads",
+            "Utilizei scripts em Python e consultas SQL para testes A/B e análise de funil",
             "Principais Projetos:",
-            "• Bebêmax: Aumento das vendas online por meio de mídia paga integrada, chatbots e landing pages otimizadas.",
-            "• Ziro (Vesti): Combinação de automação de CRM, SEO e parcerias estratégicas para reforçar o reconhecimento da marca."
+            "• Bebêmax: Aumento das vendas online por meio de mídia paga integrada, chatbots e landing pages otimizadas",
+            "• Ziro (Vesti): Combinação de automação de CRM, SEO e parcerias estratégicas para reforçar o reconhecimento da marca"
           ]
         },
         {
@@ -71,11 +57,25 @@
           "period": "2016 – dez 2019",
           "location": "Sete Lagoas, Brasil",
           "highlights": [
-            "Transição para Fast-Fashion: Conduzi uma reformulação de marketing para alinhar a empresa ao modelo fast-fashion, triplicando a base de clientes.",
-            "Abordagem Omnichannel: Integrei campanhas digitais e offline, elevando a experiência geral da marca.",
-            "Formação de Equipe: Criei uma equipe de marketing de alto desempenho, focada em experimentação e análise de dados."
+            "Conduzi uma reformulação de marketing para alinhar a empresa ao modelo fast-fashion, triplicando a base de clientes",
+            "Integrei campanhas digitais e offline, elevando a experiência geral da marca",
+            "Criei uma equipe de marketing de alto desempenho, focada em experimentação e análise de dados"
           ]
         }
+      ]
+    },
+    "skills_competencies": {
+      "title": "Habilidades & Competências",
+      "items": [
+        "Marketing de Produto & Estratégia de Go-to-Market",
+        "Growth Hacking & Otimização de Conversão (CRO)",
+        "Integração de IA (Google Gemini, ChatGPT, Claude, Meta Llama)",
+        "Compra de Mídia (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)",
+        "Implementação de CRM & Automação de Marketing",
+        "Desenvolvimento Full-Stack (Python, Node.js, React, Rust, Go)",
+        "Análise de Dados (SQL, Data Studio, Excel Avançado)",
+        "Gestão Ágil de Projetos (Scrum, Jira)",
+        "Liderança de Equipes & Colaboração Multifuncional"
       ]
     },
     "education": {
