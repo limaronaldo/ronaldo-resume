@@ -133,10 +133,10 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
           {/* Professional Experience */}
           <section className="mb-8">
-            <h3 className="text-2xl font-light text-slate-900 mb-4 tracking-wide uppercase">{t('sections.experience.title')}</h3>
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.experience.title')}</h3>
             
             {Array.isArray(roles) && roles.map((role, index) => (
-              <div key={index} className="mt-2 mb-10 last:mb-0 relative pl-4">
+              <div key={index} className="mt-3 mb-10 last:mb-0 relative pl-4">
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline mb-2">
                     <h4 className="text-xl text-slate-800 font-normal">
