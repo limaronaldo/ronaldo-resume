@@ -111,7 +111,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           {/* Header */}
           <header className="text-center mb-0">
             <h1 className="text-4xl font-light text-slate-900 mb-2">{t('contact.name')}</h1>
-            <h2 className="text-2xl text-slate-600 font-light mb-4">{jobTitle}</h2>
+            <h2 className="text-2xl text-slate-600 font-light mb-6">{jobTitle}</h2>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-slate-500 font-light mb-4">
               <a href={`mailto:${t('contact.email')}`} className="hover:text-slate-700 transition-colors">
                 {t('contact.email')}
@@ -124,7 +124,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           </header>
 
           {/* Professional Summary */}
-          <section className="mb-6">
+          <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.professional_summary.title')}</h3>
             <p className="text-md text-slate-600 font-light leading-relaxed">
               {t('sections.professional_summary.content')}
