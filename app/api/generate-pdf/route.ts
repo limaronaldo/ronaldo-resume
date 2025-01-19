@@ -72,13 +72,13 @@ export async function POST(req: NextRequest) {
       const style = document.createElement('style');
       style.textContent = `
         section {
-          page-break-inside: avoid;
+          break-inside: avoid;
         }
         .border-t {
           display: none !important;
         }
         .mb-12 {
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
         }
       `;
       document.head.appendChild(style);
@@ -98,10 +98,10 @@ export async function POST(req: NextRequest) {
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
-        top: '0.4in',
-        right: '0.3in',
-        bottom: '0.4in',
-        left: '0.3in'
+        top: '0.3in',
+        right: '0.2in',
+        bottom: '0.3in',
+        left: '0.2in'
       },
       printBackground: true,
       preferCSSPageSize: true
