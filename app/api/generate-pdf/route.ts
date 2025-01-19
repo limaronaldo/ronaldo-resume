@@ -85,6 +85,19 @@ export async function POST(req: NextRequest) {
         }
         section:has(h3:contains('EDUCATION')) {
           break-before: page;
+          margin-top: 3rem !important;
+        }
+        section:has(h3:contains('ADDITIONAL INFORMATION')) {
+          break-before: avoid;
+          break-after: avoid;
+          display: block !important;
+          margin-top: 2rem;
+        }
+        section:has(h3:contains('TOOLS & CERTIFICATIONS')) {
+          break-after: avoid;
+        }
+        section {
+          break-inside: avoid;
         }
       `;
       document.head.appendChild(style);
