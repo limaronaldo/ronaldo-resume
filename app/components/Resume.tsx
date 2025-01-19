@@ -198,10 +198,11 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           {/* Languages */}
           <section className="mb-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.languages.title')}</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
               {Array.isArray(languageItems) && languageItems.map((item, index) => (
-                <div key={index} className="flex justify-between items-center">
+                <div key={index} className="flex items-center">
                   <span className="text-lg text-slate-800 font-light">{item.language}</span>
+                  <span className="text-slate-300 mx-3">•</span>
                   <span className="text-base text-slate-600 font-light">{item.level}</span>
                 </div>
               ))}
