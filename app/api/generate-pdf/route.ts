@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chrome from '@sparticuz/chromium';
 
 interface GeneratePdfRequest {
   url: string;
@@ -10,12 +11,28 @@ export async function POST(req: NextRequest) {
   try {
     const { url, jobTitle } = await req.json() as GeneratePdfRequest;
     
+    // Configure Chrome for serverless environment
+    const executablePath = await chrome.executablePath;
+    
     const browser = await puppeteer.launch({
-      headless: true
+      args: chrome.args,
+      executablePath: executablePath,
+      headless: chrome.headless,
+      defaultViewport: {
+        width: 1200,
+        height: 1600,
+        deviceScaleFactor: 2
+      }
     });
     
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle0' });
+    await page.goto(url, { 
+      waitUntil: ['networkidle0', 'load', 'domcontentloaded'],
+      timeout: 30000 
+    });
+
+    // Wait for content to be fully loaded
+    await page.waitForSelector('#resume-content, #cover-letter-content', { timeout: 5000 });
 
     // Hide the download button and language switcher for PDF
     await page.evaluate(() => {
@@ -38,6 +55,8 @@ export async function POST(req: NextRequest) {
         (content as HTMLElement).style.boxShadow = 'none';
         (content as HTMLElement).style.border = 'none';
         (content as HTMLElement).style.borderRadius = '0';
+        // Set white background
+        (content as HTMLElement).style.background = '#ffffff';
       }
     });
 
@@ -51,26 +70,17 @@ export async function POST(req: NextRequest) {
 
     if (!contentBox) throw new Error('Content element not found');
 
-    // Set viewport and page size to match content
-    await page.setViewport({
-      width: Math.ceil(contentBox.width),
-      height: Math.ceil(contentBox.height),
-      deviceScaleFactor: 2
-    });
-
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
         top: '0.4in',
-        right: '0.1in',
+        right: '0.4in',
         bottom: '0.4in',
-        left: '0.1in'
+        left: '0.4in'
       },
-      printBackground: false,
-      preferCSSPageSize: false,
-      displayHeaderFooter: false,
-      scale: 0.9,
-      landscape: false
+      printBackground: true,
+      preferCSSPageSize: true,
+      scale: 0.95
     });
 
     await browser.close();
@@ -93,7 +103,8 @@ export async function POST(req: NextRequest) {
     return new NextResponse(pdf, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${filename}"`
+        'Content-Disposition': `attachment; filename="${filename}"`,
+        'Cache-Control': 'no-cache'
       }
     });
   } catch (error) {

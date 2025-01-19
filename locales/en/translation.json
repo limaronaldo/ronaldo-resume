@@ -1,6 +1,6 @@
 {
-  "title": "Ronaldo Lima - Resume",
-  "meta_description": "Product Marketing Manager with expertise in AI and data analytics",
+  "title": "Ronaldo Lima - Product Marketing Manager Resume",
+  "meta_description": "Resume of Ronaldo Lima, an innovative Product Marketing Manager with extensive experience in growth marketing, AI-driven solutions, and more.",
   "role": "Product Marketing Manager",
   "contact": {
     "name": "Ronaldo Lima",
@@ -12,20 +12,20 @@
   "sections": {
     "professional_summary": {
       "title": "Professional Summary",
-      "content": "Forward-thinking Product Marketing Manager with 12+ years of experience in growth marketing, product strategy, and AI-driven solutions. Known for bridging gaps among Product, Sales, and Data teams to deliver market-leading campaigns, optimize customer journeys, and drive measurable results. Skilled at integrating Large Language Models (LLMs)—including Google Gemini, ChatGPT, Claude, and Meta Llama—into marketing operations to reduce acquisition costs and accelerate conversions."
+      "content": "Product Marketing Manager with over 12 years of experience in growth marketing, product strategy, and AI-driven solutions. Recognized for bridging Product, Sales, and Data teams to deliver market-leading campaigns, optimize customer journeys, and drive measurable outcomes. Expert in implementing Large Language Models (LLMs) — including Google Gemini, ChatGPT, Claude, and Meta Llama — in marketing operations to reduce acquisition costs and accelerate conversions."
     },
     "core_competencies": {
       "title": "Core Competencies",
       "items": [
         "Product Marketing & Go-to-Market Strategy",
-        "Growth Hacking & Conversion Optimization (CRO)",
+        "Growth Hacking & Conversion Rate Optimization (CRO)",
         "AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)",
-        "Media Buying (Meta Ads, Google Ads, Linkedin Ads)",
+        "Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)",
         "CRM Implementation & Marketing Automation",
         "Full-Stack Development (Python, Node.js, React, Rust, Go)",
         "Data Analytics (SQL, Data Studio, Advanced Excel)",
         "Agile Project Management (Scrum, Jira)",
-        "Team Leadership & Cross-Functional Collaboration"
+        "Team Leadership & Cross-functional Collaboration"
       ]
     },
     "experience": {
@@ -37,20 +37,20 @@
           "period": "Aug 2022 – Present",
           "location": "São Paulo, Brazil",
           "highlights": [
-            "AI-Infused Growth: Led a digital transformation initiative under Google for Startups, incorporating advanced AI models into key business processes.",
-            "Cross-Team Alignment: Collaborated with Product, Sales, and Data to refine customer journeys, resulting in a notable boost in lead quality and conversion.",
-            "Predictive Analytics: Deployed LLM-based models for precise customer segmentation, driving higher retention and upselling opportunities."
+            "AI-Driven Growth: Led a digital transformation initiative supported by Google for Startups, incorporating advanced AI models into key business processes.",
+            "Team Alignment: Collaborated with Product, Sales, and Data teams to refine customer journeys, resulting in significant increases in lead quality and conversion.",
+            "Predictive Analytics: Implemented LLM-based models for precise customer segmentation, driving retention and upselling opportunities."
           ]
         },
         {
           "title": "Marketing Manager",
-          "company": "MBRAS Soluções Imobiliárias",
+          "company": "MBRAS Real Estate Solutions",
           "period": "Oct 2021 – Present",
           "location": "São Paulo, Brazil",
           "highlights": [
-            "Luxury Market Leadership: Strengthened MBRAS's brand in the high-end real estate segment through data-driven marketing.",
-            "Omnichannel Strategy: Unified messaging across offline channels and digital platforms (Google Ads, Meta Ads, Linkedin Ads), maximizing ROI.",
-            "Team Development: Mentored a high-performance marketing team, encouraging AI experimentation and continuous learning."
+            "Luxury Market Leadership: Strengthened MBRAS brand in the high-end real estate segment through data-driven marketing initiatives.",
+            "Omnichannel Strategy: Unified brand communication across offline channels and digital platforms (Google Ads, Meta Ads, LinkedIn Ads), maximizing ROI and engagement.",
+            "Team Development: Mentored a high-performance marketing team, fostering experimentation in AI, advanced analytics, and continuous learning."
           ]
         }
       ]
@@ -74,12 +74,12 @@
       "title": "Languages",
       "items": [
         {
-          "language": "English",
-          "level": "Fluent"
-        },
-        {
           "language": "Portuguese",
           "level": "Native"
+        },
+        {
+          "language": "English",
+          "level": "Fluent"
         }
       ]
     },
