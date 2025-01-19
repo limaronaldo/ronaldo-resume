@@ -51,6 +51,30 @@
             "Estrategia Omnicanal: Unifiqué la comunicación de la marca en canales offline y plataformas digitales (Google Ads, Meta Ads, LinkedIn Ads), maximizando ROI y engagement.",
             "Desarrollo de Equipo: Mentoré un equipo de marketing de alto rendimiento, estimulando experimentación en IA, análisis avanzados y aprendizaje continuo."
           ]
+        },
+        {
+          "title": "Coordinador de Marketing",
+          "company": "ConnectAD",
+          "period": "dic 2019 – nov 2021",
+          "location": "São Paulo, Brasil",
+          "highlights": [
+            "Automatización de Campañas: Implementé flujos sofisticados de email marketing y nutrición de leads, mejorando significativamente la calificación de leads.",
+            "Optimización Basada en Datos: Empleé scripts en Python y consultas SQL para pruebas A/B y análisis de embudos.",
+            "Proyectos Clave:",
+            "• Bebêmax: Incremento de las ventas online mediante medios pagados integrados, chatbots y landing pages optimizadas.",
+            "• Ziro (Vesti): Combinación de automatización de CRM, SEO y alianzas estratégicas para impulsar el reconocimiento de la marca."
+          ]
+        },
+        {
+          "title": "Coordinador de Marketing",
+          "company": "Viva Linda",
+          "period": "2016 – dic 2019",
+          "location": "Sete Lagoas, Brasil",
+          "highlights": [
+            "Transición a Fast-Fashion: Lideré una renovación de marketing para alinear la empresa al modelo fast-fashion, triplicando la base de clientes.",
+            "Enfoque Omnicanal: Integré campañas digitales y offline, mejorando la experiencia general de la marca.",
+            "Formación de Equipo: Creé un equipo de marketing de alto rendimiento, centrado en la experimentación y el análisis de datos."
+          ]
         }
       ]
     },
@@ -81,6 +105,10 @@
           "level": "Fluido"
         }
       ]
+    },
+    "additional_info": {
+      "title": "Información Adicional",
+      "content": "Apasionado por el uso de IA y análisis de datos en marketing, con un fuerte enfoque en impulsar la innovación y lograr resultados medibles. Experimentado en liderar equipos multifuncionales y construir relaciones sólidas con stakeholders."
     }
   }
 } 
