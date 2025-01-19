@@ -15,13 +15,13 @@ export async function POST(req: NextRequest) {
     const executablePath = await chrome.executablePath();
     
     const browser = await puppeteer.launch({
-      args: chrome.args,
+      args: [...chrome.args, '--font-render-hinting=none'],
       executablePath,
       headless: chrome.headless,
       defaultViewport: {
-        width: 1200,
-        height: 1600,
-        deviceScaleFactor: 2
+        width: 850,
+        height: 1100,
+        deviceScaleFactor: 1
       }
     });
     
@@ -34,51 +34,47 @@ export async function POST(req: NextRequest) {
     // Wait for content to be fully loaded
     await page.waitForSelector('#resume-content', { timeout: 5000 });
 
-    // Hide the download button and language switcher for PDF
+    // Modify the page for PDF generation
     await page.evaluate(() => {
-      // Hide all elements except the resume card
-      document.body.style.background = 'white';
-      document.documentElement.style.background = 'white';
-      
-      // Hide all elements initially
-      const allElements = document.querySelectorAll('body > *');
-      allElements.forEach((el) => {
-        if (el instanceof HTMLElement) {
-          el.style.display = 'none';
-        }
-      });
-      
-      // Show only the resume content
+      // Get the resume content
       const content = document.querySelector('#resume-content');
-      if (content instanceof HTMLElement) {
-        content.style.display = 'block';
-        content.style.margin = '0';
-        content.style.boxShadow = 'none';
-        content.style.border = 'none';
-        content.style.borderRadius = '0';
-        content.style.background = 'white';
-        content.style.width = '100%';
-        content.style.maxWidth = '100%';
-        content.style.padding = '0.5in';
-      }
+      if (!content) return;
+
+      // Create a new wrapper
+      const wrapper = document.createElement('div');
+      wrapper.style.background = 'white';
+      wrapper.style.position = 'fixed';
+      wrapper.style.top = '0';
+      wrapper.style.left = '0';
+      wrapper.style.width = '100%';
+      wrapper.style.height = '100%';
+      wrapper.style.padding = '40px';
+      wrapper.style.boxSizing = 'border-box';
+      wrapper.style.display = 'flex';
+      wrapper.style.alignItems = 'flex-start';
+      wrapper.style.justifyContent = 'center';
+
+      // Clone the content
+      const clonedContent = content.cloneNode(true) as HTMLElement;
+      clonedContent.style.boxShadow = 'none';
+      clonedContent.style.border = 'none';
+      clonedContent.style.margin = '0';
+      clonedContent.style.width = '100%';
+      clonedContent.style.maxWidth = '800px';
+      clonedContent.style.background = 'white';
+
+      // Add the cloned content to the wrapper
+      wrapper.appendChild(clonedContent);
+
+      // Replace the body content
+      document.body.innerHTML = '';
+      document.body.style.margin = '0';
+      document.body.style.background = 'white';
+      document.body.appendChild(wrapper);
     });
 
-    // Get the content element dimensions
-    const contentBox = await page.evaluate(() => {
-      const element = document.querySelector('#resume-content');
-      if (!element) return null;
-      const { width, height } = element.getBoundingClientRect();
-      return { width, height };
-    });
-
-    if (!contentBox) throw new Error('Content element not found');
-
-    // Set viewport to match content
-    await page.setViewport({
-      width: Math.ceil(contentBox.width),
-      height: Math.ceil(contentBox.height),
-      deviceScaleFactor: 2
-    });
+    // Wait a bit for any fonts to load
+    await page.waitForTimeout(1000);
 
     const pdf = await page.pdf({
       format: 'A4',
@@ -90,7 +86,7 @@ export async function POST(req: NextRequest) {
       },
       printBackground: true,
       preferCSSPageSize: true,
-      scale: 0.95
+      scale: 0.98
     });
 
     await browser.close();
