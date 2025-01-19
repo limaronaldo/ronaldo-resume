@@ -11,6 +11,17 @@ interface ExperienceRole {
   highlights: string[];
 }
 
+interface EducationItem {
+  degree: string;
+  school: string;
+  period: string;
+}
+
+interface LanguageItem {
+  language: string;
+  level: string;
+}
+
 interface ResumeProps {
   customJobTitle?: string;
   hideControls?: boolean;
@@ -73,6 +84,8 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
   const competencies = t('sections.core_competencies.items', { returnObjects: true }) as string[];
   const roles = t('sections.experience.roles', { returnObjects: true }) as ExperienceRole[];
+  const educationItems = t('sections.education.items', { returnObjects: true }) as EducationItem[];
+  const languageItems = t('sections.languages.items', { returnObjects: true }) as LanguageItem[];
 
   const whatsappNumber = t('contact.phone').replace(/[^0-9]/g, '');
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
@@ -139,7 +152,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           </section>
 
           {/* Professional Experience */}
-          <section className="print:break-before-page mb-12">
+          <section className="mb-12">
             <h3 className="text-2xl font-light text-slate-900 mb-8 tracking-wide uppercase">{t('sections.experience.title')}</h3>
             
             {Array.isArray(roles) && roles.map((role, index) => (
@@ -163,6 +176,35 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
                 </div>
               </div>
             ))}
+          </section>
+
+          {/* Education */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.education.title')}</h3>
+            <div className="space-y-4">
+              {Array.isArray(educationItems) && educationItems.map((item, index) => (
+                <div key={index} className="flex flex-col">
+                  <div className="flex justify-between items-baseline mb-1">
+                    <h4 className="text-xl text-slate-800 font-normal">{item.degree}</h4>
+                    <p className="text-sm text-slate-500 font-light whitespace-nowrap ml-4">{item.period}</p>
+                  </div>
+                  <p className="text-base text-slate-600 font-light">{item.school}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Languages */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.languages.title')}</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {Array.isArray(languageItems) && languageItems.map((item, index) => (
+                <div key={index} className="flex justify-between items-center">
+                  <span className="text-lg text-slate-800 font-light">{item.language}</span>
+                  <span className="text-base text-slate-600 font-light">{item.level}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* Additional Information */}
