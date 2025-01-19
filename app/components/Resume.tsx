@@ -86,6 +86,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
   const roles = t('sections.experience.roles', { returnObjects: true }) as ExperienceRole[];
   const educationItems = t('sections.education.items', { returnObjects: true }) as EducationItem[];
   const languageItems = t('sections.languages.items', { returnObjects: true }) as LanguageItem[];
+  const toolsCertifications = t('sections.tools_certifications.items', { returnObjects: true }) as string[];
 
   const whatsappNumber = t('contact.phone').replace(/[^0-9]/g, '');
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
@@ -202,6 +203,19 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
                 <div key={index} className="flex justify-between items-center">
                   <span className="text-lg text-slate-800 font-light">{item.language}</span>
                   <span className="text-base text-slate-600 font-light">{item.level}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Tools & Certifications */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.tools_certifications.title')}</h3>
+            <div className="space-y-2">
+              {Array.isArray(toolsCertifications) && toolsCertifications.map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="text-slate-400 mr-3">•</span>
+                  <span className="text-lg text-slate-600 font-light">{item}</span>
                 </div>
               ))}
             </div>
