@@ -90,9 +90,6 @@ export async function POST(req: NextRequest) {
         section:has(h3:contains('TOOLS & CERTIFICATIONS')) {
           break-after: avoid;
         }
-        section {
-          break-inside: avoid;
-        }
       `;
       document.head.appendChild(style);
 
