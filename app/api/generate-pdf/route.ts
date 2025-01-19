@@ -63,15 +63,14 @@ export async function POST(req: NextRequest) {
           // Get the current role from the header
           const originalRole = document.querySelector('h2')?.textContent || '';
           
-          // Replace both the role at the start of the sentence and anywhere else
+          // Replace the first sentence to start with the new job title
           const summaryText = summaryElement.textContent;
-          const updatedText = summaryText
-            // Replace at the start of the sentence
-            .replace(new RegExp(`^${originalRole.split(' ').join('\\s+')}\\s+with`, 'i'), `${jobTitle} with`)
-            // Replace in the rest of the text
-            .replace(new RegExp(originalRole, 'g'), jobTitle);
-            
-          summaryElement.textContent = updatedText;
+          const firstSentenceRegex = new RegExp(`^[^.]+(with[^.]+\\.)`);
+          const restOfText = summaryText.replace(firstSentenceRegex, '');
+          const newFirstSentence = `${jobTitle} with${summaryText.match(firstSentenceRegex)?.[1] || ''}`;
+          
+          // Combine the new first sentence with the rest of the text
+          summaryElement.textContent = newFirstSentence + restOfText;
         }
       }
 
