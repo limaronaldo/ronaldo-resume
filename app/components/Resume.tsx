@@ -127,7 +127,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
           <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.professional_summary.title')}</h3>
             <p className="text-md text-slate-600 font-light leading-relaxed">
-              {t('sections.professional_summary.content')}
+              {t('sections.professional_summary.content').replace(t('contact.role'), jobTitle)}
             </p>
           </section>
 

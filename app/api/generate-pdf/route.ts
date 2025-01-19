@@ -46,16 +46,31 @@ export async function POST(req: NextRequest) {
     await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
 
     // Modify the page to only show the card content
-    await page.evaluate(() => {
+    await page.evaluate((jobTitle) => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
       if (!card) throw new Error('Card content not found');
+
+      // Update the job title in the header and professional summary if provided
+      if (jobTitle) {
+        const titleElement = card.querySelector('h2');
+        if (titleElement) {
+          titleElement.textContent = jobTitle;
+        }
+
+        // Find and update the professional summary content
+        const summaryElement = card.querySelector('section:first-of-type p');
+        if (summaryElement && summaryElement.textContent) {
+          const originalRole = document.querySelector('h2')?.textContent || '';
+          summaryElement.textContent = summaryElement.textContent.replace(originalRole, jobTitle);
+        }
+      }
 
       // Create a wrapper for the card
       const wrapper = document.createElement('div');
       wrapper.style.background = 'white';
       wrapper.style.width = '100%';
       wrapper.style.minHeight = '100vh';
-      wrapper.style.padding = '15x';
+      wrapper.style.padding = '15px';
       wrapper.style.display = 'flex';
       wrapper.style.alignItems = 'flex-start';
       wrapper.style.justifyContent = 'center';
@@ -102,7 +117,7 @@ export async function POST(req: NextRequest) {
       document.body.appendChild(wrapper);
 
       return clonedCard.getBoundingClientRect();
-    });
+    }, jobTitle);
 
     // Generate PDF with the card content only
     const pdf = await page.pdf({
