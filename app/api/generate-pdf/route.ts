@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
-        top: '0.3in',
+        top: '0.6in',
         right: '0.2in',
         bottom: '0.3in',
         left: '0.2in'
