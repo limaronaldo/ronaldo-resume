@@ -28,8 +28,8 @@ export async function POST(req: NextRequest) {
       executablePath,
       headless: true,
       defaultViewport: {
-        width: 1100,
-        height: 1400,
+        width: 1200,
+        height: 1600,
         deviceScaleFactor: 1
       }
     });
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
       wrapper.style.background = 'white';
       wrapper.style.width = '100%';
       wrapper.style.minHeight = '100vh';
-      wrapper.style.padding = '40px';
+      wrapper.style.padding = '20px';
       wrapper.style.display = 'flex';
       wrapper.style.alignItems = 'flex-start';
       wrapper.style.justifyContent = 'center';
@@ -65,8 +65,32 @@ export async function POST(req: NextRequest) {
       clonedCard.style.boxShadow = 'none';
       clonedCard.style.borderRadius = '0';
       clonedCard.style.margin = '0';
-      clonedCard.style.maxWidth = '800px';
+      clonedCard.style.maxWidth = '1000px';
       clonedCard.style.width = '100%';
+
+      // Add page break rules
+      const style = document.createElement('style');
+      style.textContent = `
+        section {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        .border-t {
+          display: none !important;
+        }
+        h3 {
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+        .mb-12 {
+          margin-bottom: 2rem;
+        }
+        .grid {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      `;
+      document.head.appendChild(style);
 
       // Replace the body content with just the card
       wrapper.appendChild(clonedCard);
@@ -84,9 +108,9 @@ export async function POST(req: NextRequest) {
       format: 'A4',
       margin: {
         top: '0.4in',
-        right: '0.4in',
+        right: '0.3in',
         bottom: '0.4in',
-        left: '0.4in'
+        left: '0.3in'
       },
       printBackground: true,
       preferCSSPageSize: true
