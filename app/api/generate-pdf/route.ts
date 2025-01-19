@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
       executablePath,
       headless: chrome.headless,
       defaultViewport: {
-        width: 850,
-        height: 1100,
+        width: 1100,
+        height: 1400,
         deviceScaleFactor: 1
       }
     });
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     await page.waitForSelector('#resume-content', { timeout: 5000 });
 
     // Modify the page for PDF generation
-    await page.evaluate(() => {
+    const contentHeight = await page.evaluate(() => {
       // Get the resume content
       const content = document.querySelector('#resume-content');
       if (!content) throw new Error('Resume content not found');
@@ -46,11 +46,8 @@ export async function POST(req: NextRequest) {
       // Create a new wrapper
       const wrapper = document.createElement('div');
       wrapper.style.background = 'white';
-      wrapper.style.position = 'fixed';
-      wrapper.style.top = '0';
-      wrapper.style.left = '0';
       wrapper.style.width = '100%';
-      wrapper.style.height = '100%';
+      wrapper.style.minHeight = '100vh';
       wrapper.style.padding = '40px';
       wrapper.style.boxSizing = 'border-box';
       wrapper.style.display = 'flex';
@@ -65,6 +62,7 @@ export async function POST(req: NextRequest) {
       clonedContent.style.width = '100%';
       clonedContent.style.maxWidth = '800px';
       clonedContent.style.background = 'white';
+      clonedContent.style.height = 'auto';
 
       // Add the cloned content to the wrapper
       wrapper.appendChild(clonedContent);
@@ -72,22 +70,34 @@ export async function POST(req: NextRequest) {
       // Replace the body content
       document.body.innerHTML = '';
       document.body.style.margin = '0';
+      document.body.style.padding = '0';
       document.body.style.background = 'white';
       document.body.appendChild(wrapper);
+
+      // Return the actual content height
+      return clonedContent.getBoundingClientRect().height;
+    });
+
+    // Set viewport to match content height
+    await page.setViewport({
+      width: 1100,
+      height: Math.ceil(contentHeight) + 100, // Add padding
+      deviceScaleFactor: 1
     });
 
     // Generate PDF
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
-        top: '0.4in',
-        right: '0.4in',
-        bottom: '0.4in',
-        left: '0.4in'
+        top: '0.5in',
+        right: '0.5in',
+        bottom: '0.5in',
+        left: '0.5in'
       },
       printBackground: true,
-      preferCSSPageSize: true,
-      scale: 0.98
+      preferCSSPageSize: false,
+      scale: 0.95,
+      height: '11in'
     });
 
     // Create initials from job title if provided
