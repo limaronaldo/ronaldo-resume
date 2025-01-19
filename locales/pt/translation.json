@@ -1,0 +1,95 @@
+{
+  "title": "Ronaldo Lima - Currículo",
+  "meta_description": "Gerente de Marketing de Produto com expertise em IA e análise de dados",
+  "role": "Gerente de Marketing de Produto",
+  "contact": {
+    "name": "Ronaldo Lima",
+    "role": "Gerente de Marketing de Produto",
+    "phone": "+55 11 93459-2736",
+    "email": "ronaldomlima@gmail.com",
+    "location": "Alto de Pinheiros, São Paulo, SP"
+  },
+  "sections": {
+    "professional_summary": {
+      "title": "Resumo Profissional",
+      "content": "Gerente de Marketing de Produto inovador com mais de 12 anos de experiência em growth marketing, estratégia de produto e soluções baseadas em IA. Reconhecido por conectar as equipes de Produto, Vendas e Dados para entregar campanhas líderes de mercado, otimizar jornadas do cliente e impulsionar resultados mensuráveis. Especializado na integração de Modelos de Linguagem Grandes (LLMs)—incluindo Google Gemini, ChatGPT, Claude e Meta Llama—em operações de marketing para reduzir custos de aquisição e acelerar conversões."
+    },
+    "core_competencies": {
+      "title": "Competências Principais",
+      "items": [
+        "Marketing de Produto & Estratégia Go-to-Market",
+        "Growth Hacking & Otimização de Conversão (CRO)",
+        "Integração de IA (Google Gemini, ChatGPT, Claude, Meta Llama)",
+        "Mídia Paga (Meta Ads, Google Ads, Linkedin Ads)",
+        "Implementação de CRM & Automação de Marketing",
+        "Desenvolvimento Full-Stack (Python, Node.js, React, Rust, Go)",
+        "Análise de Dados (SQL, Data Studio, Excel Avançado)",
+        "Gestão Ágil de Projetos (Scrum, Jira)",
+        "Liderança de Equipe & Colaboração Multifuncional"
+      ]
+    },
+    "experience": {
+      "title": "Experiência Profissional",
+      "roles": [
+        {
+          "title": "Gerente de Produto - Growth",
+          "company": "IBVI",
+          "period": "Ago 2022 – Presente",
+          "location": "São Paulo, Brasil",
+          "highlights": [
+            "Growth com IA: Liderou iniciativa de transformação digital no Google for Startups, incorporando modelos avançados de IA em processos-chave do negócio.",
+            "Alinhamento entre Equipes: Colaborou com Produto, Vendas e Dados para refinar jornadas do cliente, resultando em aumento significativo na qualidade e conversão de leads.",
+            "Analytics Preditivo: Implementou modelos baseados em LLM para segmentação precisa de clientes, impulsionando retenção e oportunidades de upsell."
+          ]
+        },
+        {
+          "title": "Gerente de Marketing",
+          "company": "MBRAS Soluções Imobiliárias",
+          "period": "Out 2021 – Presente",
+          "location": "São Paulo, Brasil",
+          "highlights": [
+            "Liderança no Mercado de Luxo: Fortaleceu a marca MBRAS no segmento imobiliário de alto padrão através de marketing orientado a dados.",
+            "Estratégia Omnichannel: Unificou mensagens entre canais offline e plataformas digitais (Google Ads, Meta Ads, Linkedin Ads), maximizando ROI.",
+            "Desenvolvimento de Equipe: Mentorou time de marketing de alta performance, incentivando experimentação com IA e aprendizado contínuo."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "Formação Acadêmica",
+      "items": [
+        {
+          "degree": "MBA em Marketing",
+          "school": "Fundação Armando Alvares Penteado (FAAP)",
+          "period": "Ago 2024 – Ago 2025"
+        },
+        {
+          "degree": "Bacharel em Administração de Empresas",
+          "school": "Ibmec",
+          "period": "2004 – 2008"
+        }
+      ]
+    },
+    "languages": {
+      "title": "Idiomas",
+      "items": [
+        {
+          "language": "Inglês",
+          "level": "Fluente"
+        },
+        {
+          "language": "Português",
+          "level": "Nativo"
+        },
+        {
+          "language": "Espanhol",
+          "level": "Profissional"
+        }
+      ]
+    },
+    "additional_info": {
+      "title": "Informações Adicionais",
+      "content": "Apaixonado por utilizar IA e análise de dados em marketing, com forte foco em impulsionar inovação e alcançar resultados mensuráveis. Experiente em liderar equipes multifuncionais e construir relacionamentos sólidos com stakeholders."
+    }
+  }
+} 

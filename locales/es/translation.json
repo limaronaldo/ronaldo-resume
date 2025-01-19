@@ -1,0 +1,92 @@
+{
+  "title": "Ronaldo Lima - Currículum",
+  "meta_description": "Gerente de Marketing de Producto con experiencia en IA y análisis de datos",
+  "role": "Gerente de Marketing de Producto",
+  "contact": {
+    "name": "Ronaldo Lima",
+    "role": "Gerente de Marketing de Producto",
+    "phone": "+55 11 93459-2736",
+    "email": "ronaldomlima@gmail.com",
+    "location": "Alto de Pinheiros, São Paulo, SP"
+  },
+  "sections": {
+    "professional_summary": {
+      "title": "Resumen Profesional",
+      "content": "Gerente de Marketing de Producto orientado a resultados, con pasión por utilizar IA y análisis de datos para impulsar estrategias de marketing y crecimiento empresarial. Historial comprobado en el desarrollo y ejecución de campañas de marketing exitosas, realización de investigaciones de mercado y colaboración con equipos multifuncionales."
+    },
+    "core_competencies": {
+      "title": "Competencias Principales",
+      "items": [
+        "Estrategia de Marketing de Producto",
+        "Investigación y Análisis de Mercado",
+        "IA y Análisis de Datos",
+        "Gestión de Campañas",
+        "Liderazgo Multifuncional",
+        "Marketing Digital",
+        "Estrategia de Contenido",
+        "Desarrollo de Marca"
+      ]
+    },
+    "experience": {
+      "title": "Experiencia Profesional",
+      "roles": [
+        {
+          "title": "Gerente Senior de Marketing de Producto",
+          "company": "Tech Innovation Co",
+          "period": "2021 - Presente",
+          "highlights": [
+            "Lideró iniciativas de marketing de producto resultando en un 40% de crecimiento en la adopción de usuarios",
+            "Desarrolló y ejecutó estrategias de marketing basadas en datos",
+            "Gestionó equipos multifuncionales y relaciones con stakeholders"
+          ]
+        },
+        {
+          "title": "Gerente de Marketing de Producto",
+          "company": "Digital Solutions Inc",
+          "period": "2019 - 2021",
+          "highlights": [
+            "Lideró investigaciones de mercado y análisis competitivo",
+            "Creó mensajes y posicionamiento de producto convincentes",
+            "Implementó estrategias exitosas de lanzamiento al mercado"
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "Formación Académica",
+      "items": [
+        {
+          "degree": "MBA en Marketing",
+          "school": "Fundação Armando Alvares Penteado (FAAP)",
+          "period": "Ago 2024 – Ago 2025"
+        },
+        {
+          "degree": "Licenciatura en Administración de Empresas",
+          "school": "Ibmec",
+          "period": "2004 – 2008"
+        }
+      ]
+    },
+    "languages": {
+      "title": "Idiomas",
+      "items": [
+        {
+          "language": "Inglés",
+          "level": "Fluido"
+        },
+        {
+          "language": "Portugués",
+          "level": "Nativo"
+        },
+        {
+          "language": "Español",
+          "level": "Profesional"
+        }
+      ]
+    },
+    "additional_info": {
+      "title": "Información Adicional",
+      "content": "Apasionado por utilizar IA y análisis de datos en marketing, con un fuerte enfoque en impulsar la innovación y lograr resultados medibles. Experimentado en liderar equipos multifuncionales y construir relaciones sólidas con stakeholders."
+    }
+  }
+} 

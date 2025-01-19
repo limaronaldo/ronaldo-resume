@@ -1,0 +1,87 @@
+{
+    "title": "Ronaldo Lima - Currículum de Product Marketing Manager",
+    "meta_description": "Currículum de Ronaldo Lima, un Product Marketing Manager visionario con amplia experiencia en growth marketing, soluciones basadas en IA y más.",
+    "contact": {
+      "name": "Ronaldo Lima",
+      "role": "Product Marketing Manager",
+      "phone": "+55 11 93459-2736",
+      "email": "ronaldomlima@gmail.com",
+      "location": "Alto de Pinheiros, São Paulo, SP"
+    },
+    "sections": {
+      "professional_summary": {
+        "title": "Resumen Profesional",
+        "content": "Product Marketing Manager con más de 12 años de experiencia en growth marketing, estrategia de productos y soluciones impulsadas por IA. Reconocido por unir los equipos de Producto, Ventas y Datos para lanzar campañas líderes en el mercado, optimizar la experiencia del cliente y lograr resultados medibles. Experto en integrar Modelos de Lenguaje (LLMs), como Google Gemini, ChatGPT, Claude y Meta Llama, en operaciones de marketing para reducir costos de adquisición y acelerar las conversiones."
+      },
+      "core_competencies": {
+        "title": "Competencias Clave",
+        "items": [
+          "Marketing de Producto y Estrategia Go-to-Market",
+          "Growth Hacking y Optimización de Conversión (CRO)",
+          "Integración de IA (Google Gemini, ChatGPT, Claude, Meta Llama)",
+          "Compra de Medios (Meta Ads, Google Ads, LinkedIn Ads, Linkedin Ads)",
+          "Implementación de CRM y Automatización de Marketing",
+          "Desarrollo Full-Stack (Python, Node.js, React, Rust, Go)",
+          "Análisis de Datos (SQL, Data Studio, Excel Avanzado)",
+          "Gestión Ágil de Proyectos (Scrum, Jira)",
+          "Liderazgo de Equipos y Colaboración Multifuncional"
+        ]
+      },
+      "experience": {
+        "title": "Experiencia Profesional",
+        "roles": [
+          {
+            "title": "Growth Product Manager",
+            "company": "IBVI",
+            "period": "ago 2022 – Presente",
+            "location": "São Paulo, Brasil",
+            "highlights": [
+              "Crecimiento Impulsado por IA: Dirigí una iniciativa de transformación digital respaldada por Google for Startups, incorporando modelos avanzados de IA en procesos clave de negocio.",
+              "Alineación Entre Equipos: Colaboré con los equipos de Producto, Ventas y Datos para optimizar el recorrido del cliente, lo que resultó en un incremento notable en la calidad de leads y en la tasa de conversión.",
+              "Análisis Predictivo: Implementé modelos basados en LLM para lograr una segmentación precisa de clientes, aumentando la retención y las oportunidades de upselling."
+            ]
+          },
+          {
+            "title": "Gerente de Marketing",
+            "company": "MBRAS Soluciones Inmobiliarias",
+            "period": "oct 2021 – Presente",
+            "location": "São Paulo, Brasil",
+            "highlights": [
+              "Liderazgo en el Mercado de Lujo: Fortalecí la marca de MBRAS en el segmento inmobiliario de alta gama mediante iniciativas de marketing basadas en datos.",
+              "Estrategia Omnicanal: Unifiqué el mensaje de la marca en canales offline y plataformas digitales (Google Ads, Meta Ads, LinkedIn Ads), maximizando el ROI y el engagement.",
+              "Desarrollo de Equipo: Mentoricé a un equipo de marketing de alto rendimiento, impulsando la experimentación con IA, análisis avanzados y el aprendizaje continuo."
+            ]
+          }
+        ]
+      },
+      "education": {
+        "title": "Formación Académica",
+        "items": [
+          {
+            "degree": "MBA en Marketing",
+            "school": "Fundação Armando Alvares Penteado (FAAP)",
+            "period": "ago 2024 – ago 2025"
+          },
+          {
+            "degree": "Licenciatura en Administración de Empresas",
+            "school": "Ibmec",
+            "period": "2004 – 2008"
+          }
+        ]
+      },
+      "languages": {
+        "title": "Idiomas",
+        "items": [
+          {
+            "language": "Portugués",
+            "level": "Nativo"
+          },
+          {
+            "language": "Inglés",
+            "level": "Fluido"
+          }
+        ]
+      }
+    }
+  }
+  

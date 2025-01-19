@@ -1,0 +1,91 @@
+{
+  "title": "Ronaldo Lima - Resume",
+  "meta_description": "Product Marketing Manager with expertise in AI and data analytics",
+  "role": "Product Marketing Manager",
+  "contact": {
+    "name": "Ronaldo Lima",
+    "role": "Product Marketing Manager",
+    "phone": "+55 11 93459-2736",
+    "email": "ronaldomlima@gmail.com",
+    "location": "Alto de Pinheiros, São Paulo, SP"
+  },
+  "sections": {
+    "professional_summary": {
+      "title": "Professional Summary",
+      "content": "Forward-thinking Product Marketing Manager with 12+ years of experience in growth marketing, product strategy, and AI-driven solutions. Known for bridging gaps among Product, Sales, and Data teams to deliver market-leading campaigns, optimize customer journeys, and drive measurable results. Skilled at integrating Large Language Models (LLMs)—including Google Gemini, ChatGPT, Claude, and Meta Llama—into marketing operations to reduce acquisition costs and accelerate conversions."
+    },
+    "core_competencies": {
+      "title": "Core Competencies",
+      "items": [
+        "Product Marketing & Go-to-Market Strategy",
+        "Growth Hacking & Conversion Optimization (CRO)",
+        "AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)",
+        "Media Buying (Meta Ads, Google Ads, Linkedin Ads)",
+        "CRM Implementation & Marketing Automation",
+        "Full-Stack Development (Python, Node.js, React, Rust, Go)",
+        "Data Analytics (SQL, Data Studio, Advanced Excel)",
+        "Agile Project Management (Scrum, Jira)",
+        "Team Leadership & Cross-Functional Collaboration"
+      ]
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "roles": [
+        {
+          "title": "Growth Product Manager",
+          "company": "IBVI",
+          "period": "Aug 2022 – Present",
+          "location": "São Paulo, Brazil",
+          "highlights": [
+            "AI-Infused Growth: Led a digital transformation initiative under Google for Startups, incorporating advanced AI models into key business processes.",
+            "Cross-Team Alignment: Collaborated with Product, Sales, and Data to refine customer journeys, resulting in a notable boost in lead quality and conversion.",
+            "Predictive Analytics: Deployed LLM-based models for precise customer segmentation, driving higher retention and upselling opportunities."
+          ]
+        },
+        {
+          "title": "Marketing Manager",
+          "company": "MBRAS Soluções Imobiliárias",
+          "period": "Oct 2021 – Present",
+          "location": "São Paulo, Brazil",
+          "highlights": [
+            "Luxury Market Leadership: Strengthened MBRAS's brand in the high-end real estate segment through data-driven marketing.",
+            "Omnichannel Strategy: Unified messaging across offline channels and digital platforms (Google Ads, Meta Ads, Linkedin Ads), maximizing ROI.",
+            "Team Development: Mentored a high-performance marketing team, encouraging AI experimentation and continuous learning."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "degree": "MBA in Marketing",
+          "school": "Fundação Armando Alvares Penteado (FAAP)",
+          "period": "Aug 2024 – Aug 2025"
+        },
+        {
+          "degree": "Bachelor's in Business Administration",
+          "school": "Ibmec",
+          "period": "2004 – 2008"
+        }
+      ]
+    },
+    "languages": {
+      "title": "Languages",
+      "items": [
+        {
+          "language": "English",
+          "level": "Fluent"
+        },
+        {
+          "language": "Portuguese",
+          "level": "Native"
+        }
+      ]
+    },
+    "additional_info": {
+      "title": "Additional Information",
+      "content": "Passionate about leveraging AI and data analytics in marketing, with a strong focus on driving innovation and achieving measurable results. Experienced in leading cross-functional teams and building strong stakeholder relationships."
+    }
+  }
+} 
