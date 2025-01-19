@@ -106,6 +106,15 @@
         }
       ]
     },
+    "tools_certifications": {
+      "title": "Herramientas y Certificaciones",
+      "items": [
+        "Professional Scrum Master I (Scrum.org)",
+        "Google Ads Search Certification (Google)",
+        "Advanced SQL (LinkedIn)",
+        "Experiencia con Jira, Git, CI/CD pipelines y diversas plataformas de IA"
+      ]
+    },
     "additional_info": {
       "title": "Información Adicional",
       "content": "Apasionado por el uso de IA y análisis de datos en marketing, con un fuerte enfoque en impulsar la innovación y lograr resultados medibles. Experimentado en liderar equipos multifuncionales y construir relaciones sólidas con stakeholders."
