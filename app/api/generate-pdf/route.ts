@@ -71,11 +71,30 @@ export async function POST(req: NextRequest) {
       // Add page break rules
       const style = document.createElement('style');
       style.textContent = `
+        section {
+          break-inside: avoid;
+        }
         .border-t {
           display: none !important;
         }
+        h3 {
+          break-after: avoid;
+        }
         .mb-12 {
-          margin-bottom: 1rem;
+          margin-bottom: 2rem;
+        }
+        .grid {
+          break-inside: avoid;
+        }
+        section:has(h3:contains('EDUCATION')) {
+          break-before: page;
+        }
+        section:has(h3:contains('ADDITIONAL INFORMATION')) {
+          break-before: avoid;
+          break-after: avoid;
+        }
+        section:has(h3:contains('TOOLS & CERTIFICATIONS')) {
+          break-after: avoid;
         }
       `;
       document.head.appendChild(style);
