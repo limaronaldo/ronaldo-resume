@@ -72,7 +72,6 @@ export async function POST(req: NextRequest) {
       const style = document.createElement('style');
       style.textContent = `
         section {
-          break-inside: avoid;
           page-break-inside: avoid;
         }
         .border-t {
@@ -80,10 +79,6 @@ export async function POST(req: NextRequest) {
         }
         .mb-12 {
           margin-bottom: 2rem;
-        }
-        .grid {
-          break-inside: avoid;
-          page-break-inside: avoid;
         }
       `;
       document.head.appendChild(style);

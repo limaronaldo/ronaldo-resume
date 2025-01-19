@@ -53,10 +53,10 @@ export default function ResumeCustomizer() {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 print:hidden">
-        <div className="max-w-[210mm] mx-auto p-8">
-          <div className="bg-white shadow-lg rounded-2xl p-8 mb-8">
+        <div className="max-w-[210mm] mx-auto p-4">
+          <div className="bg-white shadow-lg rounded-2xl p-4 mb-2">
             <div className="mb-8">
-              <label htmlFor="jobTitle" className="block text-lg font-light text-slate-900 mb-2">
+              <label htmlFor="jobTitle" className="block text-lg font-light text-slate-900 mb-1">
                 Job Title
               </label>
               <input
@@ -64,7 +64,7 @@ export default function ResumeCustomizer() {
                 id="jobTitle"
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
-                className="w-full px-4 py-2 text-lg text-slate-900 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500"
+                className="w-full px-4 py-1 text-lg text-slate-900 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500"
                 placeholder="Enter job title..."
               />
             </div>
