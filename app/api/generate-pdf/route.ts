@@ -12,11 +12,11 @@ export async function POST(req: NextRequest) {
     const { url, jobTitle } = await req.json() as GeneratePdfRequest;
     
     // Configure Chrome for serverless environment
-    const executablePath = await chrome.executablePath;
+    const executablePath = await chrome.executablePath();
     
     const browser = await puppeteer.launch({
       args: chrome.args,
-      executablePath: executablePath,
+      executablePath,
       headless: chrome.headless,
       defaultViewport: {
         width: 1200,
