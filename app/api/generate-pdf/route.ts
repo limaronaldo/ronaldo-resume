@@ -42,18 +42,25 @@ export async function POST(req: NextRequest) {
       timeout: 30000 
     });
 
-    // Wait for specific content to be loaded
-    await page.waitForSelector('.bg-white', { timeout: 10000 });
-    await page.waitForSelector('h1', { timeout: 10000 });
+    // Wait for the card content to be loaded
+    await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
 
-    // Set viewport to match content
+    // Get the card element and its dimensions
+    const cardDimensions = await page.evaluate(() => {
+      const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
+      if (!card) throw new Error('Card content not found');
+      const { width, height } = card.getBoundingClientRect();
+      return { width, height };
+    });
+
+    // Set viewport to match card dimensions with some padding
     await page.setViewport({
-      width: 1100,
-      height: 1400,
+      width: Math.ceil(cardDimensions.width) + 80, // Add padding for margins
+      height: Math.ceil(cardDimensions.height) + 80,
       deviceScaleFactor: 1
     });
 
-    // Generate PDF
+    // Generate PDF with the card content only
     const pdf = await page.pdf({
       format: 'A4',
       margin: {
