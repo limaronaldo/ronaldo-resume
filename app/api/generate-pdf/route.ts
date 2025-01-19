@@ -78,10 +78,6 @@ export async function POST(req: NextRequest) {
         .border-t {
           display: none !important;
         }
-        h3 {
-          break-after: avoid;
-          page-break-after: avoid;
-        }
         .mb-12 {
           margin-bottom: 2rem;
         }
