@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
 
+interface GeneratePdfRequest {
+  url: string;
+  jobTitle?: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { type, url, jobTitle } = await req.json();
+    const { url, jobTitle } = await req.json() as GeneratePdfRequest;
     
     const browser = await puppeteer.launch({
       headless: true

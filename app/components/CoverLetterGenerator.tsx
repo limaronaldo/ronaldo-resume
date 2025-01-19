@@ -1,10 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export default function CoverLetterGenerator() {
-  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     hiringManagerName: '',
     companyName: '',
@@ -66,7 +64,7 @@ export default function CoverLetterGenerator() {
             <h2 className="text-2xl font-light text-slate-900 mb-6 tracking-wide">Cover Letter Generator</h2>
             <form className="space-y-6">
               <div>
-                <label className="block text-sm font-light text-slate-700 mb-2">Hiring Manager's Name</label>
+                <label className="block text-sm font-light text-slate-700 mb-2">Hiring Manager&apos;s Name</label>
                 <input
                   type="text"
                   name="hiringManagerName"
@@ -159,15 +157,15 @@ export default function CoverLetterGenerator() {
               </p>
 
               <p className="mb-4 text-slate-900 font-normal">
-                In my current role as a Growth Product Manager at IBVI, I have successfully integrated advanced Large Language Models—such as Google Gemini, ChatGPT, and Meta Llama—into marketing processes to enhance lead qualification and conversion. This experience has sharpened my ability to manage cross-functional teams and ensure every project not only meets but exceeds its objectives. Additionally, my background at MBRAS Soluções Imobiliárias, ConnectAD, and Viva Linda provided me with deep insights into data-driven marketing, omnichannel strategies, and fast-paced product launches.
+                In my current role as a Growth Product Manager at IBVI, I have successfully integrated advanced Large Language Models&mdash;such as Google Gemini, ChatGPT, and Meta Llama&mdash;into marketing processes to enhance lead qualification and conversion. This experience has sharpened my ability to manage cross-functional teams and ensure every project not only meets but exceeds its objectives.
               </p>
 
               <p className="mb-4 text-slate-900 font-normal">
-                I am particularly drawn to {formData.companyName || '[Company Name]'} for its focus on {formData.companyInitiatives || '[mention specific company initiatives or values]'}, as I believe the synergy between your team's forward-thinking culture and my passion for innovation would be a perfect match. I thrive in environments where data, creativity, and user-centric thinking converge to build exceptional experiences.
+                I am particularly drawn to {formData.companyName || '[Company Name]'} for its focus on {formData.companyInitiatives || '[mention specific company initiatives or values]'}, as I believe the synergy between your team&apos;s forward-thinking culture and my passion for innovation would be a perfect match.
               </p>
 
               <p className="mb-4 text-slate-900 font-normal">
-                I appreciate your time and consideration. I would welcome the chance to learn more about {formData.companyName || '[Company Name]'}'s vision and discuss how my expertise could support your growth. Please feel free to reach out at +55 11 93459-2736 or email me at ronaldomlima@gmail.com.
+                I appreciate your time and consideration. I would welcome the chance to learn more about {formData.companyName || '[Company Name]'}&apos;s vision and discuss how my expertise could support your growth.
               </p>
 
               <p className="mb-8 text-slate-900 font-normal">Thank you for your consideration, and I look forward to the opportunity to speak with you further.</p>

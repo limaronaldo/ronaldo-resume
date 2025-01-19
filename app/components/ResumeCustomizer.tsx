@@ -3,16 +3,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Resume from './Resume';
-import LanguageSwitcher from './LanguageSwitcher';
 
 export default function ResumeCustomizer() {
   const { t, i18n } = useTranslation();
   const [jobTitle, setJobTitle] = useState(t('contact.role'));
   const [isGenerating, setIsGenerating] = useState(false);
-
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setJobTitle(e.target.value);
-  };
 
   const downloadPDF = async () => {
     try {

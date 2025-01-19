@@ -2,18 +2,6 @@
 
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import LanguageSwitcher from './LanguageSwitcher';
-
-interface EducationItem {
-  degree: string;
-  school: string;
-  period: string;
-}
-
-interface LanguageItem {
-  language: string;
-  level: string;
-}
 
 interface ExperienceRole {
   title: string;
@@ -31,7 +19,6 @@ interface ResumeProps {
 export default function Resume({ customJobTitle, hideControls = false }: ResumeProps) {
   const { t, ready } = useTranslation();
   const [mounted, setMounted] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -49,7 +36,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
   const downloadPDF = async () => {
     try {
-      setIsGenerating(true);
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
         headers: {
@@ -75,8 +61,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
       document.body.removeChild(a);
     } catch (error) {
       console.error('Error generating PDF:', error);
-    } finally {
-      setIsGenerating(false);
     }
   };
 
@@ -86,8 +70,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
 
   const competencies = t('sections.core_competencies.items', { returnObjects: true }) as string[];
   const roles = t('sections.experience.roles', { returnObjects: true }) as ExperienceRole[];
-  const educationItems = t('sections.education.items', { returnObjects: true }) as EducationItem[];
-  const languageItems = t('sections.languages.items', { returnObjects: true }) as LanguageItem[];
 
   const whatsappNumber = t('contact.phone').replace(/[^0-9]/g, '');
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
@@ -99,22 +81,10 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
       <div className={`absolute top-4 right-4 flex items-center gap-4 ${hideControls ? 'hidden' : ''}`}>
         <button
           onClick={downloadPDF}
-          disabled={isGenerating}
           className="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors duration-200 font-light disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
-          {isGenerating ? (
-            <>
-              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-              </svg>
-              Generating...
-            </>
-          ) : (
-            'Download PDF'
-          )}
+          Download PDF
         </button>
-        <LanguageSwitcher />
       </div>
       
       <main className={`max-w-[210mm] mx-auto px-4 py-16 sm:px-6 lg:px-8 ${hideControls ? 'pt-8' : ''}`}>
@@ -191,33 +161,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
               </div>
             ))}
           </section>
-
-          {/* Education & Languages */}
-          <div className="grid grid-cols-3 gap-12 mb-12">
-            <div className="col-span-2">
-              <h2 className="text-lg font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.education.title')}</h2>
-              <div className="space-y-8">
-                {(t('sections.education.items', { returnObjects: true }) as EducationItem[]).map((item, index) => (
-                  <div key={index} className="space-y-2">
-                    <h3 className="text-xl text-slate-800 font-normal">{item.degree}</h3>
-                    <p className="text-lg text-slate-600 font-light">{item.school}</p>
-                    <p className="text-base text-slate-500 font-light">{item.period}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h2 className="text-lg font-light text-slate-900 mb-6 tracking-wide uppercase">{t('sections.languages.title')}</h2>
-              <div className="space-y-4">
-                {(t('sections.languages.items', { returnObjects: true }) as LanguageItem[]).map((item, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span className="text-lg text-slate-800 font-normal">{item.language}</span>
-                    <span className="text-base text-slate-600 font-light">{item.level}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* Additional Information */}
           <section className="border-t border-slate-200 pt-10">
