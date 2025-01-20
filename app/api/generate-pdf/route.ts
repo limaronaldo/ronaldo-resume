@@ -1,3 +1,4 @@
+//app/api/generate-pdf/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
 import chrome from '@sparticuz/chromium';
@@ -53,31 +54,25 @@ export async function POST(req: NextRequest) {
              !titleText.includes('contact.');
     }, { timeout: 15000 });
 
-    // Get language from document state
+    // Get language from URL query parameter
     const currentLang = await page.evaluate(() => {
-      // Try to get language from html attribute
-      const htmlLang = document.documentElement.getAttribute('i18next-lng');
-      if (htmlLang && ['en', 'pt', 'es'].includes(htmlLang)) {
-        return htmlLang;
-      }
-      // Try to get language from cookie
-      const i18nextCookie = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('i18next='));
-      if (i18nextCookie) {
-        const cookieLang = i18nextCookie.split('=')[1];
-        if (['en', 'pt', 'es'].includes(cookieLang)) {
-          return cookieLang;
-        }
-      }
-      // Default to English if no language is detected
-      return 'en';
+      const params = new URLSearchParams(window.location.search);
+      const lng = params.get('lng');
+      return lng && ['en', 'pt', 'es'].includes(lng) ? lng : 'en';
     });
 
-    // Set the language on the page before generating the PDF
-    await page.evaluate((currentLang) => {
-      document.documentElement.setAttribute('lang', currentLang);
-    }, currentLang);
+    // Wait for language to be applied
+    await page.waitForFunction((expectedLang) => {
+      const summaryText = document.querySelector('section:first-of-type p')?.textContent;
+      const titleText = document.querySelector('h2')?.textContent;
+      
+      // Check if content is in the expected language
+      const isPortuguese = expectedLang === 'pt' && summaryText?.includes('com');
+      const isSpanish = expectedLang === 'es' && summaryText?.includes('con');
+      const isEnglish = expectedLang === 'en' && summaryText?.includes('with');
+      
+      return isPortuguese || isSpanish || isEnglish;
+    }, { timeout: 10000 }, currentLang);
 
     // Modify the page to only show the card content
     await page.evaluate(({ jobTitle, currentLang }) => {

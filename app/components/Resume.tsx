@@ -1,3 +1,4 @@
+//app/components/Resume.tsx
 'use client';
 
 import { useTranslation } from 'react-i18next';
@@ -28,7 +29,7 @@ interface ResumeProps {
 }
 
 export default function Resume({ customJobTitle, hideControls = false }: ResumeProps) {
-  const { t, ready } = useTranslation();
+  const { t, i18n, ready } = useTranslation();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -45,15 +46,28 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
     }
   }, [t, mounted, ready]);
 
+  // Add effect to handle language from URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const lng = params.get('lng');
+    if (lng && ['en', 'pt', 'es'].includes(lng)) {
+      i18n.changeLanguage(lng);
+    }
+  }, [i18n]);
+
   const downloadPDF = async () => {
     try {
+      const currentLanguage = i18n.language || 'en';
+      const baseUrl = window.location.origin;
+      const pdfUrl = `${baseUrl}/resume?lng=${currentLanguage}`;
+
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: window.location.href,
+          url: pdfUrl,
           jobTitle: customJobTitle,
         }),
       });
@@ -67,7 +81,7 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'RonaldoLima.pdf';
+      a.download = `RonaldoLima-${currentLanguage}.pdf`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
