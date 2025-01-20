@@ -42,8 +42,8 @@ export async function POST(req: NextRequest) {
       timeout: 30000 
     });
 
-    // Wait for translations to be loaded and content to be ready
-    await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
+    // Wait longer for translations and content to be ready
+    await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 15000 });
     await page.waitForFunction(() => {
       const summaryText = document.querySelector('section:first-of-type p')?.textContent;
       const titleText = document.querySelector('h2')?.textContent;
@@ -51,10 +51,13 @@ export async function POST(req: NextRequest) {
              titleText && titleText.length > 0 && 
              !summaryText.includes('sections.') &&
              !titleText.includes('contact.');
-    }, { timeout: 10000 });
+    }, { timeout: 15000 });
+
+    // Get language from URL before modifying the page
+    const lang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
 
     // Modify the page to only show the card content
-    await page.evaluate((jobTitle) => {
+    await page.evaluate(({ jobTitle, lang }) => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
       if (!card) throw new Error('Card content not found');
 
@@ -70,14 +73,20 @@ export async function POST(req: NextRequest) {
         if (summaryElement && summaryElement.textContent) {
           const summaryText = summaryElement.textContent;
           
-          // Get the current language
-          const lang = document.documentElement.lang || 'en';
-          
           // Create a new first sentence with the job title
           let newText = summaryText;
           
+          // Define experience text patterns for each language
+          const patterns = {
+            en: /(?:.*?)with\s+(.*?years.*?\.)/i,
+            pt: /(?:.*?)com\s+(.*?anos.*?\.)/i,
+            es: /(?:.*?)con\s+(.*?años.*?\.)/i
+          };
+          
           // Try to match the first part of the text up to the experience part
-          const experienceMatch = summaryText.match(/(?:.*?)(?:with|com|con)\s+(.*?(?:years|anos|años).*?\.)/i);
+          const pattern = patterns[lang as keyof typeof patterns];
+          const experienceMatch = summaryText.match(pattern);
+          
           if (experienceMatch) {
             const experiencePart = experienceMatch[1];
             const conjunction = lang === 'pt' ? 'com' : lang === 'es' ? 'con' : 'with';
@@ -140,7 +149,7 @@ export async function POST(req: NextRequest) {
       document.body.appendChild(wrapper);
 
       return clonedCard.getBoundingClientRect();
-    }, jobTitle);
+    }, { jobTitle, lang });
 
     // Generate PDF with the card content only
     const pdf = await page.pdf({
