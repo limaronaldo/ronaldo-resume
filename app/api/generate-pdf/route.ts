@@ -64,7 +64,6 @@ export async function POST(req: NextRequest) {
     // Wait for language to be applied
     await page.waitForFunction((expectedLang) => {
       const summaryText = document.querySelector('section:first-of-type p')?.textContent;
-      const titleText = document.querySelector('h2')?.textContent;
       
       // Check if content is in the expected language
       const isPortuguese = expectedLang === 'pt' && summaryText?.includes('com');
