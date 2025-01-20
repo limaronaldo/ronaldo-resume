@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 
 export default function ResumeAI() {
   const [mounted, setMounted] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -26,6 +27,46 @@ export default function ResumeAI() {
       }
     }
   }, [mounted]);
+
+  const downloadPDF = async () => {
+    try {
+      setIsGenerating(true);
+      const response = await fetch('/api/generate-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url: `${window.location.origin}/resume-ai`,
+          jobTitle: contactInfo.role,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to generate PDF');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      
+      // Create initials from job title
+      const initials = contactInfo.role
+        .split(' ')
+        .map(word => word[0])
+        .join('')
+        .toUpperCase();
+      
+      a.download = `RonaldoLima-${initials}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   if (!mounted) {
     return null;
@@ -158,6 +199,18 @@ export default function ResumeAI() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="container mx-auto px-4 py-8 max-w-5xl">
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={downloadPDF}
+            disabled={isGenerating}
+            className={`px-6 py-2 rounded-lg bg-slate-900 text-white transition-colors ${
+              isGenerating ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-800'
+            }`}
+          >
+            {isGenerating ? 'Generating...' : 'Download PDF'}
+          </button>
+        </div>
+        
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
 
           {/* Header */}
