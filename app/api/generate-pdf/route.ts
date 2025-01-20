@@ -42,8 +42,12 @@ export async function POST(req: NextRequest) {
       timeout: 30000 
     });
 
-    // Wait for the card content to be loaded
+    // Wait for translations to be loaded and content to be ready
     await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
+    await page.waitForFunction(() => {
+      const summaryText = document.querySelector('section:first-of-type p')?.textContent;
+      return summaryText && summaryText.length > 0 && !summaryText.includes('sections.');
+    }, { timeout: 5000 });
 
     // Modify the page to only show the card content
     await page.evaluate((jobTitle) => {
@@ -63,12 +67,17 @@ export async function POST(req: NextRequest) {
           // Replace the first sentence to start with the new job title
           const summaryText = summaryElement.textContent;
           // Match everything from the start until "with" and capture the rest of the sentence
-          const firstSentenceRegex = /^.*?with\s*(.*?\.)/;
+          const firstSentenceRegex = /^.*?(?:with|com|con)\s*(.*?\.)/;
           const match = summaryText.match(firstSentenceRegex);
           const restOfText = summaryText.replace(firstSentenceRegex, '');
           
+          // Get the correct conjunction based on the current language
+          const isPortuguese = document.documentElement.lang === 'pt';
+          const isSpanish = document.documentElement.lang === 'es';
+          const conjunction = isPortuguese ? 'com' : isSpanish ? 'con' : 'with';
+          
           // Create new first sentence with the job title
-          const newFirstSentence = `${jobTitle} with ${match?.[1] || ''}`;
+          const newFirstSentence = `${jobTitle} ${conjunction} ${match?.[1] || ''}`;
           
           // Combine the new first sentence with the rest of the text
           summaryElement.textContent = newFirstSentence + restOfText;
