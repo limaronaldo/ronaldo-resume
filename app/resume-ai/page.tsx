@@ -1,6 +1,14 @@
+// pages/resume-ai.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
+
+/**
+ * This page is based on the structure of Resume.tsx,
+ * but customized to display a resume geared toward
+ * a "Social Media Content Strategist – AI Trainer" role,
+ * using your real professional experience.
+ */
 
 export default function ResumeAI() {
   const [mounted, setMounted] = useState(false);
@@ -23,51 +31,135 @@ export default function ResumeAI() {
     return null;
   }
 
+  // Contact and header info
   const contactInfo = {
     name: 'Ronaldo Lima',
     role: 'Social Media Content Strategist - AI Trainer',
-    email: 'ronaldo.lima.marketing@gmail.com',
+    email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
-    location: 'São Paulo, Brazil',
+    location: 'Alto de Pinheiros, São Paulo, SP',
   };
 
+  // Professional Summary updated to emphasize social media + AI training
   const professionalSummary = `
-    I am a Social Media Content Strategist and AI Trainer with proven experience
-    in content creation, audience engagement, and advanced AI tools. My focus 
-    is on leveraging AI-driven analytics to optimize social media strategies,
-    improve brand visibility, and increase conversions in agile and fast-paced environments.
+    Product Marketing Manager with 12+ years of experience in growth marketing, product strategy,
+    and AI-driven solutions. Known for bridging Product, Sales, and Data teams to deliver market-leading
+    campaigns, optimize customer journeys, and drive measurable outcomes. Expert in implementing Large
+    Language Models (LLMs) such as Google Gemini, ChatGPT, Claude, and Meta Llama to streamline social
+    media strategies, reduce acquisition costs, and accelerate conversions. Passionate about mentoring teams,
+    leveraging AI analytics, and crafting high-impact content that resonates in global markets.
   `;
 
-  const keyResponsibilities = [
-    'Develop and implement innovative social media strategies leveraging AI for brand engagement.',
-    'Train and fine-tune AI tools with relevant data to improve content recommendations and analytics.',
-    'Provide structured feedback for continuous AI model improvement and enhanced accuracy.',
-    'Stay updated on social media trends, platform algorithm changes, and AI advances.',
-    'Analyze performance metrics to drive data-backed improvements and strategies.',
-    'Work cross-functionally with data scientists, marketers, and creative teams to align AI solutions with business goals.',
+  // Professional Experience mapped to highlight social media/AI impact
+  const professionalExperience = [
+    {
+      title: 'Growth Product Manager',
+      company: 'IBVI',
+      period: 'Aug 2022 – Present',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Led a digital transformation initiative with Google for Startups support, integrating advanced AI models in key business processes.',
+        'Refined customer journeys alongside Product, Sales, and Data teams—achieving significant improvements in lead quality and conversion rates.',
+        'Implemented LLM-based segmentation strategies to boost retention and upselling opportunities, including social-media-driven outreach.',
+      ],
+    },
+    {
+      title: 'Marketing Manager',
+      company: 'MBRAS Real Estate Solutions',
+      period: 'Oct 2021 – Present',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Elevated MBRAS brand in the premium real estate market with data-driven content across social media channels and paid platforms (Google Ads, Meta Ads, LinkedIn Ads).',
+        'Unified brand communication across offline and digital mediums, maximizing ROI and engagement among high-value audiences.',
+        'Mentored a high-performance marketing team, fostering experimentation in AI, advanced analytics, and continuous learning—leading to impactful social media campaigns.',
+      ],
+    },
+    {
+      title: 'Marketing Coordinator',
+      company: 'ConnectAD',
+      period: 'Dec 2019 – Nov 2021',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Launched sophisticated email marketing and lead-nurturing funnels, significantly enhancing lead qualification for social campaigns.',
+        'Utilized Python scripts and SQL for A/B testing, funnel analytics, and performance optimization of targeted ads across multiple social channels.',
+        'Key Projects:',
+        '• Bebêmax: Drove online sales growth via integrated paid media strategies, social chatbots, and optimized landing pages.',
+        '• Ziro (Vesti): Combined CRM automation, SEO, and strategic partnerships to bolster brand recognition and social media presence.',
+      ],
+    },
+    {
+      title: 'Marketing Coordinator',
+      company: 'Viva Linda',
+      period: '2016 – Dec 2019',
+      location: 'Sete Lagoas, Brazil',
+      highlights: [
+        'Directed a marketing overhaul to align with a fast-fashion model, tripling the customer base through social media and offline synergy.',
+        'Integrated digital campaigns with physical promotions, significantly improving brand experience and conversion across all customer touchpoints.',
+        'Built a data-focused marketing team that rapidly tested, iterated, and scaled successful social campaigns.',
+      ],
+    },
   ];
 
-  const requiredSkills = [
-    'Proven experience in content creation and social media management.',
-    'Strong understanding of major social media platforms and their algorithms.',
-    'Familiarity with AI tools (e.g., ChatGPT) for audience segmentation and performance analytics.',
-    'Excellent analytical skills to interpret social media performance data.',
-    'Adaptable to emerging trends and technologies in social media marketing.',
-    'Exceptional written and verbal communication skills.',
+  // Skills & Competencies
+  const skillsCompetencies = [
+    'Product Marketing & Go-to-Market Strategy',
+    'Growth Hacking & Conversion Rate Optimization (CRO)',
+    'AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)',
+    'Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)',
+    'CRM Implementation & Marketing Automation',
+    'Full-Stack Development (Python, Node.js, React, Rust, Go)',
+    'Data Analytics (SQL, Data Studio, Advanced Excel)',
+    'Agile Project Management (Scrum, Jira)',
+    'Team Leadership & Cross-functional Collaboration',
   ];
 
-  const preferredQualifications = [
-    'Experience in AI training or a related field.',
-    'Knowledge of database management and optimization.',
-    'Familiarity with SEO and its integration into social media strategies.',
-    'Certification in AI-related courses or social media strategy.',
+  // Education
+  const education = [
+    {
+      degree: 'MBA in Marketing',
+      school: 'Fundação Armando Alvares Penteado (FAAP)',
+      period: '2024 – 2025',
+    },
+    {
+      degree: "Bachelor's in Business Administration",
+      school: 'Ibmec',
+      period: '2004 – 2008',
+    },
   ];
+
+  // Languages
+  const languages = [
+    {
+      language: 'Portuguese',
+      level: 'Native',
+    },
+    {
+      language: 'English',
+      level: 'Fluent',
+    },
+  ];
+
+  // Tools & Certifications
+  const toolsCertifications = [
+    'Professional Scrum Master I (Scrum.org)',
+    'Google Ads Search Certification (Google)',
+    'Advanced SQL (LinkedIn)',
+    'Experience with Jira, Git, CI/CD pipelines, and various AI platforms',
+  ];
+
+  // Additional info describing your interests & availability
+  const additionalInfo = `
+    Passionate about leveraging AI and data analytics in marketing, with a strong track record of
+    building cross-functional teams and cultivating stakeholder buy-in. Expert at tying social media
+    content strategies to measurable business outcomes and adopting cutting-edge AI solutions to
+    enhance targeting and engagement.
+  `;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
-          
+
           {/* Header */}
           <header className="text-center mb-0">
             <h1 className="text-4xl font-light text-slate-900 mb-2">
@@ -77,7 +169,10 @@ export default function ResumeAI() {
               {contactInfo.role}
             </h2>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-slate-500 font-light mb-4">
-              <a href={`mailto:${contactInfo.email}`} className="hover:text-slate-700 transition-colors">
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="hover:text-slate-700 transition-colors"
+              >
                 {contactInfo.email}
               </a>
               <a
@@ -102,61 +197,102 @@ export default function ResumeAI() {
             </p>
           </section>
 
-          {/* Key Responsibilities */}
+          {/* Professional Experience */}
           <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Key Responsibilities
+              Professional Experience
             </h3>
-            <ul className="space-y-2 text-slate-600 font-light">
-              {keyResponsibilities.map((resp, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-slate-400 mr-3">•</span>
-                  <span className="text-base leading-relaxed">{resp}</span>
+            {professionalExperience.map((exp, idx) => (
+              <div key={idx} className="mb-8">
+                <div className="flex justify-between items-baseline mb-1">
+                  <h4 className="text-xl text-slate-800 font-normal">
+                    {exp.title} – {exp.company}
+                  </h4>
+                  <p className="text-sm text-slate-500 font-light whitespace-nowrap ml-2">
+                    {exp.period}
+                  </p>
+                </div>
+                <p className="text-sm text-slate-500 font-light mb-2">
+                  {exp.location}
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
+                  {exp.highlights.map((highlight, hIdx) => (
+                    <li key={hIdx} className="text-base leading-relaxed">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          {/* Skills & Competencies */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+              Skills & Competencies
+            </h3>
+            <ul className="grid grid-cols-2 gap-4 text-slate-600 font-light list-inside list-disc">
+              {skillsCompetencies.map((skill, idx) => (
+                <li key={idx} className="text-base leading-relaxed">
+                  {skill}
                 </li>
               ))}
             </ul>
           </section>
 
-          {/* Required Skills & Qualifications */}
-          <section className="mb-8">
+          {/* Education */}
+          <section className="mb-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Required Skills & Qualifications
+              Education
+            </h3>
+            {education.map((edu, idx) => (
+              <div key={idx} className="mb-4">
+                <div className="flex justify-between items-baseline mb-1">
+                  <h4 className="text-xl text-slate-800 font-normal">{edu.degree}</h4>
+                  <p className="text-sm text-slate-500 font-light whitespace-nowrap ml-4">{edu.period}</p>
+                </div>
+                <p className="text-base text-slate-600 font-light">{edu.school}</p>
+              </div>
+            ))}
+          </section>
+
+          {/* Languages */}
+          <section className="mb-12">
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+              Languages
             </h3>
             <ul className="space-y-2 text-slate-600 font-light">
-              {requiredSkills.map((skill, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-slate-400 mr-3">•</span>
-                  <span className="text-base leading-relaxed">{skill}</span>
+              {languages.map((lang, idx) => (
+                <li key={idx} className="flex items-center">
+                  <span className="text-lg text-slate-800 font-light">{lang.language}</span>
+                  <span className="text-slate-300 mx-3">•</span>
+                  <span className="text-base text-slate-600 font-light">{lang.level}</span>
                 </li>
               ))}
             </ul>
           </section>
 
-          {/* Preferred Qualifications */}
-          <section className="mb-8">
+          {/* Tools & Certifications */}
+          <section className="mb-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Preferred Qualifications
+              Tools & Certifications
             </h3>
-            <ul className="space-y-2 text-slate-600 font-light">
-              {preferredQualifications.map((qual, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-slate-400 mr-3">•</span>
-                  <span className="text-base leading-relaxed">{qual}</span>
+            <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
+              {toolsCertifications.map((cert, idx) => (
+                <li key={idx} className="text-base leading-relaxed">
+                  {cert}
                 </li>
               ))}
             </ul>
           </section>
 
-          {/* Additional Info */}
+          {/* Additional Information */}
           <section className="border-t border-slate-200 pt-10">
             <h3 className="text-2xl font-light text-slate-900 mb-6">
               Additional Information
             </h3>
             <p className="text-lg text-slate-600 font-light leading-relaxed">
-              This role is available on a full-time or part-time contract basis with remote flexibility.  
-              At micro1, we connect skilled remote professionals with companies in Silicon Valley.  
-              Our partners include Deel, Immutable, O&apos;Gara, and LegalSoft.  
-              Enjoy a stable, competitive income, and unlock top industry opportunities in a flexible work setting.
+              {additionalInfo}
             </p>
           </section>
 
@@ -164,4 +300,4 @@ export default function ResumeAI() {
       </main>
     </div>
   );
-} 
+}
