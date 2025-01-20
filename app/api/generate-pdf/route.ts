@@ -74,6 +74,11 @@ export async function POST(req: NextRequest) {
       return 'en';
     });
 
+    // Set the language on the page before generating the PDF
+    await page.evaluate((currentLang) => {
+      document.documentElement.setAttribute('lang', currentLang);
+    }, currentLang);
+
     // Modify the page to only show the card content
     await page.evaluate(({ jobTitle, currentLang }) => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
