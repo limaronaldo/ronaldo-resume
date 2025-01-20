@@ -53,11 +53,29 @@ export async function POST(req: NextRequest) {
              !titleText.includes('contact.');
     }, { timeout: 15000 });
 
-    // Get language from URL
-    const urlLang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
+    // Get language from document state
+    const currentLang = await page.evaluate(() => {
+      // Try to get language from html attribute
+      const htmlLang = document.documentElement.getAttribute('i18next-lng');
+      if (htmlLang && ['en', 'pt', 'es'].includes(htmlLang)) {
+        return htmlLang;
+      }
+      // Try to get language from cookie
+      const i18nextCookie = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('i18next='));
+      if (i18nextCookie) {
+        const cookieLang = i18nextCookie.split('=')[1];
+        if (['en', 'pt', 'es'].includes(cookieLang)) {
+          return cookieLang;
+        }
+      }
+      // Default to English if no language is detected
+      return 'en';
+    });
 
     // Modify the page to only show the card content
-    await page.evaluate(({ jobTitle, urlLang }) => {
+    await page.evaluate(({ jobTitle, currentLang }) => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
       if (!card) throw new Error('Card content not found');
 
@@ -84,12 +102,12 @@ export async function POST(req: NextRequest) {
           };
           
           // Try to match the first part of the text up to the experience part
-          const pattern = patterns[urlLang as keyof typeof patterns];
+          const pattern = patterns[currentLang as keyof typeof patterns];
           const experienceMatch = summaryText.match(pattern);
           
           if (experienceMatch) {
             const experiencePart = experienceMatch[1];
-            const conjunction = urlLang === 'pt' ? 'com' : urlLang === 'es' ? 'con' : 'with';
+            const conjunction = currentLang === 'pt' ? 'com' : currentLang === 'es' ? 'con' : 'with';
             newText = `${jobTitle} ${conjunction} ${experiencePart}${summaryText.substring(experienceMatch[0].length)}`;
           }
           
@@ -149,7 +167,7 @@ export async function POST(req: NextRequest) {
       document.body.appendChild(wrapper);
 
       return clonedCard.getBoundingClientRect();
-    }, { jobTitle, urlLang });
+    }, { jobTitle, currentLang });
 
     // Generate PDF with the card content only
     const pdf = await page.pdf({
@@ -176,7 +194,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Add language to filename
-    filename = `${filename}-${urlLang}.pdf`;
+    filename = `${filename}-${currentLang}.pdf`;
 
     // Return PDF with appropriate headers
     return new NextResponse(pdf, {
