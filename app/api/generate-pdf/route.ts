@@ -46,8 +46,12 @@ export async function POST(req: NextRequest) {
     await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 10000 });
     await page.waitForFunction(() => {
       const summaryText = document.querySelector('section:first-of-type p')?.textContent;
-      return summaryText && summaryText.length > 0 && !summaryText.includes('sections.');
-    }, { timeout: 5000 });
+      const titleText = document.querySelector('h2')?.textContent;
+      return summaryText && summaryText.length > 0 && 
+             titleText && titleText.length > 0 && 
+             !summaryText.includes('sections.') &&
+             !titleText.includes('contact.');
+    }, { timeout: 10000 });
 
     // Modify the page to only show the card content
     await page.evaluate((jobTitle) => {
@@ -64,23 +68,23 @@ export async function POST(req: NextRequest) {
         // Find and update the professional summary content
         const summaryElement = card.querySelector('section:first-of-type p');
         if (summaryElement && summaryElement.textContent) {
-          // Replace the first sentence to start with the new job title
           const summaryText = summaryElement.textContent;
-          // Match everything from the start until "with" and capture the rest of the sentence
-          const firstSentenceRegex = /^.*?(?:with|com|con)\s*(.*?\.)/;
-          const match = summaryText.match(firstSentenceRegex);
-          const restOfText = summaryText.replace(firstSentenceRegex, '');
           
-          // Get the correct conjunction based on the current language
-          const isPortuguese = document.documentElement.lang === 'pt';
-          const isSpanish = document.documentElement.lang === 'es';
-          const conjunction = isPortuguese ? 'com' : isSpanish ? 'con' : 'with';
+          // Get the current language
+          const lang = document.documentElement.lang || 'en';
           
-          // Create new first sentence with the job title
-          const newFirstSentence = `${jobTitle} ${conjunction} ${match?.[1] || ''}`;
+          // Create a new first sentence with the job title
+          let newText = summaryText;
           
-          // Combine the new first sentence with the rest of the text
-          summaryElement.textContent = newFirstSentence + restOfText;
+          // Try to match the first part of the text up to the experience part
+          const experienceMatch = summaryText.match(/(?:.*?)(?:with|com|con)\s+(.*?(?:years|anos|años).*?\.)/i);
+          if (experienceMatch) {
+            const experiencePart = experienceMatch[1];
+            const conjunction = lang === 'pt' ? 'com' : lang === 'es' ? 'con' : 'with';
+            newText = `${jobTitle} ${conjunction} ${experiencePart}${summaryText.substring(experienceMatch[0].length)}`;
+          }
+          
+          summaryElement.textContent = newText;
         }
       }
 
