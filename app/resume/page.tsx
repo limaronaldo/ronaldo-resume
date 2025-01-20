@@ -1,3 +1,4 @@
+//app/resume/page.tsx
 'use client';
 
 import ResumeCustomizer from '../components/ResumeCustomizer';

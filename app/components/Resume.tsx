@@ -55,53 +55,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
     }
   }, [i18n]);
 
-  const downloadPDF = async () => {
-    try {
-      const currentLanguage = i18n.language || 'en';
-      const baseUrl = window.location.origin;
-      const pdfUrl = `${baseUrl}/resume?lng=${currentLanguage}`;
-
-      const response = await fetch('/api/generate-pdf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          url: pdfUrl,
-          jobTitle: customJobTitle,
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.text();
-        throw new Error(error || 'Failed to generate PDF');
-      }
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      // Include language and job title initials in filename if provided
-      let filename = 'RonaldoLima';
-      if (customJobTitle) {
-        const initials = customJobTitle
-          .split(' ')
-          .map(word => word[0])
-          .join('')
-          .toUpperCase();
-        filename = `${filename}-${initials}`;
-      }
-      a.download = `${filename}-${currentLanguage}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
-    }
-  };
-
   if (!mounted || !ready) {
     return null;
   }
@@ -120,17 +73,6 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
   return (
     <div className={`min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 ${hideControls ? 'pdf-version' : ''}`}>
       <main className="container mx-auto px-4 py-8 max-w-5xl">
-        {!hideControls && (
-          <div className="flex justify-end mb-8">
-            <button
-              onClick={downloadPDF}
-              className="bg-slate-800 text-white px-6 py-2 rounded-lg hover:bg-slate-700 transition-colors"
-            >
-              Download PDF
-            </button>
-          </div>
-        )}
-
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
           {/* Header */}
           <header className="text-center mb-0">

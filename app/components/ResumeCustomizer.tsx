@@ -1,3 +1,4 @@
+//app/components/ResumeCustomizer.tsx
 'use client';
 
 import { useState } from 'react';
@@ -12,14 +13,15 @@ export default function ResumeCustomizer() {
   const downloadPDF = async () => {
     try {
       setIsGenerating(true);
+      const pdfUrl = `${window.location.origin}/resume?lng=${i18n.language}`;
+
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          type: 'resume',
-          url: window.location.href,
+          url: pdfUrl,
           jobTitle,
         }),
       });
