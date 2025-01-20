@@ -81,7 +81,17 @@ export default function Resume({ customJobTitle, hideControls = false }: ResumeP
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `RonaldoLima-${currentLanguage}.pdf`;
+      // Include language and job title initials in filename if provided
+      let filename = 'RonaldoLima';
+      if (customJobTitle) {
+        const initials = customJobTitle
+          .split(' ')
+          .map(word => word[0])
+          .join('')
+          .toUpperCase();
+        filename = `${filename}-${initials}`;
+      }
+      a.download = `${filename}-${currentLanguage}.pdf`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
