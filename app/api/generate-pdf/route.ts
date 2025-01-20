@@ -53,11 +53,11 @@ export async function POST(req: NextRequest) {
              !titleText.includes('contact.');
     }, { timeout: 15000 });
 
-    // Get language from URL before modifying the page
-    const lang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
+    // Get language from URL
+    const urlLang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
 
     // Modify the page to only show the card content
-    await page.evaluate(({ jobTitle, lang }) => {
+    await page.evaluate(({ jobTitle, urlLang }) => {
       const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
       if (!card) throw new Error('Card content not found');
 
@@ -84,12 +84,12 @@ export async function POST(req: NextRequest) {
           };
           
           // Try to match the first part of the text up to the experience part
-          const pattern = patterns[lang as keyof typeof patterns];
+          const pattern = patterns[urlLang as keyof typeof patterns];
           const experienceMatch = summaryText.match(pattern);
           
           if (experienceMatch) {
             const experiencePart = experienceMatch[1];
-            const conjunction = lang === 'pt' ? 'com' : lang === 'es' ? 'con' : 'with';
+            const conjunction = urlLang === 'pt' ? 'com' : urlLang === 'es' ? 'con' : 'with';
             newText = `${jobTitle} ${conjunction} ${experiencePart}${summaryText.substring(experienceMatch[0].length)}`;
           }
           
@@ -149,7 +149,7 @@ export async function POST(req: NextRequest) {
       document.body.appendChild(wrapper);
 
       return clonedCard.getBoundingClientRect();
-    }, { jobTitle, lang });
+    }, { jobTitle, urlLang });
 
     // Generate PDF with the card content only
     const pdf = await page.pdf({
@@ -175,9 +175,8 @@ export async function POST(req: NextRequest) {
       filename = `RonaldoLima-${initials}`;
     }
 
-    // Get language from URL
-    const lang = url.includes('/pt/') ? 'pt' : url.includes('/es/') ? 'es' : 'en';
-    filename = `${filename}-${lang}.pdf`;
+    // Add language to filename
+    filename = `${filename}-${urlLang}.pdf`;
 
     // Return PDF with appropriate headers
     return new NextResponse(pdf, {
