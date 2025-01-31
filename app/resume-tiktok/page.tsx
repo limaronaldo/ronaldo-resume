@@ -1,33 +1,39 @@
-// pages/resume-ai.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
-
-/**
- * This page is based on the structure of Resume.tsx,
- * but customized to display a resume geared toward
- * a "Social Media Content Strategist – AI Trainer" role,
- * using your real professional experience.
- */
 
 export default function ResumeAI() {
   const [mounted, setMounted] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
 
+  // Contact and header info
+  const contactInfo = {
+    name: 'Ronaldo Lima',
+    role: 'Product Marketing Manager',
+    email: 'ronaldomlima@gmail.com',
+    phone: '+55 11 93459-2736',
+    location: 'Alto de Pinheiros, São Paulo, SP',
+  };
+
+  // Handle side effects
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      document.title = 'Social Media Content Strategist - AI Trainer';
+      document.title = contactInfo.role;
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
-        metaDescription.setAttribute('content', 'Resume for Social Media Content Strategist - AI Trainer');
+        metaDescription.setAttribute(
+          'content',
+          `Resume for ${contactInfo.role} – highlighting generative AI and Spanish fluency.`
+        );
       }
     }
-  }, [mounted]);
+  }, [mounted, contactInfo.role]);
 
+  // PDF Download Handler
   const downloadPDF = async () => {
     try {
       setIsGenerating(true);
@@ -37,25 +43,28 @@ export default function ResumeAI() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: `${window.location.origin}/resume-ai`,
+          url: `${window.location.origin}/resume-tiktok`, // Changed from resume-ai to resume-tiktok
           jobTitle: contactInfo.role,
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to generate PDF');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate PDF');
+      }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      
+
       // Create initials from job title
       const initials = contactInfo.role
         .split(' ')
-        .map(word => word[0])
+        .map((word) => word[0])
         .join('')
         .toUpperCase();
-      
+
       a.download = `RonaldoLima-${initials}.pdf`;
       document.body.appendChild(a);
       a.click();
@@ -68,30 +77,14 @@ export default function ResumeAI() {
     }
   };
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
-  // Contact and header info
-  const contactInfo = {
-    name: 'Ronaldo Lima',
-    role: 'Social Media Content Strategist - AI Trainer',
-    email: 'ronaldomlima@gmail.com',
-    phone: '+55 11 93459-2736',
-    location: 'Alto de Pinheiros, São Paulo, SP',
-  };
-
-  // Professional Summary updated to emphasize social media + AI training
+  // Professional Summary: highlight advanced GenAI & Spanish
   const professionalSummary = `
-    Product Marketing Manager with 12+ years of experience in growth marketing, product strategy,
-    and AI-driven solutions. Known for bridging Product, Sales, and Data teams to deliver market-leading
-    campaigns, optimize customer journeys, and drive measurable outcomes. Expert in implementing Large
-    Language Models (LLMs) such as Google Gemini, ChatGPT, Claude, and Meta Llama to streamline social
-    media strategies, reduce acquisition costs, and accelerate conversions. Passionate about mentoring teams,
-    leveraging AI analytics, and crafting high-impact content that resonates in global markets.
-  `;
+I am a Product Marketing Manager and Sales Strategist with professional-level Spanish fluency and a deep background in Generative AI. Having led cross-functional marketing and product teams, I excel at leveraging advanced large language models (ChatGPT, Claude, Google Gemini, etc.) to streamline global marketing strategies, lower acquisition costs, and increase conversion. My experience unites data science, product marketing, and content creation, ensuring that AI-driven initiatives are deployed effectively across diverse channels.
+`;
 
-  // Professional Experience mapped to highlight social media/AI impact
+  // Professional Experience: highlight GenAI achievements
   const professionalExperience = [
     {
       title: 'Growth Product Manager',
@@ -99,9 +92,13 @@ export default function ResumeAI() {
       period: 'Aug 2022 – Present',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Led a digital transformation initiative with Google for Startups support, integrating advanced AI models in key business processes.',
-        'Refined customer journeys alongside Product, Sales, and Data teams—achieving significant improvements in lead quality and conversion rates.',
-        'Implemented LLM-based segmentation strategies to boost retention and upselling opportunities, including social-media-driven outreach.',
+        'Led the integration of cutting-edge LLMs into marketing and sales workflows, enabling personalized campaign optimization at scale.',
+        'Collaborated with Product and Sales teams to refine customer journeys based on AI-powered insights, improving lead quality and conversion rates.',
+        <>
+          Spearheaded prompt-engineering best practices, guiding teams on how to harness{' '}
+          <span className="font-bold underline">Gen AI</span>
+          {' '}for targeted ad copies and audience segmentation.
+        </>,
       ],
     },
     {
@@ -110,9 +107,17 @@ export default function ResumeAI() {
       period: 'Oct 2021 – Present',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Elevated MBRAS brand in the premium real estate market with data-driven content across social media channels and paid platforms (Google Ads, Meta Ads, LinkedIn Ads).',
-        'Unified brand communication across offline and digital mediums, maximizing ROI and engagement among high-value audiences.',
-        'Mentored a high-performance marketing team, fostering experimentation in AI, advanced analytics, and continuous learning—leading to impactful social media campaigns.',
+        'Elevated global brand presence via multilingual content (English & Spanish), resonating with cross-border audiences.',
+        <>
+          Established a robust marketing framework that unifies paid media (Meta, Google, LinkedIn) with{' '}
+          <span className="font-bold underline">generative AI</span>
+          -driven content creation.
+        </>,
+        <>
+          Trained the internal marketing team on{' '}
+          <span className="font-bold underline">Gen AI</span>
+          {' '}adoption, boosting campaign turnaround times and efficiency for international projects.
+        </>,
       ],
     },
     {
@@ -121,11 +126,11 @@ export default function ResumeAI() {
       period: 'Dec 2019 – Nov 2021',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Launched sophisticated email marketing and lead-nurturing funnels, significantly enhancing lead qualification for social campaigns.',
-        'Utilized Python scripts and SQL for A/B testing, funnel analytics, and performance optimization of targeted ads across multiple social channels.',
+        'Built advanced email marketing automations and lead-nurturing funnels, leveraging AI-based A/B testing and analytics to enhance campaign ROI.',
+        'Employed Python scripts, SQL, and generative AI to scale content production, reduce costs, and refine user targeting.',
         'Key Projects:',
-        '• Bebêmax: Drove online sales growth via integrated paid media strategies, social chatbots, and optimized landing pages.',
-        '• Ziro (Vesti): Combined CRM automation, SEO, and strategic partnerships to bolster brand recognition and social media presence.',
+        '• Bebêmax: Drove e-commerce growth with integrated paid media strategies, chatbots, and AI-enhanced landing pages.',
+        '• Ziro (Vesti): Deployed CRM automation and generative AI tools for SEO, content creation, and brand amplification.',
       ],
     },
     {
@@ -134,20 +139,21 @@ export default function ResumeAI() {
       period: '2016 – Dec 2019',
       location: 'Sete Lagoas, Brazil',
       highlights: [
-        'Directed a marketing overhaul to align with a fast-fashion model, tripling the customer base through social media and offline synergy.',
-        'Integrated digital campaigns with physical promotions, significantly improving brand experience and conversion across all customer touchpoints.',
-        'Built a data-focused marketing team that rapidly tested, iterated, and scaled successful social campaigns.',
+        'Rolled out a digital transformation grounded in AI and Spanish-friendly strategies, tripling the customer base in cross-border markets.',
+        'Integrated social media campaigns with retail touchpoints, improving conversions across multilingual channels.',
+        'Formed a data-centric marketing team proficient in AI tools to quickly test, learn, and scale high-converting ad sets.',
       ],
     },
   ];
 
   // Skills & Competencies
   const skillsCompetencies = [
-    'Product Marketing & Go-to-Market Strategy',
-    'Growth Hacking & Conversion Rate Optimization (CRO)',
-    'AI Integration (Google Gemini, ChatGPT, Claude, Meta Llama)',
-    'Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)',
+    'Generative AI Integration (ChatGPT, Claude, Google Gemini, Meta Llama)',
+    'Spanish (Professional) & English (Fluent)',
+    'Prompt Engineering & AI-driven Content Strategy',
+    'Growth Marketing & Conversion Rate Optimization (CRO)',
     'CRM Implementation & Marketing Automation',
+    'Media Buying (Meta Ads, Google Ads, LinkedIn Ads, TikTok Ads)',
     'Full-Stack Development (Python, Node.js, React, Rust, Go)',
     'Data Analytics (SQL, Data Studio, Advanced Excel)',
     'Agile Project Management (Scrum, Jira)',
@@ -168,20 +174,11 @@ export default function ResumeAI() {
     },
   ];
 
-  // Languages
+  // Languages: highlight Spanish
   const languages = [
-    {
-      language: 'Portuguese',
-      level: 'Native',
-    },
-    {
-      language: 'English',
-      level: 'Fluent',
-    },
-    {
-      language: 'Spanish',
-      level: 'Professional',
-    },
+    { language: 'Portuguese', level: 'Native' },
+    { language: 'English', level: 'Fluent' },
+    { language: 'Spanish', level: 'Professional' },
   ];
 
   // Tools & Certifications
@@ -194,15 +191,13 @@ export default function ResumeAI() {
 
   // Additional info describing your interests & availability
   const additionalInfo = `
-    Passionate about leveraging AI and data analytics in marketing, with a strong track record of
-    building cross-functional teams and cultivating stakeholder buy-in. Expert at tying social media
-    content strategies to measurable business outcomes and adopting cutting-edge AI solutions to
-    enhance targeting and engagement.
-  `;
+I’m excited to apply my advanced Generative AI expertise and professional Spanish fluency to elevate brand positioning and customer engagement. From designing AI-enhanced funnels to crafting multilingual campaigns, I ensure businesses stay at the cutting edge of marketing innovation. Let’s collaborate to expand your global reach and outpace the competition through AI-powered strategies.
+`;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="container mx-auto px-4 py-8 max-w-5xl">
+        {/* PDF Download Button */}
         <div className="flex justify-end mb-4">
           <button
             onClick={downloadPDF}
@@ -214,9 +209,9 @@ export default function ResumeAI() {
             {isGenerating ? 'Generating...' : 'Download PDF'}
           </button>
         </div>
-        
-        <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
 
+        {/* Main Resume Card */}
+        <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
           {/* Header */}
           <header className="text-center mb-0">
             <h1 className="text-4xl font-light text-slate-900 mb-2">
@@ -245,11 +240,11 @@ export default function ResumeAI() {
           </header>
 
           {/* Professional Summary */}
-          <section className="mb-8">
-            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+          <section className="mb-2">
+            <h3 className="text-2xl font-light text-slate-900 tracking-wide uppercase mt-4">
               Professional Summary
             </h3>
-            <p className="text-md text-slate-600 font-light leading-relaxed">
+            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line mb-6">
               {professionalSummary}
             </p>
           </section>
@@ -275,7 +270,7 @@ export default function ResumeAI() {
                 <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
                   {exp.highlights.map((highlight, hIdx) => (
                     <li key={hIdx} className="text-base leading-relaxed">
-                      {highlight}
+                      {typeof highlight === 'string' ? highlight : highlight}
                     </li>
                   ))}
                 </ul>
@@ -305,10 +300,16 @@ export default function ResumeAI() {
             {education.map((edu, idx) => (
               <div key={idx} className="mb-4">
                 <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="text-xl text-slate-800 font-normal">{edu.degree}</h4>
-                  <p className="text-sm text-slate-500 font-light whitespace-nowrap ml-4">{edu.period}</p>
+                  <h4 className="text-xl text-slate-800 font-normal">
+                    {edu.degree}
+                  </h4>
+                  <p className="text-sm text-slate-500 font-light whitespace-nowrap ml-4">
+                    {edu.period}
+                  </p>
                 </div>
-                <p className="text-base text-slate-600 font-light">{edu.school}</p>
+                <p className="text-base text-slate-600 font-light">
+                  {edu.school}
+                </p>
               </div>
             ))}
           </section>
@@ -320,10 +321,34 @@ export default function ResumeAI() {
             </h3>
             <ul className="space-y-2 text-slate-600 font-light">
               {languages.map((lang, idx) => (
-                <li key={idx} className="flex items-center">
-                  <span className="text-lg text-slate-800 font-light">{lang.language}</span>
+                <li
+                  key={idx}
+                  className={`flex items-center ${
+                    // Highlight Spanish
+                    lang.language === 'Spanish' ? 'bg-slate-100 p-2 rounded' : ''
+                  }`}
+                >
+                  {/* Language */}
+                  <span
+                    className={
+                      lang.language === 'Spanish'
+                        ? 'font-bold text-xl text-slate-800'
+                        : 'text-slate-800 font-light text-lg'
+                    }
+                  >
+                    {lang.language}
+                  </span>
                   <span className="text-slate-300 mx-3">•</span>
-                  <span className="text-base text-slate-600 font-light">{lang.level}</span>
+                  {/* Level */}
+                  <span
+                    className={
+                      lang.language === 'Spanish'
+                        ? 'font-extrabold text-xl text-slate-800'
+                        : 'text-base text-slate-600 font-light'
+                    }
+                  >
+                    {lang.level}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -352,7 +377,6 @@ export default function ResumeAI() {
               {additionalInfo}
             </p>
           </section>
-
         </div>
       </main>
     </div>

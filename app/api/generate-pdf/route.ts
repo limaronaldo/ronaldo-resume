@@ -1,24 +1,19 @@
 //app/api/generate-pdf/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import puppeteer from 'puppeteer-core';
-import chrome from '@sparticuz/chromium';
+import { NextResponse } from 'next/server';
+import puppeteer from 'puppeteer';
 
 interface GeneratePdfRequest {
   url: string;
   jobTitle?: string;
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   let browser;
   try {
     const { url, jobTitle } = await req.json() as GeneratePdfRequest;
     
-    // Configure Chrome for serverless environment
-    const executablePath = await chrome.executablePath();
-    
     browser = await puppeteer.launch({
       args: [
-        ...chrome.args,
         '--hide-scrollbars',
         '--disable-web-security',
         '--font-render-hinting=none',
@@ -26,7 +21,6 @@ export async function POST(req: NextRequest) {
         '--no-sandbox',
         '--disable-dev-shm-usage'
       ],
-      executablePath,
       headless: true,
       defaultViewport: {
         width: 1200,
@@ -215,4 +209,4 @@ export async function POST(req: NextRequest) {
       await browser.close();
     }
   }
-} 
+}
