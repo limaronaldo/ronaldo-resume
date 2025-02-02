@@ -240,12 +240,12 @@ Estou altamente motivado para continuar impulsionando resultados e inovação no
           </section>
 
           {/* Professional Experience */}
-          <section className="mb-8">
+          <section className="mb-8 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Experiência Profissional
             </h3>
             {professionalExperience.map((exp, idx) => (
-              <div key={idx} className="mb-8">
+              <div key={idx} className="mb-8 pt-2">
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="text-xl text-slate-800 font-normal">
                     {exp.title} – {exp.company}
@@ -269,7 +269,7 @@ Estou altamente motivado para continuar impulsionando resultados e inovação no
           </section>
 
           {/* Skills & Competencies */}
-          <section className="mb-12">
+          <section className="mb-12 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Competências e Habilidades
             </h3>
@@ -283,7 +283,7 @@ Estou altamente motivado para continuar impulsionando resultados e inovação no
           </section>
 
           {/* Education */}
-          <section className="mb-12">
+          <section className="mb-12 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Formação Acadêmica
             </h3>
