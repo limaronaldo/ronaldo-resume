@@ -9,7 +9,7 @@ export default function ResumeAI() {
   // Contact and header info
   const contactInfo = {
     name: 'Ronaldo Lima',
-    role: 'Media & Performance Coordinator',
+    role: 'Marketing Coordinator',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
     location: 'Alto de Pinheiros, São Paulo, SP',
@@ -27,7 +27,7 @@ export default function ResumeAI() {
       if (metaDescription) {
         metaDescription.setAttribute(
           'content',
-          `Resume of ${contactInfo.name} – a Digital Marketing & Growth specialist for SaaS, experienced in paid media, ABM, and B2B global strategies. Fluent in English, proficient in Spanish.`
+          `Resume of ${contactInfo.name} – Marketing Coordinator with expertise in internal communication, content strategy, and cross-functional team leadership. Experience in technology and innovation-driven environments, proficient in English and Spanish.`
         );
       }
     }
@@ -81,21 +81,21 @@ export default function ResumeAI() {
 
   // Professional Summary (English)
   const professionalSummary = `
-Marketing and Growth specialist with over 10 years of experience planning global digital strategies and leading cross-functional teams in technology (SaaS) companies. Skilled at designing data-driven acquisition and retention programs, optimizing ROI, and managing omnichannel campaigns (Google Ads, LinkedIn Ads, Meta, etc.). Adept at Account-Based Marketing (ABM) and advanced segmentation, unifying sales and marketing insights to boost pipeline and conversions for enterprise clients. Fluent in English, proficient in Spanish, with a track record of collaborating across borders to deliver high-impact digital marketing solutions.
+Marketing Coordinator with 10+ years of experience leading internal communication, brand positioning, and digital marketing initiatives in technology-driven environments (SaaS, fintech, and enterprise). Skilled at engaging cross-functional teams and driving organizational culture, while leveraging content creation to highlight technological innovation. Proven track record of delivering high-impact strategies in employee engagement, global event coordination, and change management to foster an inclusive and dynamic work culture. Fluent in English and proficient in Spanish, adept at collaborating in multicultural settings.
 `;
 
   // Professional Experience (English)
   const professionalExperience = [
     {
-      title: 'Head of Marketing & Growth',
+      title: 'Marketing Coordinator',
       company: 'IBVI',
       period: 'Aug 2022 – Present',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Oversee paid media initiatives (Google Ads, LinkedIn Ads, and remarketing channels), driving high-quality B2B lead generation and engagement.',
-        'Implemented ABM-oriented approaches to target and personalize campaigns for key enterprise accounts, improving conversion rates by 25%.',
-        'Coordinated with sales to align lead qualification criteria, integrating CRM data for pipeline optimization and detailed performance reporting.',
-        'Managed multi-million dollar digital marketing budgets, tracking analytics through Google Tag Manager and Data Studio to refine strategies in real time.',
+        'Oversee multi-channel marketing initiatives, including internal communication campaigns and corporate events to drive company-wide engagement.',
+        'Collaborate with Product and HR teams to highlight the company’s innovative projects, ensuring employees understand and embrace new technologies.',
+        'Implemented consistent messaging frameworks that streamlined change management efforts, improving organizational alignment by 30%.',
+        'Led a small global team focusing on both internal and external brand positioning, integrating feedback from cross-located stakeholders.',
       ],
     },
     {
@@ -104,10 +104,10 @@ Marketing and Growth specialist with over 10 years of experience planning global
       period: 'Oct 2021 – Aug 2022',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Led the development of custom playbooks for strategic accounts, applying segmentation and personalization to address multiple decision-makers in large B2B deals.',
-        'Analyzed performance metrics using Google Analytics and HubSpot, ensuring effective funnel management and consistent pipeline growth.',
-        'Collaborated with product and content teams to produce integrated campaigns aligned with the SaaS buyer’s journey, resulting in 40% revenue growth in under a year.',
-        'Drove advanced remarketing initiatives on LinkedIn and Facebook to engage key influencers, enhancing brand awareness and boosting lead nurture efforts.',
+        'Managed corporate branding and events, reinforcing company culture through targeted internal communication channels and organizational workshops.',
+        'Developed content strategies to showcase R&D innovations, increasing employee awareness of new product lines and boosting cross-department collaboration.',
+        'Introduced project management frameworks for large-scale internal initiatives, ensuring synchronized execution across multiple teams.',
+        'Incorporated advanced analytics and feedback loops to measure the effectiveness of internal campaigns, guiding incremental improvements.',
       ],
     },
     {
@@ -116,10 +116,10 @@ Marketing and Growth specialist with over 10 years of experience planning global
       period: 'Dec 2019 – Nov 2021',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Conceptualized data-driven inbound marketing campaigns for a variety of SaaS clients, integrating sales intelligence to optimize remarketing and lead scoring.',
-        'Employed ABM tactics for high-value accounts and developed advanced segmentation strategies for more precise targeting across digital channels.',
-        'Coordinated with technical teams to track engagement metrics (e.g., CTR, CPL, LTV) and refine buyer personas, boosting ROI in performance campaigns.',
-        'Key projects: • Bebêmax: conversion funnel optimization with personalized drip campaigns and automation. • Ziro: multi-channel B2B lead strategy leveraging CRM workflows and analytics tools.',
+        'Rolled out strategic internal communication programs to accompany product launches, aligning teams on core messages and technical innovations.',
+        'Coordinated branding updates, from messaging to visual identity, fostering a unified, innovation-centric corporate culture.',
+        'Spearheaded efforts to integrate communication channels (email, intranet, Slack) and measure engagement metrics, leading to a 20% increase in participation.',
+        'Supported cross-department knowledge-sharing sessions, highlighting technology-forward solutions and sustaining a learning-focused environment.',
       ],
     },
     {
@@ -128,25 +128,25 @@ Marketing and Growth specialist with over 10 years of experience planning global
       period: '2016 – Dec 2019',
       location: 'Sete Lagoas, Brazil',
       highlights: [
-        'Ran full-funnel campaigns focusing on customer acquisition and retention, using Facebook Ads and Google Ads to expand audience reach by 20%.',
-        'Partnered with sales on content roadmaps and account-based outreach, enhancing lead-to-opportunity conversions and sales alignment.',
-        'Led a multidisciplinary team of 10, establishing KPIs and advanced reporting processes to optimize marketing spend.',
+        'Oversaw internal and external branding strategies, executing campaigns to enhance corporate identity and spark employee involvement.',
+        'Promoted synergy between Marketing and Operations teams through interactive events and targeted communication, boosting collaboration by 25%.',
+        'Introduced new digital channels for workplace engagement, significantly improving the reach of cultural and training initiatives.',
       ],
     },
   ];
 
   // Skills & Competencies (English)
   const skillsCompetencies = [
-    'Paid Media Management (Google Ads, LinkedIn Ads, Facebook Ads)',
-    'Account-Based Marketing (ABM) for Large B2B Accounts',
-    'Advanced Segmentation, Personalization & Remarketing',
-    'Data Analytics & Reporting (Google Analytics, Tag Manager, BI Tools)',
-    'Marketing Automation & CRM Integration (HubSpot, Salesforce)',
-    'Budget Planning & ROI Optimization for Performance Campaigns',
-    'Collaboration with Sales, Content & Product Teams',
-    'Multi-Channel Acquisition & Lead Nurturing (Inbound + Outbound)',
+    'Internal Communication & Corporate Events Coordination',
+    'Strategic Content Creation Focused on Technology & Innovation',
+    'Change Management & Organizational Culture Building',
+    'Leadership of Cross-Functional & Multicultural Teams',
+    'Paid Media & Demand Generation (Google Ads, LinkedIn Ads)',
+    'ABM and Advanced Segmentation for B2B Markets',
+    'Data Analytics & Reporting (GA, Tag Manager, BI Tools)',
+    'Marketing Automation & CRM (HubSpot, Salesforce)',
     'Fluent in English, Proficient in Spanish',
-    'Knowledge of SEO & SEM Strategies (Nice to Have)',
+    'Collaboration with Sales, HR & Product Teams',
   ];
 
   // Education (English)
@@ -176,15 +176,16 @@ Marketing and Growth specialist with over 10 years of experience planning global
     'Google Ads Search Certification',
     'SEO & Inbound Marketing (Various Certifications)',
     'Advanced SQL (LinkedIn Learning)',
+    'Corporate Communication Tools (Teams, Slack, Intranet Platforms)',
     'Experience with Jira, Git, CI/CD, and AI Platforms',
   ];
 
   // Additional Information (English)
   const additionalInfo = `
-• Skilled in creating holistic digital strategies that integrate ABM, inbound marketing, and automation, ensuring seamless collaboration between marketing and sales.
-• Adept at converting data into actionable insights, managing multi-channel budgets, and adapting quickly to evolving market trends.
-• Passionate about empowering teams to innovate, while driving high-impact campaigns aligned with business objectives and the customer journey.
-• Open to remote or hybrid work, with experience leading international teams and coordinating cross-functional projects in fast-paced environments.
+• Passionate about cultivating inclusive, tech-savvy workplaces through clear communication, corporate events, and effective knowledge sharing.
+• Adept at engaging diverse teams, ensuring that each member understands and embraces the organization's evolving vision and technological breakthroughs.
+• Track record in driving brand awareness both internally and externally, aligning marketing objectives with broader company culture.
+• Open to global or remote roles; experienced in leading multicultural projects and overseeing communication initiatives across multiple time zones.
 `;
 
   return (
