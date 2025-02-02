@@ -86,9 +86,9 @@ export async function POST(req: Request) {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '10px',
+        top: '20px',
         right: '10px',
-        bottom: '10px',
+        bottom: '20px',
         left: '10px',
       },
     });

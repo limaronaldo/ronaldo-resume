@@ -81,7 +81,7 @@ export default function ResumeAI() {
 
   // Professional Summary (in Portuguese, emphasizing contábil software + leadership)
   const professionalSummary = `
-Profissional de Marketing e Growth com mais de 10 anos de experiência, especialista em liderar equipes e estratégias de marketing voltadas para o segmento de software B2B. Tenho forte atuação em geração de demanda, inbound marketing, marketing de performance (Google Ads, LinkedIn Ads, etc.) e integração com vendas para aumentar ticket médio e taxa de conversão. Sou fluente em Inglês e possuo vasta experiência em Inteligência Artificial Generativa, utilizando modelos de última geração (ChatGPT, Claude, Google Gemini, Deepseek) para acelerar produção de conteúdo, otimizar campanhas e melhorar a tomada de decisão de negócios.
+Profissional de Marketing e Growth com mais de 10 anos de experiência em liderar equipes e estratégias de marketing para o segmento de software B2B. Atuação em geração de demanda, inbound marketing, marketing de performance (Google Ads, LinkedIn Ads, etc.) e integração com vendas para aumentar ticket médio e taxa de conversão. Possuo experiência em Inteligência Artificial Generativa, utilizando modelos de última geração (ChatGPT, Claude, Google Gemini, Deepseek) para acelerar produção de conteúdo, otimizar campanhas e melhorar a tomada de decisão.
 `;
 
   // Professional Experience (adapted to highlight contábil software and leadership)
@@ -231,21 +231,21 @@ Estou altamente motivado para continuar impulsionando resultados e inovação no
 
           {/* Professional Summary */}
           <section className="mb-2">
-            <h3 className="text-2xl font-light text-slate-900 tracking-wide uppercase mt-4">
+            <h3 className="text-2xl font-light text-slate-900 tracking-wide uppercase mt-2">
               Resumo Profissional
             </h3>
-            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line mb-6">
+            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line mb-2">
               {professionalSummary}
             </p>
           </section>
 
           {/* Professional Experience */}
-          <section className="mb-8 pt-4">
-            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+          <section className="mb-1 pt-2">
+            <h3 className="text-2xl font-light text-slate-900 mb-2 tracking-wide uppercase">
               Experiência Profissional
             </h3>
             {professionalExperience.map((exp, idx) => (
-              <div key={idx} className="mb-8 pt-2">
+              <div key={idx} className="mb-6 pt-2">
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="text-xl text-slate-800 font-normal">
                     {exp.title} – {exp.company}
@@ -288,7 +288,7 @@ Estou altamente motivado para continuar impulsionando resultados e inovação no
               Formação Acadêmica
             </h3>
             {education.map((edu, idx) => (
-              <div key={idx} className="mb-4">
+              <div key={idx} className="mb-2">
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="text-xl text-slate-800 font-normal">
                     {edu.degree}
