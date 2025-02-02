@@ -43,7 +43,7 @@ export default function ResumeAI() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: `${window.location.origin}/omie`,
+          url: `${window.location.origin}${window.location.pathname}`,
           jobTitle: contactInfo.role,
         }),
       });
@@ -81,7 +81,7 @@ export default function ResumeAI() {
 
   // Professional Summary (English)
   const professionalSummary = `
-Marketing and Growth professional with over 10 years of experience planning global digital strategies and managing teams in technology (SaaS) companies. Strong ability to define KPIs, measure ROI, and optimize budgets for customer acquisition and retention. Familiar with marketing for streaming solutions (OTT/IPTV), as well as mobile and web applications. Experienced in user behavior analysis, advanced segmentation, and marketing automation, including the integration of tools like Google Analytics, HubSpot, and Generative AI models (ChatGPT, Claude, Google Gemini). Fluent in English, proficient in Spanish, and with international exposure, enabling efficient cross-border projects and team collaboration.
+Marketing professional with over 10 years of experience planning digital strategies and managing teams in technology companies. Strong ability to define KPIs, measure ROI, and optimize budgets for customer acquisition and retention. Familiar with marketing for streaming solutions, as well as mobile and web applications. Experienced in user behavior analysis, advanced segmentation, and marketing automation, including the integration of tools like Google Analytics, HubSpot, and Generative AI models (ChatGPT, Claude, Google Gemini). Fluent in English, proficient in Spanish, and with international exposure, enabling efficient cross-border projects and team collaboration.
 `;
 
   // Professional Experience (English)
@@ -248,7 +248,7 @@ Marketing and Growth professional with over 10 years of experience planning glob
               Professional Experience
             </h3>
             {professionalExperience.map((exp, idx) => (
-              <div key={idx} className="mb-6 pt-2">
+              <div key={idx} className="mb-4 pt-2">
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="text-xl text-slate-800 font-normal">
                     {exp.title} – {exp.company}
@@ -272,7 +272,7 @@ Marketing and Growth professional with over 10 years of experience planning glob
           </section>
 
           {/* Skills & Competencies */}
-          <section className="mb-12 pt-4">
+          <section className="mb-6 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Skills & Competencies
             </h3>
@@ -286,7 +286,7 @@ Marketing and Growth professional with over 10 years of experience planning glob
           </section>
 
           {/* Education */}
-          <section className="mb-12 pt-4">
+          <section className="mb-8 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Education
             </h3>
@@ -308,7 +308,7 @@ Marketing and Growth professional with over 10 years of experience planning glob
           </section>
 
           {/* Languages */}
-          <section className="mb-12">
+          <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Languages
             </h3>
@@ -328,8 +328,8 @@ Marketing and Growth professional with over 10 years of experience planning glob
           </section>
 
           {/* Tools & Certifications */}
-          <section className="mb-12">
-            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+          <section className="mb-6">
+            <h3 className="text-2xl font-light text-slate-900 mb-2 tracking-wide uppercase">
               Tools & Certifications
             </h3>
             <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
@@ -342,11 +342,11 @@ Marketing and Growth professional with over 10 years of experience planning glob
           </section>
 
           {/* Additional Information */}
-          <section className="border-t border-slate-200 pt-10">
-            <h3 className="text-2xl font-light text-slate-900 mb-6">
+          <section className="border-t border-slate-200 pt-2">
+            <h3 className="text-2xl font-light text-slate-900 mb-2">
               Additional Information
             </h3>
-            <p className="text-lg text-slate-600 font-light leading-relaxed whitespace-pre-line">
+            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line">
               {additionalInfo}
             </p>
           </section>

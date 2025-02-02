@@ -43,7 +43,7 @@ export default function ResumeAI() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: `${window.location.origin}/omie`,  // Changed from resume-tiktok to omie
+          url: `${window.location.origin}${window.location.pathname}`,  // Makes URL dynamic based on current path
           jobTitle: contactInfo.role,
         }),
       });
