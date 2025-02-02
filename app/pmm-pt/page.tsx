@@ -93,7 +93,6 @@ const education = [
 const languages = [
   { language: 'Português', level: 'Nativo' },
   { language: 'Inglês', level: 'Fluente (Estudo e Experiência Internacional)' },
-  { language: 'Espanhol', level: 'Proficiência Profissional' },
 ];
 
 const toolsCertifications = [
@@ -102,7 +101,6 @@ const toolsCertifications = [
   'SEO e Inbound Marketing (Diversas Certificações)',
   'SQL Avançado (LinkedIn Learning)',
   'Experiência com plataformas e APIs de IA (OpenAI, Azure Cognitive, Vertex AI)',
-  'Software de Marketing HubSpot',
   'Certificado em Google Analytics',
   'Familiaridade com Python e bibliotecas de Machine Learning',
 ];
@@ -261,11 +259,11 @@ export default function ResumeAI() {
           </section>
 
           {/* Competências e Habilidades */}
-          <section className="mb-6 pt-4">
+          <section className="mb-4 pt-2">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Competências e Habilidades
             </h3>
-            <ul className="grid grid-cols-2 gap-4 text-slate-600 font-light list-inside list-disc">
+            <ul className="grid grid-cols-2 gap-2 text-slate-600 font-light list-inside list-disc">
               {skillsCompetencies.map((skill, idx) => (
                 <li key={idx} className="text-base leading-relaxed">
                   {skill}
@@ -332,7 +330,7 @@ export default function ResumeAI() {
 
           {/* Informações Adicionais */}
           <section className="border-t border-slate-200 pt-2">
-            <h3 className="text-2xl font-light text-slate-900 mb-2">
+            <h3 className="text-2xl font-light text-slate-900 mb-0">
               Informações Adicionais
             </h3>
             <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line">
