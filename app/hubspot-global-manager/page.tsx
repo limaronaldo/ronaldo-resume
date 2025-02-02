@@ -9,7 +9,7 @@ export default function ResumeAI() {
   // Contact and header info
   const contactInfo = {
     name: 'Ronaldo Lima',
-    role: 'Global HubSpot Manager',
+    role: 'Product Manager',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
     location: 'Alto de Pinheiros, São Paulo, SP',
@@ -27,7 +27,7 @@ export default function ResumeAI() {
       if (metaDescription) {
         metaDescription.setAttribute(
           'content',
-          `Resume of ${contactInfo.name} – an experienced ${contactInfo.role} specializing in CRM automation, integration oversight, and data-driven process optimization.`
+          `Resume of ${contactInfo.name} – an experienced Product Marketing Manager specialized in translating complex solutions into clear, data-driven messaging for global market success.`
         );
       }
     }
@@ -81,73 +81,72 @@ export default function ResumeAI() {
 
   // Professional Summary
   const professionalSummary = `
-Global HubSpot Manager with over 5 years of experience optimizing end-to-end CRM implementations. Adept at analyzing data, devising marketing automation solutions, and aligning cross-functional teams to achieve impactful results. Skilled in building scalable workflows, improving data quality, and delivering user-friendly processes that elevate business outcomes for international markets.
+Dynamic Product Manager with over 10 years of experience shaping product narratives, refining global go-to-market strategies, and leveraging CRM platforms to drive sustainable growth. Adept at bridging technical roadmaps and customer needs, I specialize in automated campaign management and data analysis to boost brand engagement and revenue. Skilled at collaborating with cross-functional teams—product, sales, and analytics—to optimize marketing funnels and elevate customer experiences.
 `;
 
   // Professional Experience
   const professionalExperience = [
     {
-      title: 'Global HubSpot Manager',
-      company: 'Base.com',
+      title: 'Product Marketing Manager',
+      company: 'IBVI',
       period: 'Aug 2022 – Present',
-      location: 'São Paulo, Brazil (Remote Collaboration)',
+      location: 'São Paulo, Brazil',
       highlights: [
-        'Oversee HubSpot implementation across multiple markets, ensuring platform integrity and security.',
-        'Collaborate with marketing and sales to streamline cross-channel campaigns, boosting customer engagement.',
-        'Design and automate crucial processes, reducing manual tasks by 40% and improving data accuracy.',
-        'Optimize integrations (1300+ global partners) with emphasis on Amazon, eBay, Etsy, and Shopify.',
-        'Track new HubSpot features, propose data-driven process improvements, and introduce innovative solutions.',
+        'Developed strategic multi-market launch plans for digital credit solutions, aligning messaging with evolving regional compliance and global business requirements.',
+        'Implemented CRM-driven automation (including HubSpot integration) to enhance tracking of lead conversions, improving campaign efficiency by 30%.',
+        'Coordinated with sales and analytics teams to align product positioning based on performance data and market feedback.',
+        'Leveraged CPC, CPA, CTR, and ROI metrics to refine targeted ad strategies—consistently improving cost-effectiveness and quarterly revenue.',
       ],
     },
     {
-      title: 'Marketing Automation Specialist',
-      company: 'MCloud Solutions',
+      title: 'Marketing Manager',
+      company: 'MBRAS',
       period: 'Oct 2021 – Aug 2022',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Led a CRM overhaul project focusing on HubSpot’s automation capabilities to enhance lead nurturing.',
-        'Established cross-functional procedures to align marketing with product teams on key strategic initiatives.',
-        'Improved data consistency across all client-facing channels by implementing robust validation rules.',
-        'Trained over 60 team members on HubSpot best practices and data-driven reporting techniques.',
+        'Introduced integrated marketing programs with a focus on automated customer journeys, boosting conversion rates by 40% across multiple digital channels.',
+        'Enhanced multi-channel messaging using advanced segmentation; optimized workflows for email, social, and in-app promotions.',
+        'Developed cross-functional playbooks, ensuring product, sales, and marketing synergy from concept through deployment.',
+        'Implemented ongoing A/B tests that uncovered critical user behaviors, enabling iterative improvements in acquisition funnels.',
       ],
     },
     {
-      title: 'CRM & Data Coordinator',
-      company: 'BloomX Digital',
+      title: 'Marketing Coordinator',
+      company: 'ConnectAD',
       period: 'Dec 2019 – Nov 2021',
       location: 'São Paulo, Brazil',
       highlights: [
-        'Developed advanced segmentation strategies, increasing conversion rates by 25%.',
-        'Collaborated with marketing leads to refine customer journeys, focusing on both automated and manual touchpoints.',
-        'Enhanced reporting dashboards, enabling real-time insights into marketing campaign performance.',
-        'Pioneered efficient user onboarding flows in HubSpot to boost adoption of new product lines.',
+        'Supported the creation of data-centric campaigns that underscored product benefits and differentiated brand positioning within a competitive space.',
+        'Worked closely with product teams to integrate user feedback into messaging strategies, enhancing pipeline accuracy and customer retention.',
+        'Spearheaded segmentation and nurture campaigns, driving a noticeable lift in high-quality leads and converting them to loyal users.',
+        'Key projects: • Bebêmax – established consistent messaging across multi-channel platforms. • Ziro – boosted ROI by employing targeted segmentation and progressive profiling.',
       ],
     },
     {
-      title: 'Junior CRM Associate',
-      company: 'NovaPrime Marketing',
+      title: 'Marketing Coordinator',
+      company: 'Viva Linda',
       period: '2016 – Dec 2019',
       location: 'Sete Lagoas, Brazil',
       highlights: [
-        'Assisted in HubSpot configurations for regional clients, standardizing lead management processes.',
-        'Managed multi-channel engagement campaigns, ensuring consistent and targeted communications.',
-        'Partnered with sales teams to integrate qualitative feedback into CRM strategies.',
+        'Managed end-to-end marketing initiatives, streamlining multi-channel communication and increasing overall user engagement by 20%.',
+        'Partnered with internal sales teams to ensure transparent alignment of marketing efforts with core product advantages.',
+        'Leveraged analytics and performance indicators to continuously iterate on campaign tactics, driving measurable growth in local and regional markets.',
       ],
     },
   ];
 
   // Skills & Competencies
   const skillsCompetencies = [
-    'HubSpot Administration & Process Automation',
-    'CRM Optimization & Integration (Salesforce, Magento, Shopify)',
-    'Data Analysis & Reporting (KPIs, CRM Metrics, ROI)',
-    'User Onboarding & Training Programs',
-    'Multi-Market Implementation & Best Practices',
-    'Marketing Automation & Lead Management',
-    'Cross-functional Collaboration (Sales, Marketing, IT)',
-    'Excellent Organization & Self-Management',
-    'Fluent in English (C1+), Proactive Problem-Solving Mindset',
-    'Outstanding Communication & Stakeholder Alignment',
+    'Product Marketing Strategy & Go-to-Market Execution',
+    'CRM & Marketing Automation (HubSpot, Salesforce)',
+    'Multi-Market Campaign Oversight & Localization',
+    'Performance Marketing Optimization (Google Ads, Facebook Ads, LinkedIn Ads)',
+    'Data Analytics & Reporting (CPC, CPA, CTR, ROI)',
+    'Cross-functional Collaboration & Stakeholder Engagement',
+    'Market Research & Competitive Analysis',
+    'Process Design & Self-Management',
+    'Fluent in English (C1+), Proficient in Spanish',
+    'Understanding of Fintech & Credit Markets',
   ];
 
   // Education
@@ -167,27 +166,27 @@ Global HubSpot Manager with over 5 years of experience optimizing end-to-end CRM
   // Languages
   const languages = [
     { language: 'Portuguese', level: 'Native' },
-    { language: 'English', level: 'Fluent (C1+)' },
+    { language: 'English', level: 'Fluent (International Study & Experience)' },
     { language: 'Spanish', level: 'Professional Proficiency' },
   ];
 
   // Tools & Certifications
   const toolsCertifications = [
-    'HubSpot Marketing Software Certification',
     'Professional Scrum Master I (Scrum.org)',
+    'HubSpot Marketing Software & Automation',
+    'Google Ads Search Certification',
+    'SEO & Inbound Marketing (Various Certifications)',
     'Google Analytics Certified',
     'Advanced SQL (LinkedIn Learning)',
-    'Inbound Marketing & CRM Strategy (Various Trainings)',
     'Experience with Jira, Git, CI/CD, and AI Platforms',
-    'Data Management & Security (GDPR, ISO concepts)',
   ];
 
   // Additional Information
   const additionalInfo = `
-• Deep understanding of marketing automation and CRM best practices, with a strong emphasis on data integrity.
-• Hands-on experience in user account management, multi-channel platform integrations, and global Enterprise contracts.
-• Passionate about driving scalable solutions that align technical capabilities with strategic business goals.
-• Proven ability to communicate complex processes in clear, actionable terms to diverse, cross-functional teams.
+• Adept at orchestrating data-driven marketing campaigns, leveraging CRM tools for workflow automation and multi-market outreach.
+• Proven record of scaling product adoption through strategic segmentation, performance optimization, and interactive marketing strategies.
+• Skilled in combining quantitative insights and direct customer feedback to refine product positioning and enhance conversion rates.
+• Passionate about fostering cross-functional alignment and driving measurable outcomes that support long-term business goals.
 `;
 
   return (
