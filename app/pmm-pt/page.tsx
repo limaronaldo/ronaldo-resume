@@ -9,7 +9,7 @@ export default function ResumeAI() {
   // Informações de contato e cabeçalho
   const contactInfo = {
     name: 'Ronaldo Lima',
-    role: 'Product Marketing Manager',
+    role: 'Gerente de Marketing de Produto',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
     location: 'Alto de Pinheiros, São Paulo, SP',
@@ -92,22 +92,22 @@ Gerente de Marketing de Produto dinâmico com mais de 10 anos de experiência el
       period: 'Ago 2022 – Presente',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Liderou estratégias de entrada no mercado para soluções de crédito inovadoras, alinhando o posicionamento do produto às tendências de mercado em evolução.',
-        'Otimizou campanhas de marketing de performance no Google Ads, LinkedIn Ads e Facebook Ads — aumentando a aquisição de usuários em 25%.',
-        'Colaborou com as equipes de produto, vendas e análise para refinar mensagens-chave e ajustar táticas de campanha com base em dados de desempenho.',
-        'Utilizou insights detalhados de métricas (CPC, CPA, CTR, ROI) para melhorar continuamente os resultados das campanhas e atingir metas de receita.',
+        'Lidero estratégias de entrada no mercado para soluções de crédito inovadoras, alinhando o posicionamento do produto às tendências de mercado em evolução.',
+        'Otimizo campanhas de marketing de performance no Google Ads, LinkedIn Ads e Facebook Ads — aumentando a aquisição de usuários em 25%.',
+        'Colaboro com as equipes de produto, vendas e análise para refinar mensagens-chave e ajustar táticas de campanha com base em dados de desempenho.',
+        'Utilizo insights detalhados de métricas (CPC, CPA, CTR, ROI) para melhorar continuamente os resultados das campanhas e atingir metas de receita.',
       ],
     },
     {
       title: 'Gerente de Marketing',
       company: 'MBRAS',
-      period: 'Out 2021 – Ago 2022',
+      period: 'Out 2021 – Presente',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Desenvolveu estratégias de marketing integradas que enfatizavam o posicionamento competitivo do produto e propostas de valor claras.',
-        'Utilizou análises avançadas e segmentação de mercado para otimizar campanhas digitais, resultando em um aumento de 40% nas taxas de conversão.',
-        'Coordenou manuais de lançamento de produto entre equipes multifuncionais, garantindo mensagens coesas do planejamento à execução.',
-        'Aprimorou o engajamento multicanal por meio de mensagens direcionadas e ajustes focados no desempenho.',
+        'Desenvolvi estratégias de marketing integradas que enfatizavam o posicionamento competitivo do produto e propostas de valor claras.',
+        'Utilizei análises avançadas e segmentação de mercado para otimizar campanhas digitais, resultando em um aumento de 40% nas taxas de conversão.',
+        'Coordenei manuais de lançamento de produto entre equipes multifuncionais, garantindo mensagens coesas do planejamento à execução.',
+        'Aprimorei o engajamento multicanal por meio de mensagens direcionadas e ajustes focados no desempenho.',
       ],
     },
     {
@@ -116,10 +116,10 @@ Gerente de Marketing de Produto dinâmico com mais de 10 anos de experiência el
       period: 'Dez 2019 – Nov 2021',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Apoiou a criação de campanhas orientadas por dados que destacaram os benefícios do produto e a diferenciação no mercado.',
-        'Trabalhou em estreita colaboração com as equipes de produto para integrar o feedback dos clientes nas estratégias de marketing, refinando as mensagens das campanhas.',
-        'Implementou iniciativas digitais direcionadas utilizando segmentação avançada para aumentar a geração de leads e conversões.',
-        'Projetos-chave: • Bebêmax – otimizou as mensagens do produto em canais digitais. • Ziro – melhorou o desempenho das campanhas por meio de segmentação precisa do público.',
+        'Apoiei a criação de campanhas orientadas por dados que destacaram os benefícios do produto e a diferenciação no mercado.',
+        'Trabalhei em estreita colaboração com as equipes de produto para integrar o feedback dos clientes nas estratégias de marketing, refinando as mensagens das campanhas.',
+        'Implementei iniciativas digitais direcionadas utilizando segmentação avançada para aumentar a geração de leads e conversões.',
+        'Projetos-chave: • Bebêmax – otimizei as mensagens do produto em canais digitais. • Ziro – melhorei o desempenho das campanhas por meio de segmentação precisa do público.',
       ],
     },
     {
@@ -128,9 +128,9 @@ Gerente de Marketing de Produto dinâmico com mais de 10 anos de experiência el
       period: '2016 – Dez 2019',
       location: 'Sete Lagoas, Brasil',
       highlights: [
-        'Gerenciou campanhas de marketing abrangentes focadas em aumentar o reconhecimento do produto e impulsionar a aquisição de usuários.',
-        'Colaborou com as equipes de vendas para garantir que as comunicações de marketing transmitissem claramente os benefícios do produto.',
-        'Supervisionou esforços de publicidade multicanal que aumentaram o alcance de mercado e o engajamento em 20%.',
+        'Gerenciei campanhas de marketing abrangentes focadas em aumentar o reconhecimento do produto e impulsionar a aquisição de usuários.',
+        'Colaborei com as equipes de vendas para garantir que as comunicações de marketing transmitissem claramente os benefícios do produto.',
+        'Supervisionei esforços de publicidade multicanal que aumentaram o alcance de mercado e o engajamento em 20%.',
       ],
     },
   ];
