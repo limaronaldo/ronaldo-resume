@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 export default function ResumeAI() {
@@ -9,10 +7,10 @@ export default function ResumeAI() {
   // Informações de contato e cabeçalho
   const contactInfo = {
     name: 'Ronaldo Lima',
-    role: 'Gerente de Marketing - CRM & Mídia',  // Changed "–" to "-"
+    role: 'Product Manager',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
-    location: 'Alto de Pinheiros, São Paulo, SP',
+    location: 'São Paulo, SP - Brasil',
   };
 
   // Lida com efeitos colaterais
@@ -27,7 +25,7 @@ export default function ResumeAI() {
       if (metaDescription) {
         metaDescription.setAttribute(
           'content',
-          `Currículo de ${contactInfo.name} – um experiente profissional de Marketing, com foco em CRM, Mídia e estratégias multicanais para gerar crescimento e retenção no e-commerce.`
+          `Currículo de ${contactInfo.name} – Profissional de Produto com experiência em e-commerce, logística e integração de equipes de desenvolvimento.`
         );
       }
     }
@@ -79,23 +77,23 @@ export default function ResumeAI() {
 
   if (!mounted) return null;
 
-  // Resumo Profissional (atualizado para enfatizar CRM, Mídia e E-commerce)
+  // Resumo Profissional
   const professionalSummary = `
-Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focado em criar estratégias integradas para todo o funil de marketing — desde brand awareness até retenção. Especialista em desenvolver réguas de relacionamento, aprovar planos de mídia 360º e liderar equipes de alta performance. Vasto conhecimento em análise de dados, pesquisas de mercado e otimização de campanhas, garantindo resultados tangíveis em aquisição e fidelização de clientes. Hábil em trabalhar de forma colaborativa com times locais e globais para adaptar comunicações e processos, assegurando que a experiência do consumidor brasileiro seja relevante, inovadora e escalável.
+Product Manager com mais de 10 anos de experiência na convergência entre negócios, tecnologia e experiência do usuário. Durante minha trajetória, atuei no planejamento de soluções end-to-end em diversos setores, incluindo e-commerce, fintech e vendas B2B. Sou apaixonado por identificar oportunidades de melhoria em sistemas logísticos e criar roadmaps que equilibrem necessidades dos usuários, metas de negócio e requisitos regulatórios. Tenho forte habilidade de colaboração em equipes multidisciplinares, conduzindo descobertas (Discovery) e entregas (Delivery) de produtos de forma ágil. Busco constantemente otimizar processos para gerar impacto real na vida de milhões de usuários.
 `;
 
-  // Experiência Profissional (com ênfase em CRM, mídia, liderança de equipe, e-commerce)
+  // Experiência Profissional
   const professionalExperience = [
     {
-      title: 'Gerente de Marketing – CRM & Mídia',
+      title: 'Product Manager',
       company: 'IBVI',
       period: 'Ago 2022 – Presente',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Desenvolvo e aprovo planos de mídia, do estratégico ao tático, abrangendo canais digitais (Google Ads, Facebook, LinkedIn) e offline para maximizar awareness e conversão.',
-        'Estruturei réguas de relacionamento para campanhas de retenção e remarketing, aumentando em 30% as vendas recorrentes em canais de e-commerce.',
-        'Lidero uma equipe multifuncional de 8 pessoas (analistas de CRM, mídia e conteúdo), definindo metas claras e garantindo um ambiente de alta performance e colaboração.',
-        'Coordeno relatórios de desempenho e apresentações para stakeholders internos e globais, orientando decisões de negócio baseadas em dados de ROI e CAC.',
+        'Gerencio backlog e roadmaps para plataformas de crédito e pagamento, alinhando requisitos de negócio às necessidades de usuários e parceiros.',
+        'Lidero iniciativas de discovery para novas funcionalidades, coordenando entrevistas com stakeholders e análises de dados para priorizar o desenvolvimento.',
+        'Colaboro com equipes de engenharia, design e marketing para garantir entregas de alta qualidade e cumprir metas de tempo e orçamento.',
+        'Implementei métricas de produto (OKRs e KPIs) para mensurar adesão e satisfação do usuário, resultando em um aumento de 20% na adoção de novas features.',
       ],
     },
     {
@@ -104,22 +102,22 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
       period: 'Out 2021 – Presente',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Planejei estratégias de mídia e coordenei réguas de CRM que resultaram em um aumento de 35% na retenção de clientes no canal online.',
-        'Trabalhei ativamente com times globais para adaptar campanhas de produto ao mercado brasileiro, mantendo a consistência de marca e linguagem local.',
-        'Estruturei relatórios analíticos para mapear todo o funil do cliente (awareness, consideração, conversão), otimizando investimentos com foco em retorno sobre gasto publicitário (ROAS).',
-        'Implementei iniciativas para fomentar a inovação, buscando soluções de automação e análise avançada de dados para impulsionar o crescimento sustentado.',
+        'Desenvolvi estratégias multicanais para produtos financeiros e soluções de pagamento, incluindo criação de user stories e interface com equipes de desenvolvimento.',
+        'Atuei em projetos de integração de sistemas de logística (vendas e fulfillment), contribuindo para reduzir tempo de entrega e melhorar a experiência dos vendedores.',
+        'Negociei prioridades e roadmap com stakeholders internos, equilibrando metas de venda, viabilidade técnica e feedback de usuários para otimizar processos.',
+        'Utilizei abordagem ágil para gerenciar sprints, definindo critérios de aceite e garantindo transparência sobre o progresso das iniciativas para toda a organização.',
       ],
     },
     {
-      title: 'Coordenador de Marketing – Foco em CRM',
+      title: 'Coordenador de Marketing',
       company: 'ConnectAD',
       period: 'Dez 2019 – Nov 2021',
       location: 'São Paulo, Brasil',
       highlights: [
-        'Gerenciei o desenvolvimento e implementação de estratégias de CRM, segmentando públicos em diferentes estágios de compra para aumentar engajamento e receita.',
-        'Liderei a equipe de marketing na criação de comunicações personalizadas, promovendo campanhas de retenção que elevaram as taxas de recompra em 25%.',
-        'Atuei em parceria com áreas de produto, vendas e análise para estruturar réguas de relacionamento e comunicações omnichannel (e-mail, SMS e push notifications).',
-        'Foquei em dados para embasar decisões, definindo KPIs como LTV (Lifetime Value) e CAC (Custo de Aquisição de Cliente), e apresentando resultados para a diretoria.',
+        'Coordenei squads de desenvolvimento focadas em melhorias de usabilidade, incrementando a satisfação dos clientes em 15%, segundo pesquisas de NPS.',
+        'Defini KPIs de performance (CPC, ROI, engajamento) para embasar decisões de priorização de backlog e alinhamento com objetivos estratégicos de produto.',
+        'Trabalhei em conjunto com equipes de vendas e atendimento para mapear requisitos regulatórios em projetos complexos de automação, garantindo compliance e eficácia de novas features.',
+        'Conduzi análises de dados e testes A/B para iterar em funcionalidades-chave, reduzindo custos de aquisição e aumentando retenção de usuários finais.',
       ],
     },
     {
@@ -128,26 +126,25 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
       period: '2016 – Dez 2019',
       location: 'Sete Lagoas, Brasil',
       highlights: [
-        'Desenvolvi campanhas de marketing multicanal com foco em varejo de moda e lifestyle, elevando a participação do e-commerce em 20%.',
-        'Trabalhei junto às equipes de vendas para garantir que as comunicações refletissem a proposta de valor do produto, contribuindo para o aumento das vendas online.',
-        'Monitorei e analisei métricas de performance (CTR, CPA, ROI) para otimizar os investimentos em mídia e garantir alinhamento com metas de receita.',
-        'Gerenciei equipe e parceiros externos, assegurando cronogramas e metas para lançamentos de coleção e campanhas sazonais de moda.',
+        'Gerenciei iniciativas de melhoria no fluxo de cadastro e suporte a vendedores, contribuindo para maior adesão à plataforma e satisfação dos parceiros.',
+        'Lancei campanhas de ativação com foco na expansão de portfólio de produtos, trabalhando de forma integrada com times de UX e engenharia.',
+        'Participei ativamente de projetos de expansão regional da empresa, adaptando processos e garantindo que a experiência do vendedor se mantivesse consistente.',
       ],
     },
   ];
 
-  // Competências e Habilidades (enfatizando CRM, Mídia, Liderança)
+  // Competências e Habilidades
   const skillsCompetencies = [
-    'Desenvolvimento de Estratégias de CRM e Mídia (Online e Offline)',
-    'Gestão e Liderança de Equipes (desenvolvimento, produtividade e performance)',
-    'Estratégias de E-commerce, Varejo de Moda e Lifestyle',
-    'Análise de Dados Avançada (CAC, LTV, ROAS, CTR, CPA)',
-    'Pesquisa de Mercado e Análise Competitiva',
-    'Gestão de Orçamentos e Planejamento de Mídia 360º',
-    'Ferramentas de Marketing Automation (HubSpot, Salesforce, RD Station)',
-    'Inovação e Busca de Soluções Tecnológicas para Otimização de Processos',
-    'Fluente em Inglês e Proficiência em Espanhol',
-    'Foco em Resultados e Otimização Contínua das Campanhas',
+    'Gestão de Produto (roadmaps, backlog, definição de OKRs)',
+    'Pesquisa e Discovery (entrevistas, testes de usabilidade, MVP)',
+    'Orquestração de Equipes Multidisciplinares (Engenharia, UX, Negócios)',
+    'Experiência em E-commerce, Fulfillment, Logística e Marketplace',
+    'Priorização de Requisitos e Gestão de Stakeholders',
+    'Metodologias Ágeis (Scrum, Kanban) e PM Tools (Jira, Confluence)',
+    'Análise de Dados e Métricas de Produto (NPS, CTR, ROI)',
+    'Compreensão de Requisitos Regulatórios e Compliance',
+    'Inglês Avançado (negociação e alinhamento internacional)',
+    'Foco em Experiência do Usuário e Crescimento Sustentável',
   ];
 
   // Educação
@@ -167,28 +164,26 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
   // Idiomas
   const languages = [
     { language: 'Português', level: 'Nativo' },
-    { language: 'Inglês', level: 'Avançado (Experiência Internacional)' },
+    { language: 'Inglês', level: 'Avançado' },
     { language: 'Espanhol', level: 'Proficiência Profissional' },
   ];
 
   // Ferramentas e Certificações
   const toolsCertifications = [
     'Professional Scrum Master I (Scrum.org)',
-    'Certificação em Pesquisa do Google Ads',
-    'SEO e Inbound Marketing (Diversas Certificações)',
+    'Certificação em Google Analytics / Ads',
+    'Especialização em Product Management (cursos diversos)',
     'SQL Avançado (LinkedIn Learning)',
-    'Experiência com Jira, Git, CI/CD e Plataformas de IA',
-    'Software de Marketing HubSpot e Salesforce CRM',
-    'Certificado em Google Analytics',
+    'Experiência com CRM (HubSpot, Salesforce)',
+    'Design Thinking e User Research (workshops internos)',
   ];
 
-  // Informações Adicionais (enfatizando interesse em moda, lifestyle, inovação, etc.)
+  // Informações Adicionais
   const additionalInfo = `
-• Interesse genuíno no segmento de moda e lifestyle, com foco no e-commerce como principal canal de vendas.
-• Vasta experiência em planejar, implementar e otimizar réguas de relacionamento que impactam diretamente o funil de vendas.
-• Perfil analítico e orientado a dados para embasar tomadas de decisão e sugerir melhorias contínuas em produtos e campanhas.
-• Paixão por liderar equipes, promovendo inovação e colaboração entre diferentes áreas e equipes globais.
-• Flexibilidade e visão estratégica para adequar mensagens e abordagens ao público brasileiro, garantindo relevância e competitividade.
+• Sou movido por desafios complexos que envolvem logística, marketplace e escalabilidade, buscando soluções criativas que unam resultados e satisfação do cliente.
+• Tenho experiência internacional em projetos com equipes remotas, o que me permite colaborar e alinhar visões em ambientes multiculturais.
+• Acredito na importância de interações contínuas com usuários e stakeholders para refinar a visão de produto e entregas incrementais de valor.
+• Estou em constante atualização sobre tendências de comércio eletrônico e operações de fulfillment para identificar oportunidades de melhoria e inovação.
 `;
 
   return (
@@ -241,7 +236,7 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
             <h3 className="text-2xl font-light text-slate-900 tracking-wide uppercase mt-2">
               Resumo Profissional
             </h3>
-            <p className="text-sm text-slate-600 font-light leading-relaxed whitespace-pre-line mb-2">
+            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line mb-2">
               {professionalSummary}
             </p>
           </section>
@@ -252,7 +247,7 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
               Experiência Profissional
             </h3>
             {professionalExperience.map((exp, idx) => (
-              <div key={idx} className="mb-4 pt-2">
+              <div key={idx} className="mb-6 pt-2">
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="text-xl text-slate-800 font-normal">
                     {exp.title} – {exp.company}
@@ -276,13 +271,13 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
           </section>
 
           {/* Competências e Habilidades */}
-          <section className="mb-2 pt-2">
+          <section className="mb-12 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Competências e Habilidades
             </h3>
-            <ul className="grid grid-cols-2 gap-2 text-slate-600 font-light list-inside list-disc">
+            <ul className="grid grid-cols-2 gap-4 text-slate-600 font-light list-inside list-disc">
               {skillsCompetencies.map((skill, idx) => (
-                <li key={idx} className="text-base leading-normal">
+                <li key={idx} className="text-base leading-relaxed">
                   {skill}
                 </li>
               ))}
@@ -290,7 +285,7 @@ Gerente de Marketing com sólida experiência em CRM, Mídia e E-commerce, focad
           </section>
 
           {/* Educação */}
-          <section className="mb-4 pt-2">
+          <section className="mb-4 pt-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Educação
             </h3>
