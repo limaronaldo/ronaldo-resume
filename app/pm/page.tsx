@@ -11,7 +11,7 @@ export default function ResumeAI() {
     role: 'Product Manager',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
-    location: 'São Paulo, SP - Brasil',
+    location: 'São Paulo, SP - Brazil',
   };
 
   // Lida com efeitos colaterais
@@ -80,117 +80,117 @@ export default function ResumeAI() {
 
   // Resumo Profissional
   const professionalSummary = `
-Product Manager com mais de 10 anos de experiência na convergência entre negócios, tecnologia e experiência do usuário. Durante minha trajetória, atuei no planejamento de soluções end-to-end em diversos setores, incluindo e-commerce, fintech e vendas B2B. Sou apaixonado por identificar oportunidades de melhoria em sistemas logísticos e criar roadmaps que equilibrem necessidades dos usuários, metas de negócio e requisitos regulatórios. Tenho forte habilidade de colaboração em equipes multidisciplinares, conduzindo descobertas (Discovery) e entregas (Delivery) de produtos de forma ágil. Busco constantemente otimizar processos para gerar impacto real na vida de milhões de usuários.
+Product Manager with over 10 years of experience in the convergence of business, technology, and user experience. Throughout my career, I have worked on planning end-to-end solutions across various sectors, including e-commerce, fintech, and B2B sales. I am passionate about identifying opportunities for improvement in logistics systems and creating roadmaps that balance user needs, business goals, and regulatory requirements. I have strong collaboration skills in cross-functional teams, leading product discovery and delivery in an agile manner. I constantly seek to optimize processes to generate real impact in the lives of millions of users.
 `;
 
-  // Experiência Profissional
+  // Professional Experience
   const professionalExperience = [
     {
       title: 'Product Manager',
       company: 'IBVI',
-      period: 'Ago 2022 – Presente',
-      location: 'São Paulo, Brasil',
+      period: 'Aug 2022 – Present',
+      location: 'São Paulo, Brazil',
       highlights: [
-        'Gerencio backlog e roadmaps para plataformas de crédito e pagamento, alinhando requisitos de negócio às necessidades de usuários e parceiros.',
-        'Lidero iniciativas de discovery para novas funcionalidades, coordenando entrevistas com stakeholders e análises de dados para priorizar o desenvolvimento.',
-        'Colaboro com equipes de engenharia, design e marketing para garantir entregas de alta qualidade e cumprir metas de tempo e orçamento.',
-        'Implementei métricas de produto (OKRs e KPIs) para mensurar adesão e satisfação do usuário, resultando em um aumento de 20% na adoção de novas features.',
+        'Manage backlog and roadmaps for credit and payment platforms, aligning business requirements with user and partner needs.',
+        'Lead discovery initiatives for new features, coordinating stakeholder interviews and data analysis to prioritize development.',
+        'Collaborate with engineering, design, and marketing teams to ensure high-quality deliveries and meet time and budget goals.',
+        'Implemented product metrics (OKRs and KPIs) to measure user adoption and satisfaction, resulting in a 20% increase in new feature adoption.',
       ],
     },
     {
-      title: 'Gerente de Marketing',
+      title: 'Marketing Manager',
       company: 'MBRAS',
-      period: 'Out 2021 – Presente',
-      location: 'São Paulo, Brasil',
+      period: 'Oct 2021 – Present',
+      location: 'São Paulo, Brazil',
       highlights: [
-        'Desenvolvi estratégias multicanais para produtos financeiros e soluções de pagamento, incluindo criação de user stories e interface com equipes de desenvolvimento.',
-        'Atuei em projetos de integração de sistemas de logística (vendas e fulfillment), contribuindo para reduzir tempo de entrega e melhorar a experiência dos vendedores.',
-        'Negociei prioridades e roadmap com stakeholders internos, equilibrando metas de venda, viabilidade técnica e feedback de usuários para otimizar processos.',
-        'Utilizei abordagem ágil para gerenciar sprints, definindo critérios de aceite e garantindo transparência sobre o progresso das iniciativas para toda a organização.',
+        'Developed multichannel strategies for financial products and payment solutions, including user story creation and interface with development teams.',
+        'Worked on logistics systems integration projects (sales and fulfillment), helping reduce delivery time and improve seller experience.',
+        'Negotiated priorities and roadmap with internal stakeholders, balancing sales goals, technical feasibility, and user feedback to optimize processes.',
+        'Used agile approach to manage sprints, defining acceptance criteria and ensuring transparency about initiative progress across the organization.',
       ],
     },
     {
-      title: 'Coordenador de Marketing',
+      title: 'Marketing Coordinator',
       company: 'ConnectAD',
-      period: 'Dez 2019 – Nov 2021',
-      location: 'São Paulo, Brasil',
+      period: 'Dec 2019 – Nov 2021',
+      location: 'São Paulo, Brazil',
       highlights: [
-        'Coordenei squads de desenvolvimento focadas em melhorias de usabilidade, incrementando a satisfação dos clientes em 15%, segundo pesquisas de NPS.',
-        'Defini KPIs de performance (CPC, ROI, engajamento) para embasar decisões de priorização de backlog e alinhamento com objetivos estratégicos de produto.',
-        'Trabalhei em conjunto com equipes de vendas e atendimento para mapear requisitos regulatórios em projetos complexos de automação, garantindo compliance e eficácia de novas features.',
-        'Conduzi análises de dados e testes A/B para iterar em funcionalidades-chave, reduzindo custos de aquisição e aumentando retenção de usuários finais.',
+        'Coordinated development squads focused on usability improvements, increasing customer satisfaction by 15% according to NPS surveys.',
+        'Defined performance KPIs (CPC, ROI, engagement) to support backlog prioritization decisions and alignment with strategic product objectives.',
+        'Worked with sales and customer service teams to map regulatory requirements in complex automation projects, ensuring compliance and effectiveness of new features.',
+        'Conducted data analysis and A/B testing to iterate on key features, reducing acquisition costs and increasing end-user retention.',
       ],
     },
     {
-      title: 'Coordenador de Marketing',
+      title: 'Marketing Coordinator',
       company: 'Viva Linda',
-      period: '2016 – Dez 2019',
-      location: 'Sete Lagoas, Brasil',
+      period: '2016 – Dec 2019',
+      location: 'Sete Lagoas, Brazil',
       highlights: [
-        'Gerenciei iniciativas de melhoria no fluxo de cadastro e suporte a vendedores, contribuindo para maior adesão à plataforma e satisfação dos parceiros.',
-        'Lancei campanhas de ativação com foco na expansão de portfólio de produtos, trabalhando de forma integrada com times de UX e engenharia.',
-        'Participei ativamente de projetos de expansão regional da empresa, adaptando processos e garantindo que a experiência do vendedor se mantivesse consistente.',
+        'Managed improvement initiatives in seller registration and support flow, contributing to greater platform adoption and partner satisfaction.',
+        'Launched activation campaigns focused on product portfolio expansion, working closely with UX and engineering teams.',
+        'Actively participated in company regional expansion projects, adapting processes and ensuring consistent seller experience.',
       ],
     },
   ];
 
-  // Competências e Habilidades
+  // Skills & Competencies
   const skillsCompetencies = [
-    'Gestão de Produto (roadmaps, backlog, definição de OKRs)',
-    'Pesquisa e Discovery (entrevistas, testes de usabilidade, MVP)',
-    'Orquestração de Equipes Multidisciplinares (Engenharia, UX, Negócios)',
-    'Experiência em E-commerce, Fulfillment, Logística e Marketplace',
-    'Priorização de Requisitos e Gestão de Stakeholders',
-    'Metodologias Ágeis (Scrum, Kanban) e PM Tools (Jira, Confluence)',
-    'Análise de Dados e Métricas de Produto (NPS, CTR, ROI)',
-    'Compreensão de Requisitos Regulatórios e Compliance',
-    'Inglês Avançado (negociação e alinhamento internacional)',
-    'Foco em Experiência do Usuário e Crescimento Sustentável',
+    'Product Management (roadmaps, backlog, OKRs definition)',
+    'Research and Discovery (interviews, usability testing, MVP)',
+    'Cross-functional Team Orchestration (Engineering, UX, Business)',
+    'Experience in E-commerce, Fulfillment, Logistics and Marketplace',
+    'Requirements Prioritization and Stakeholder Management',
+    'Agile Methodologies (Scrum, Kanban) and PM Tools (Jira, Confluence)',
+    'Data Analysis and Product Metrics (NPS, CTR, ROI)',
+    'Understanding of Regulatory Requirements and Compliance',
+    'Advanced English (international negotiation and alignment)',
+    'Focus on User Experience and Sustainable Growth',
   ];
 
-  // Educação
+  // Education
   const education = [
     {
-      degree: 'MBA em Marketing',
+      degree: 'MBA in Marketing',
       school: 'Fundação Armando Alvares Penteado (FAAP)',
       period: '2024 – 2025',
     },
     {
-      degree: 'Bacharelado em Administração de Empresas',
+      degree: 'Bachelor in Business Administration',
       school: 'Ibmec',
       period: '2004 – 2008',
     },
   ];
 
-  // Idiomas
+  // Languages
   const languages = [
-    { language: 'Português', level: 'Nativo' },
-    { language: 'Inglês', level: 'Avançado' },
-    { language: 'Espanhol', level: 'Proficiência Profissional' },
+    { language: 'Portuguese', level: 'Native' },
+    { language: 'English', level: 'Advanced' },
+    { language: 'Spanish', level: 'Professional Proficiency' },
   ];
 
-  // Ferramentas e Certificações
+  // Tools & Certifications
   const toolsCertifications = [
     'Professional Scrum Master I (Scrum.org)',
-    'Certificação em Google Analytics / Ads',
-    'Especialização em Product Management (cursos diversos)',
-    'SQL Avançado (LinkedIn Learning)',
-    'Experiência com CRM (HubSpot, Salesforce)',
-    'Design Thinking e User Research (workshops internos)',
+    'Google Analytics / Ads Certification',
+    'Product Management Specialization (various courses)',
+    'Advanced SQL (LinkedIn Learning)',
+    'Experience with CRM (HubSpot, Salesforce)',
+    'Design Thinking and User Research (internal workshops)',
   ];
 
-  // Informações Adicionais
+  // Additional Information
   const additionalInfo = `
-• Sou movido por desafios complexos que envolvem logística, marketplace e escalabilidade, buscando soluções criativas que unam resultados e satisfação do cliente.
-• Tenho experiência internacional em projetos com equipes remotas, o que me permite colaborar e alinhar visões em ambientes multiculturais.
-• Acredito na importância de interações contínuas com usuários e stakeholders para refinar a visão de produto e entregas incrementais de valor.
-• Estou em constante atualização sobre tendências de comércio eletrônico e operações de fulfillment para identificar oportunidades de melhoria e inovação.
+• I am driven by complex challenges involving logistics, marketplace, and scalability, seeking creative solutions that combine results and customer satisfaction.
+• I have international experience in projects with remote teams, which allows me to collaborate and align visions in multicultural environments.
+• I believe in the importance of continuous interactions with users and stakeholders to refine product vision and incremental value delivery.
+• I constantly stay updated on e-commerce trends and fulfillment operations to identify opportunities for improvement and innovation.
 `;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="container mx-auto px-4 py-8 max-w-5xl">
-        {/* Botão para Download de PDF */}
+        {/* Download PDF Button */}
         <div className="flex justify-end mb-4">
           <button
             onClick={downloadPDF}
@@ -199,7 +199,7 @@ Product Manager com mais de 10 anos de experiência na convergência entre negó
               isGenerating ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-800'
             }`}
           >
-            {isGenerating ? 'Gerando PDF...' : 'Baixar PDF'}
+            {isGenerating ? 'Generating PDF...' : 'Download PDF'}
           </button>
         </div>
 
