@@ -9,7 +9,7 @@ export default function ResumeAI() {
   // Informações de contato e cabeçalho
   const contactInfo = {
     name: 'Ronaldo Lima',
-    role: 'Gerente de Marketing de Produto',
+    role: 'Product Marketing Manager',
     email: 'ronaldomlima@gmail.com',
     phone: '+55 11 93459-2736',
     location: 'Alto de Pinheiros, São Paulo, SP',
