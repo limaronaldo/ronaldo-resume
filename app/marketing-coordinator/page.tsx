@@ -43,7 +43,7 @@ export default function ResumeAI() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url: `${window.location.origin}/omie`,
+          url: `${window.location.origin}${window.location.pathname}`,
           jobTitle: contactInfo.role,
         }),
       });
@@ -286,7 +286,7 @@ Marketing and Growth specialist with over 10 years of experience planning global
           </section>
 
           {/* Education */}
-          <section className="mb-12 pt-4">
+          <section className="mb-4 pt-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Education
             </h3>
@@ -308,7 +308,7 @@ Marketing and Growth specialist with over 10 years of experience planning global
           </section>
 
           {/* Languages */}
-          <section className="mb-12">
+          <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Languages
             </h3>
@@ -328,7 +328,7 @@ Marketing and Growth specialist with over 10 years of experience planning global
           </section>
 
           {/* Tools & Certifications */}
-          <section className="mb-12">
+          <section className="mb-8">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Tools & Certifications
             </h3>
@@ -342,11 +342,11 @@ Marketing and Growth specialist with over 10 years of experience planning global
           </section>
 
           {/* Additional Information */}
-          <section className="border-t border-slate-200 pt-10">
-            <h3 className="text-2xl font-light text-slate-900 mb-6">
+          <section className="border-t border-slate-200 pt-4">
+            <h3 className="text-2xl font-light text-slate-900 mb-2">
               Additional Information
             </h3>
-            <p className="text-lg text-slate-600 font-light leading-relaxed whitespace-pre-line">
+            <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line">
               {additionalInfo}
             </p>
           </section>
