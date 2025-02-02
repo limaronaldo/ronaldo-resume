@@ -30,149 +30,39 @@ export async function POST(req: Request) {
     });
     
     const page = await browser.newPage();
-    
-    // Navigate to the page and wait for network to be idle
-    await page.goto(url, { 
-      waitUntil: ['networkidle0', 'load', 'domcontentloaded'],
-      timeout: 30000 
-    });
+    await page.setDefaultNavigationTimeout(30000);
+    await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
 
-    // Wait longer for translations and content to be ready
-    await page.waitForSelector('.bg-white.shadow-xl.rounded-xl', { timeout: 15000 });
-    await page.waitForFunction(() => {
-      const summaryText = document.querySelector('section:first-of-type p')?.textContent;
-      return summaryText && summaryText.length > 0 && !summaryText.includes('sections.');
-    }, { timeout: 15000 });
-
-    // Get language from URL query parameter
-    const currentLang = await page.evaluate(() => {
-      const params = new URLSearchParams(window.location.search);
-      const lng = params.get('lng');
-      return lng && ['en', 'pt', 'es'].includes(lng) ? lng : 'en';
-    });
-
-    // Wait for language to be applied and content to be in the correct language
-    await page.waitForFunction((expectedLang) => {
-      const summaryText = document.querySelector('section:first-of-type p')?.textContent;
-      if (!summaryText) return false;
-      
-      // Check if content is in the expected language
-      switch (expectedLang) {
-        case 'pt':
-          return summaryText.includes('com');
-        case 'es':
-          return summaryText.includes('con');
-        default:
-          return summaryText.includes('with');
-      }
-    }, { timeout: 15000 }, currentLang);
-
-    // Modify the page to only show the card content
-    await page.evaluate(({ jobTitle, currentLang }) => {
-      const card = document.querySelector('.bg-white.shadow-xl.rounded-xl');
-      if (!card) throw new Error('Card content not found');
-
-      // Update the job title in the header and professional summary if provided
-      if (jobTitle) {
-        const titleElement = card.querySelector('h2');
-        if (titleElement) {
-          titleElement.textContent = jobTitle;
-        }
-
-        // Find and update the professional summary content
-        const summaryElement = card.querySelector('section:first-of-type p');
-        if (summaryElement && summaryElement.textContent) {
-          const summaryText = summaryElement.textContent;
-          
-          // Create a new first sentence with the job title
-          let newText = summaryText;
-          
-          // Define experience text patterns for each language
-          const patterns = {
-            en: /(?:.*?)with\s+(.*?years.*?\.)/i,
-            pt: /(?:.*?)com\s+(.*?anos.*?\.)/i,
-            es: /(?:.*?)con\s+(.*?años.*?\.)/i
-          };
-          
-          // Try to match the first part of the text up to the experience part
-          const pattern = patterns[currentLang as keyof typeof patterns];
-          const experienceMatch = summaryText.match(pattern);
-          
-          if (experienceMatch) {
-            const experiencePart = experienceMatch[1];
-            const conjunction = currentLang === 'pt' ? 'com' : currentLang === 'es' ? 'con' : 'with';
-            newText = `${jobTitle} ${conjunction} ${experiencePart}${summaryText.substring(experienceMatch[0].length)}`;
-          }
-          
-          summaryElement.textContent = newText;
-        }
-      }
-
-      // Create a wrapper for the card
-      const wrapper = document.createElement('div');
-      wrapper.style.background = 'white';
-      wrapper.style.width = '100%';
-      wrapper.style.minHeight = '100vh';
-      wrapper.style.padding = '15px';
-      wrapper.style.display = 'flex';
-      wrapper.style.alignItems = 'flex-start';
-      wrapper.style.justifyContent = 'center';
-
-      // Clone the card and remove shadow/border
-      const clonedCard = card.cloneNode(true) as HTMLElement;
-      clonedCard.style.boxShadow = 'none';
-      clonedCard.style.borderRadius = '0';
-      clonedCard.style.margin = '0';
-      clonedCard.style.maxWidth = '1000px';
-      clonedCard.style.width = '100%';
-
-      // Add page break rules
-      const style = document.createElement('style');
-      style.textContent = `
-        .border-t {
-          display: none !important;
-        }
-        .mb-12 {
-          margin-bottom: 2rem;
-        }
-        section:has(h3:contains('EDUCATION')) {
-          break-before: page;
-          margin-top: 3rem !important;
-        }
-        section:has(h3:contains('ADDITIONAL INFORMATION')) {
-          break-before: avoid;
-          break-after: avoid;
-          display: block !important;
-          margin-top: 2rem;
-        }
-        section:has(h3:contains('TOOLS & CERTIFICATIONS')) {
-          break-after: avoid;
-        }
-      `;
-      document.head.appendChild(style);
-
-      // Replace the body content with just the card
-      wrapper.appendChild(clonedCard);
-      document.body.innerHTML = '';
-      document.body.style.margin = '0';
-      document.body.style.padding = '0';
+    // Hide everything except the main card
+    await page.evaluate(() => {
       document.body.style.background = 'white';
-      document.body.appendChild(wrapper);
+      const mainCard = document.querySelector('.bg-white.shadow-xl.rounded-xl');
+      const container = document.querySelector('.container');
+      if (container && container instanceof HTMLElement) {
+        container.style.padding = '0';
+        container.style.maxWidth = 'none';
+      }
+      if (mainCard && mainCard instanceof HTMLElement) {
+        mainCard.style.boxShadow = 'none';
+        mainCard.style.borderRadius = '0';
+      }
+      // Hide the download button
+      const downloadBtn = document.querySelector('.flex.justify-end.mb-4');
+      if (downloadBtn && downloadBtn instanceof HTMLElement) {
+        downloadBtn.style.display = 'none';
+      }
+    });
 
-      return clonedCard.getBoundingClientRect();
-    }, { jobTitle, currentLang });
-
-    // Generate PDF with the card content only
+    // Generate PDF with adjusted margins
     const pdf = await page.pdf({
       format: 'A4',
-      margin: {
-        top: '0.6in',
-        right: '0.2in',
-        bottom: '0.3in',
-        left: '0.2in'
-      },
       printBackground: true,
-      preferCSSPageSize: true
+      margin: {
+        top: '10px',
+        right: '10px',
+        bottom: '10px',
+        left: '10px',
+      },
     });
 
     // Create filename with initials if job title is provided
@@ -186,8 +76,8 @@ export async function POST(req: Request) {
       filename = `RonaldoLima-${initials}`;
     }
 
-    // Add language to filename
-    filename = `${filename}-${currentLang}.pdf`;
+    // Set final filename
+    filename = `${filename}.pdf`;
 
     // Return PDF with appropriate headers
     return new NextResponse(pdf, {
