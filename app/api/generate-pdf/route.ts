@@ -2,8 +2,8 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
 import chrome from '@sparticuz/chromium';
+
 import fs from 'fs';
-import path from 'path';
 
 // Force Node.js runtime so Puppeteer and Chromium work properly
 export const runtime = 'nodejs';

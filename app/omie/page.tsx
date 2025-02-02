@@ -31,7 +31,7 @@ export default function ResumeAI() {
         );
       }
     }
-  }, [mounted, contactInfo.role]);
+  }, [mounted, contactInfo.role, contactInfo.name]);
 
   // PDF Download Handler
   const downloadPDF = async () => {
