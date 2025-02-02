@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 // Centralize all resume data for clarity
 const contactInfo = {
   name: 'Ronaldo Lima',
-  role: 'Gerente de Marca e Marketing',
+  role: 'Gerente de Branding',
   email: 'ronaldomlima@gmail.com',
   phone: '+55 11 93459-2736',
   location: 'Alto de Pinheiros, São Paulo, SP',

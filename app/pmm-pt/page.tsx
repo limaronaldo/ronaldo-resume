@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react';
 // Centralize all resume data for clarity
 const contactInfo = {
   name: 'Ronaldo Lima',
-  role: 'Product Marketing Manager',
+  role: 'Gerente de Inovação e Produtos (IA)',
   email: 'ronaldomlima@gmail.com',
   phone: '+55 11 93459-2736',
   location: 'Alto de Pinheiros, São Paulo, SP',
 };
 
 const professionalSummary = `
-Gerente de Marketing de Produto dinâmico com mais de 10 anos de experiência elaborando narrativas envolventes e executando estratégias de entrada no mercado em ambientes orientados pela tecnologia. Especializado em conectar o desenvolvimento de produtos às necessidades do mercado, atuo com marketing de performance e análise de dados para impulsionar a aquisição de usuários e o crescimento da receita. Hábil em aprimorar o posicionamento do produto em mercados competitivos e em colaborar com equipes de produto, vendas e análise para otimizar campanhas e aumentar a adoção no mercado.
+Gerente de Inovação e Produtos com mais de 10 anos de experiência em marketing e desenvolvimento de soluções tecnológicas, incluindo IA Generativa. Destaco-me por transitar entre áreas técnicas e de negócio, alinhando requisitos complexos a objetivos de mercado. Sou especializado em traduzir necessidades organizacionais em estratégias de produto eficazes, conduzindo experimentações e provas de conceito para validar hipóteses. Tenho forte habilidade em liderar times multidisciplinares na concepção, execução e lançamento de produtos baseados em Inteligência Artificial, sempre de olho em métricas-chave de sucesso. Com sólida formação em marketing e gestão, atuo no posicionamento estratégico de soluções inovadoras, garantindo máxima entrega de valor ao cliente e ao negócio.
 `;
 
 const professionalExperience = [
@@ -22,10 +22,10 @@ const professionalExperience = [
     period: 'Ago 2022 – Presente',
     location: 'São Paulo, Brasil',
     highlights: [
-      'Lidero estratégias de entrada no mercado para soluções de crédito inovadoras, alinhando o posicionamento do produto às tendências de mercado em evolução.',
-      'Otimizo campanhas de marketing de performance no Google Ads, LinkedIn Ads e Facebook Ads — aumentando a aquisição de usuários em 25%.',
-      'Colaboro com as equipes de produto, vendas e análise para refinar mensagens-chave e ajustar táticas de campanha com base em dados de desempenho.',
-      'Utilizo insights detalhados de métricas (CPC, CPA, CTR, ROI) para melhorar continuamente os resultados das campanhas e atingir metas de receita.',
+      'Lidero estratégias de entrada no mercado para soluções de crédito inovadoras, incluindo projetos com modelos de IA para análise de risco e segmentação de clientes.',
+      'Desenvolvo provas de conceito envolvendo IA Generativa para melhorar a comunicação e a abordagem de captação de usuários, resultando em protótipos ágeis e insights valiosos para o roadmap de produto.',
+      'Atuo em conjunto com equipes de dados, produto e vendas para refinar produtos e campanhas com base em métricas de performance (CPC, CPA, CTR, ROI) e feedback do cliente.',
+      'Crio hipóteses e conduzo experimentos em ambientes de teste controlados, validando a viabilidade de novas funcionalidades baseadas em Inteligência Artificial.',
     ],
   },
   {
@@ -34,10 +34,10 @@ const professionalExperience = [
     period: 'Out 2021 – Presente',
     location: 'São Paulo, Brasil',
     highlights: [
-      'Desenvolvi estratégias de marketing integradas que enfatizavam o posicionamento competitivo do produto e propostas de valor claras.',
-      'Utilizei análises avançadas e segmentação de mercado para otimizar campanhas digitais, resultando em um aumento de 40% nas taxas de conversão.',
-      'Coordenei manuais de lançamento de produto entre equipes multifuncionais, garantindo mensagens coesas do planejamento à execução.',
-      'Aprimorei o engajamento multicanal por meio de mensagens direcionadas e ajustes focados no desempenho.',
+      'Liderei a iniciativa de incorporar tecnologias de Machine Learning em produtos existentes, otimizando a segmentação de clientes e aumentando as taxas de conversão em 40%.',
+      'Conduzi alinhamentos entre equipes de dados e áreas de negócio para refinar modelos de classificação, priorizando recursos que gerassem maior impacto no roadmap de inovação.',
+      'Utilizei análises avançadas e segmentação de mercado para otimizar campanhas digitais e validar necessidades de clientes, garantindo aderência às estratégias de Inovação.',
+      'Coordenei manuais de lançamento de produto envolvendo funcionalidades de IA, integrando feedback de usuários para aprimorar a experiência e guiar o desenvolvimento contínuo.',
     ],
   },
   {
@@ -46,10 +46,10 @@ const professionalExperience = [
     period: 'Dez 2019 – Nov 2021',
     location: 'São Paulo, Brasil',
     highlights: [
-      'Apoiei a criação de campanhas orientadas por dados que destacaram os benefícios do produto e a diferenciação no mercado.',
-      'Trabalhei em estreita colaboração com as equipes de produto para integrar o feedback dos clientes nas estratégias de marketing, refinando as mensagens das campanhas.',
-      'Implementei iniciativas digitais direcionadas utilizando segmentação avançada para aumentar a geração de leads e conversões.',
-      'Projetos-chave: • Bebêmax – otimizei as mensagens do produto em canais digitais. • Ziro – melhorei o desempenho das campanhas por meio de segmentação precisa do público.',
+      'Apoiei a criação de campanhas orientadas por dados e algoritmos de recomendação, destacando diferenciais de produto em um mercado competitivo.',
+      'Trabalhei em estreita colaboração com cientistas de dados e equipes de desenvolvimento para integrar feedback de clientes na evolução de modelos de análise de comportamento.',
+      'Implementei iniciativas digitais direcionadas utilizando segmentação avançada e testes A/B, aumentando a geração de leads qualificados e a eficácia das campanhas.',
+      'Projetos-chave: • Bebêmax – integrei análise preditiva para identificar padrões de consumo e otimizar a oferta de produtos. • Ziro – utilizei segmentação precisa do público para melhorar o desempenho das campanhas e validar hipóteses de adoção de novas funcionalidades de IA.',
     ],
   },
   {
@@ -58,24 +58,24 @@ const professionalExperience = [
     period: '2016 – Dez 2019',
     location: 'Sete Lagoas, Brasil',
     highlights: [
-      'Gerenciei campanhas de marketing abrangentes focadas em aumentar o reconhecimento do produto e impulsionar a aquisição de usuários.',
-      'Colaborei com as equipes de vendas para garantir que as comunicações de marketing transmitissem claramente os benefícios do produto.',
-      'Supervisionei esforços de publicidade multicanal que aumentaram o alcance de mercado e o engajamento em 20%.',
+      'Gerenciei campanhas de marketing abrangentes focadas em aumentar o reconhecimento do produto e impulsionar a aquisição de usuários em diversos canais digitais.',
+      'Colaborei com as equipes de vendas e produto para garantir que as comunicações destacassem claramente benefícios e possibilidades de inovação.',
+      'Supervisionei esforços de publicidade multicanal que aumentaram o alcance de mercado em 20%, gerando insights para possíveis aplicações de algoritmos de recomendação.',
     ],
   },
 ];
 
 const skillsCompetencies = [
-  'Estratégia de Marketing de Produto e Execução de Entrada no Mercado',
+  'Gestão de Produtos de IA (Machine Learning e IA Generativa)',
+  'Estratégia de Marketing de Produto e Inovação',
+  'Pesquisa de Mercado, Validação de Hipóteses e Roadmap de Produto',
   'Otimização de Marketing de Performance (Google Ads, Facebook Ads, LinkedIn Ads)',
-  'Análise de Dados e Medição de Desempenho (CPC, CPA, CTR, ROI)',
-  'Colaboração Multifuncional (Produto, Vendas e Análise)',
-  'Pesquisa de Mercado e Análise Competitiva',
-  'Mensagens Estratégicas e Posicionamento de Produto',
-  'CRM e Automação de Marketing (HubSpot, Salesforce)',
-  'Planejamento Orçamentário e Otimização do ROI',
+  'Colaboração Multifuncional (Engenheiros de Dados, Cientistas de Dados, Vendas)',
+  'Definição de Métricas e Medição de Desempenho (CPC, CPA, CTR, ROI)',
+  'Prototipagem e Experimentação em Ambientes de Teste',
+  'Metodologias Ágeis (Scrum, Kanban) e Gestão de Projetos',
   'Fluente em Inglês, Proficiência em Espanhol',
-  'Conhecimento em Fintech e Mercados de Crédito',
+  'Conhecimento em Fintech, Crédito e Mercado de Soluções de IA',
 ];
 
 const education = [
@@ -102,16 +102,18 @@ const toolsCertifications = [
   'Certificação em Pesquisa do Google Ads',
   'SEO e Inbound Marketing (Diversas Certificações)',
   'SQL Avançado (LinkedIn Learning)',
-  'Experiência com Jira, Git, CI/CD e Plataformas de IA',
+  'Experiência com plataformas e APIs de IA (OpenAI, Azure Cognitive, Vertex AI)',
   'Software de Marketing HubSpot',
   'Certificado em Google Analytics',
+  'Familiaridade com Python e bibliotecas de Machine Learning',
 ];
 
 const additionalInfo = `
-• Especialista em desenvolver narrativas de produto que transformam soluções financeiras complexas em benefícios claros para o mercado.
-• Experiência comprovada em impulsionar a adoção de produtos e o crescimento da receita por meio de estratégias de marketing de performance orientadas por dados.
-• Hábil em sintetizar insights de mercado e feedback dos clientes para ajustar o posicionamento do produto e iniciativas de entrada no mercado.
-• Apaixonado por colaborar com equipes multifuncionais para entregar campanhas integradas que apoiam os objetivos de negócios.
+• Experiência comprovada em liderar o desenvolvimento de produtos de Inteligência Artificial, desde a concepção até o lançamento.
+• Capacidade de transitar entre áreas técnicas e de negócio, alinhando objetivos de mercado a requisitos de dados e engenharia de software.
+• Forte habilidade para formular hipóteses, conduzir provas de conceito e usar métricas adequadas para avaliar a viabilidade de produtos de IA.
+• Entusiasta de tendências tecnológicas, sempre buscando soluções inovadoras que agreguem valor ao negócio.
+• Apaixonado por metodologias ágeis, colaboração multifuncional e criação de experiências que encantem clientes e usuários finais.
 `;
 
 export default function ResumeAI() {
@@ -127,7 +129,7 @@ export default function ResumeAI() {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        `Currículo de ${contactInfo.name} – um experiente Gerente de Marketing de Produto especializado em traduzir soluções financeiras complexas em mensagens claras e orientadas por dados para o sucesso no mercado.`
+        `Currículo de ${contactInfo.name} – especialista em Inovação, AI e estratégias de Produto, com experiência em conduzir soluções de Inteligência Artificial do conceito ao lançamento.`
       );
     }
   }, []);
