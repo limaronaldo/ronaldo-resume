@@ -12,8 +12,7 @@ const contactInfo = {
 };
 
 const professionalSummary = `
-Gerente de Inovação e Produtos com mais de 10 anos de experiência em marketing e desenvolvimento de soluções tecnológicas, incluindo IA Generativa. Destaco-me por transitar entre áreas técnicas e de negócio, alinhando requisitos complexos a objetivos de mercado. Sou especializado em traduzir necessidades organizacionais em estratégias de produto eficazes, conduzindo experimentações e provas de conceito para validar hipóteses. Tenho forte habilidade em liderar times multidisciplinares na concepção, execução e lançamento de produtos baseados em Inteligência Artificial, sempre de olho em métricas-chave de sucesso. Com sólida formação em marketing e gestão, atuo no posicionamento estratégico de soluções inovadoras, garantindo máxima entrega de valor ao cliente e ao negócio.
-`;
+Gerente de Produtos com sólida experiência em marketing e soluções tecnológicas, incluindo IA Generativa. Atua como elo entre áreas técnicas e de negócio, alinhando requisitos complexos a objetivos de mercado. Especialista em conduzir experimentos e provas de conceito para validar hipóteses, liderando times multidisciplinares na concepção e lançamento de produtos de IA. Com formação em marketing e gestão, foca no posicionamento estratégico de soluções inovadoras e na maximização de valor ao cliente e ao negócio.`;
 
 const professionalExperience = [
   {
@@ -262,7 +261,7 @@ export default function ResumeAI() {
           </section>
 
           {/* Competências e Habilidades */}
-          <section className="mb-12 pt-4">
+          <section className="mb-6 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
               Competências e Habilidades
             </h3>
@@ -319,7 +318,7 @@ export default function ResumeAI() {
 
           {/* Ferramentas e Certificações */}
           <section className="mb-6">
-            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+            <h3 className="text-2xl font-light text-slate-900 mb-4 tracking-wide uppercase">
               Ferramentas e Certificações
             </h3>
             <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
