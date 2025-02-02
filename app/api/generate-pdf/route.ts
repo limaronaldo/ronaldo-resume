@@ -1,34 +1,32 @@
 //app/api/generate-pdf/route.ts
 import { NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
-
-interface GeneratePdfRequest {
-  url: string;
-  jobTitle?: string;
-}
+import puppeteer from 'puppeteer-core';
+import chrome from '@sparticuz/chromium';
 
 export async function POST(req: Request) {
   let browser;
   try {
-    const { url, jobTitle } = await req.json() as GeneratePdfRequest;
+    const { url, jobTitle } = await req.json();
+
+    // Configure Chrome for serverless environment
+    const executablePath = await chrome.executablePath;
     
+    if (!executablePath) {
+      throw new Error('Chrome executable not found');
+    }
+
     browser = await puppeteer.launch({
       args: [
-        '--hide-scrollbars',
-        '--disable-web-security',
-        '--font-render-hinting=none',
-        '--disable-setuid-sandbox',
+        ...chrome.args,
         '--no-sandbox',
-        '--disable-dev-shm-usage'
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
       ],
+      executablePath: await executablePath(),
       headless: true,
-      defaultViewport: {
-        width: 1200,
-        height: 1600,
-        deviceScaleFactor: 1
-      }
+      ignoreDefaultArgs: false,
     });
-    
+
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(30000);
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
@@ -70,7 +68,7 @@ export async function POST(req: Request) {
     if (jobTitle) {
       const initials = jobTitle
         .split(' ')
-        .map(word => word[0])
+        .map((word: string) => word[0])
         .join('')
         .toUpperCase();
       filename = `RonaldoLima-${initials}`;
