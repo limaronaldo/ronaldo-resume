@@ -2,141 +2,46 @@
 
 import { useEffect, useState } from 'react';
 
-// Centralize all resume data for clarity
-const contactInfo = {
-  name: 'Ronaldo Lima',
-  role: 'Gerente de Inovação e Produtos (IA)',
-  email: 'ronaldomlima@gmail.com',
-  phone: '+55 11 93459-2736',
-  location: 'Alto de Pinheiros, São Paulo, SP',
-};
-
-const professionalSummary = `
-Gerente de Produtos com sólida experiência em marketing e soluções tecnológicas, incluindo IA Generativa. Atua como elo entre áreas técnicas e de negócio, alinhando requisitos complexos a objetivos de mercado. Especialista em conduzir experimentos e provas de conceito para validar hipóteses, liderando times multidisciplinares na concepção e lançamento de produtos de IA. Com formação em marketing e gestão, foca no posicionamento estratégico de soluções inovadoras e na maximização de valor ao cliente e ao negócio.`;
-
-const professionalExperience = [
-  {
-    title: 'Gerente de Marketing de Produto',
-    company: 'IBVI',
-    period: 'Ago 2022 – Presente',
-    location: 'São Paulo, Brasil',
-    highlights: [
-      'Lidero estratégias de entrada no mercado para soluções de crédito inovadoras, incluindo projetos com modelos de IA para análise de risco e segmentação de clientes.',
-      'Desenvolvo provas de conceito envolvendo IA Generativa para melhorar a comunicação e a abordagem de captação de usuários, resultando em protótipos ágeis e insights valiosos para o roadmap de produto.',
-      'Atuo em conjunto com equipes de dados, produto e vendas para refinar produtos e campanhas com base em métricas de performance (CPC, CPA, CTR, ROI) e feedback do cliente.',
-      'Crio hipóteses e conduzo experimentos em ambientes de teste controlados, validando a viabilidade de novas funcionalidades baseadas em Inteligência Artificial.',
-    ],
-  },
-  {
-    title: 'Gerente de Marketing',
-    company: 'MBRAS',
-    period: 'Out 2021 – Presente',
-    location: 'São Paulo, Brasil',
-    highlights: [
-      'Liderei a iniciativa de incorporar tecnologias de Machine Learning em produtos existentes, otimizando a segmentação de clientes e aumentando as taxas de conversão em 40%.',
-      'Conduzi alinhamentos entre equipes de dados e áreas de negócio para refinar modelos de classificação, priorizando recursos que gerassem maior impacto no roadmap de inovação.',
-      'Utilizei análises avançadas e segmentação de mercado para otimizar campanhas digitais e validar necessidades de clientes, garantindo aderência às estratégias de Inovação.',
-      'Coordenei manuais de lançamento de produto envolvendo funcionalidades de IA, integrando feedback de usuários para aprimorar a experiência e guiar o desenvolvimento contínuo.',
-    ],
-  },
-  {
-    title: 'Coordenador de Marketing',
-    company: 'ConnectAD',
-    period: 'Dez 2019 – Nov 2021',
-    location: 'São Paulo, Brasil',
-    highlights: [
-      'Apoiei a criação de campanhas orientadas por dados e algoritmos de recomendação, destacando diferenciais de produto em um mercado competitivo.',
-      'Trabalhei em estreita colaboração com cientistas de dados e equipes de desenvolvimento para integrar feedback de clientes na evolução de modelos de análise de comportamento.',
-      'Implementei iniciativas digitais direcionadas utilizando segmentação avançada e testes A/B, aumentando a geração de leads qualificados e a eficácia das campanhas.',
-      'Projetos-chave: • Bebêmax – integrei análise preditiva para identificar padrões de consumo e otimizar a oferta de produtos. • Ziro – utilizei segmentação precisa do público para melhorar o desempenho das campanhas e validar hipóteses de adoção de novas funcionalidades de IA.',
-    ],
-  },
-  {
-    title: 'Coordenador de Marketing',
-    company: 'Viva Linda',
-    period: '2016 – Dez 2019',
-    location: 'Sete Lagoas, Brasil',
-    highlights: [
-      'Gerenciei campanhas de marketing abrangentes focadas em aumentar o reconhecimento do produto e impulsionar a aquisição de usuários em diversos canais digitais.',
-      'Colaborei com as equipes de vendas e produto para garantir que as comunicações destacassem claramente benefícios e possibilidades de inovação.',
-      'Supervisionei esforços de publicidade multicanal que aumentaram o alcance de mercado em 20%, gerando insights para possíveis aplicações de algoritmos de recomendação.',
-    ],
-  },
-];
-
-const skillsCompetencies = [
-  'Gestão de Produtos de IA (Machine Learning e IA Generativa)',
-  'Estratégia de Marketing de Produto e Inovação',
-  'Pesquisa de Mercado, Validação de Hipóteses e Roadmap de Produto',
-  'Otimização de Marketing de Performance (Google Ads, Facebook Ads, LinkedIn Ads)',
-  'Colaboração Multifuncional (Engenheiros de Dados, Cientistas de Dados, Vendas)',
-  'Definição de Métricas e Medição de Desempenho (CPC, CPA, CTR, ROI)',
-  'Prototipagem e Experimentação em Ambientes de Teste',
-  'Metodologias Ágeis (Scrum, Kanban) e Gestão de Projetos',
-  'Fluente em Inglês, Proficiência em Espanhol',
-  'Conhecimento em Fintech, Crédito e Mercado de Soluções de IA',
-];
-
-const education = [
-  {
-    degree: 'MBA em Marketing',
-    school: 'Fundação Armando Alvares Penteado (FAAP)',
-    period: '2024 – 2025',
-  },
-  {
-    degree: 'Bacharelado em Administração de Empresas',
-    school: 'Ibmec',
-    period: '2004 – 2008',
-  },
-];
-
-const languages = [
-  { language: 'Português', level: 'Nativo' },
-  { language: 'Inglês', level: 'Fluente (Estudo e Experiência Internacional)' },
-];
-
-const toolsCertifications = [
-  'Professional Scrum Master I (Scrum.org)',
-  'Certificação em Pesquisa do Google Ads',
-  'SEO e Inbound Marketing (Diversas Certificações)',
-  'SQL Avançado (LinkedIn Learning)',
-  'Experiência com plataformas e APIs de IA (OpenAI, Azure Cognitive, Vertex AI)',
-  'Certificado em Google Analytics',
-  'Familiaridade com Python e bibliotecas de Machine Learning',
-];
-
-const additionalInfo = `
-• Experiência comprovada em liderar o desenvolvimento de produtos de Inteligência Artificial, desde a concepção até o lançamento.
-• Capacidade de transitar entre áreas técnicas e de negócio, alinhando objetivos de mercado a requisitos de dados e engenharia de software.
-• Forte habilidade para formular hipóteses, conduzir provas de conceito e usar métricas adequadas para avaliar a viabilidade de produtos de IA.
-• Entusiasta de tendências tecnológicas, sempre buscando soluções inovadoras que agreguem valor ao negócio.
-• Apaixonado por metodologias ágeis, colaboração multifuncional e criação de experiências que encantem clientes e usuários finais.
-`;
-
 export default function ResumeAI() {
   const [mounted, setMounted] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
 
+  // Contact and header info
+  const contactInfo = {
+    name: 'Ronaldo Lima',
+    role: 'Product Marketing Manager',
+    email: 'ronaldomlima@gmail.com',
+    phone: '+55 11 93459-2736',
+    location: 'Alto de Pinheiros, São Paulo, SP',
+  };
+
+  // Handle side effects
   useEffect(() => {
     setMounted(true);
-
-    // Update document title and meta description
-    document.title = contactInfo.role;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        'content',
-        `Currículo de ${contactInfo.name} – especialista em Inovação, AI e estratégias de Produto, com experiência em conduzir soluções de Inteligência Artificial do conceito ao lançamento.`
-      );
-    }
   }, []);
 
-  const handleDownloadPDF = async () => {
+  useEffect(() => {
+    if (mounted) {
+      document.title = contactInfo.role;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          'content',
+          `Resume of ${contactInfo.name} – a Product Marketing Manager with deep expertise in driving digital transformations and go-to-market strategies.`
+        );
+      }
+    }
+  }, [mounted, contactInfo.role, contactInfo.name]);
+
+  // PDF Download Handler
+  const downloadPDF = async () => {
     try {
       setIsGenerating(true);
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           url: `${window.location.origin}${window.location.pathname}`,
           jobTitle: contactInfo.role,
@@ -145,28 +50,28 @@ export default function ResumeAI() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Falha ao gerar PDF');
+        throw new Error(errorData.error || 'Failed to generate PDF');
       }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
+      const a = document.createElement('a');
+      a.href = url;
 
-      // Cria as iniciais a partir do cargo
+      // Create initials from job title
       const initials = contactInfo.role
         .split(' ')
         .map((word) => word[0])
         .join('')
         .toUpperCase();
 
-      link.download = `RonaldoLima-${initials}.pdf`;
-      document.body.appendChild(link);
-      link.click();
+      a.download = `RonaldoLima-${initials}.pdf`;
+      document.body.appendChild(a);
+      a.click();
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(link);
+      document.body.removeChild(a);
     } catch (error) {
-      console.error('Erro ao gerar PDF:', error);
+      console.error('Error generating PDF:', error);
     } finally {
       setIsGenerating(false);
     }
@@ -174,25 +79,136 @@ export default function ResumeAI() {
 
   if (!mounted) return null;
 
+  // Professional Summary (Updated)
+  const professionalSummary = `
+Dynamic Product Marketing Manager with over 10 years of experience driving digital transformations in the technology and telecom spaces. Skilled in crafting compelling go-to-market strategies, leading cross-functional teams, and bridging product vision with market demands. Strong background in BSS (Billing, Sales, and Customer Care) solutions, performance marketing, and data analytics. Adept at delivering impactful pre-sales materials, product positioning, and growth-focused campaigns in collaboration with Sales, Presales, R&D, and Product teams.
+`;
+
+  // Professional Experience (Updated)
+  const professionalExperience = [
+    {
+      title: 'Product Marketing Manager',
+      company: 'IBVI (Fintech & Telecom Division)',
+      period: 'Aug 2022 – Present',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Led digital transformation initiatives by aligning product positioning with BSS solution demands, ensuring consistent messaging across marketing and sales materials.',
+        'Spearheaded global go-to-market strategies for credit and charging products, increasing user acquisition by 25% through performance marketing and advanced analytics.',
+        'Created and delivered pre-sales content (presentations, white papers, ROI models) in collaboration with sales and presales teams, securing key enterprise accounts.',
+        'Utilized KPI-driven insights (CPC, CPA, CTR, ROI) to refine marketing tactics, culminating in improved revenue and higher product adoption rates.',
+      ],
+    },
+    {
+      title: 'Marketing Manager',
+      company: 'MBRAS (IT & Telecom Solutions)',
+      period: 'Oct 2021 – Aug 2022',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Developed integrated marketing strategies that positioned complex network and billing solutions as unique selling propositions in competitive telecom markets.',
+        'Drove product roadmap alignment with market trends by collaborating closely with R&D and Product teams, boosting conversion rates by 40%.',
+        'Coordinated end-to-end launches for next-gen BSS features, ensuring cohesive messaging and on-time release in multiple global regions.',
+        'Partnered with top analytical agencies for deeper market insights, refining product storytelling and marketing content to resonate with diverse client segments.',
+      ],
+    },
+    {
+      title: 'Marketing Coordinator',
+      company: 'ConnectAD (Emerging Tech)',
+      period: 'Dec 2019 – Nov 2021',
+      location: 'São Paulo, Brazil',
+      highlights: [
+        'Managed data-driven campaigns emphasizing product differentiation for telecom and fintech products, leading to significant lead generation growth.',
+        'Liaised with product and sales teams to integrate real-time customer feedback into go-to-market strategies, accelerating market penetration.',
+        'Developed robust digital content (case studies, webinars, blog posts) to showcase product value, targeting key decision-makers in IT and telecom.',
+        'Key Projects: • Bebêmax – streamlined product messaging across digital channels. • Ziro – improved campaign performance and engagement via targeted paid ads.',
+      ],
+    },
+    {
+      title: 'Marketing Coordinator',
+      company: 'Viva Linda (Software & Services)',
+      period: '2016 – Dec 2019',
+      location: 'Sete Lagoas, Brazil',
+      highlights: [
+        'Implemented comprehensive marketing campaigns that elevated brand awareness within the SaaS segment, driving 20% increased engagement.',
+        'Collaborated with cross-department teams (sales, R&D, product) to highlight key differentiators for cloud-based solutions.',
+        'Established performance metrics and reporting protocols to optimize spend across multi-channel advertising campaigns.',
+      ],
+    },
+  ];
+
+  // Skills & Competencies (Updated)
+  const skillsCompetencies = [
+    'Product Marketing Strategy & Go-to-Market Execution',
+    'Expertise in BSS Solutions (Marketing, Sales, Billing, Customer Care)',
+    'Performance Marketing & Data Analytics (CPC, CPA, CTR, ROI)',
+    'Pre-Sales Content Creation (Whitepapers, Case Studies, Presentations)',
+    'Cross-functional Collaboration (Sales, Presales, R&D, Product Management)',
+    'Market Research, Competitive Analysis & Analyst Relations (Gartner, IDC, etc.)',
+    'Strategic Messaging & Product Positioning in Telecom/IT',
+    'CRM & Marketing Automation (HubSpot, Salesforce)',
+    'Budget Planning & ROI Optimization',
+    'Fluent in English, Proficient in Spanish',
+  ];
+
+  // Education (Updated if needed)
+  const education = [
+    {
+      degree: 'MBA in Marketing',
+      school: 'Fundação Armando Alvares Penteado (FAAP)',
+      period: '2024 – 2025',
+    },
+    {
+      degree: 'Bachelor’s Degree in Business Administration',
+      school: 'Ibmec',
+      period: '2004 – 2008',
+    },
+  ];
+
+  // Languages
+  const languages = [
+    { language: 'Portuguese', level: 'Native' },
+    { language: 'English', level: 'Fluent (International Study & Experience)' },
+    { language: 'Spanish', level: 'Professional Proficiency' },
+  ];
+
+  // Tools & Certifications (Updated)
+  const toolsCertifications = [
+    'Professional Scrum Master I (Scrum.org)',
+    'Google Ads Search Certification',
+    'SEO & Inbound Marketing Certifications',
+    'Advanced SQL (LinkedIn Learning)',
+    'Expertise with Jira, Git, CI/CD, and AI Platforms',
+    'HubSpot Marketing Software',
+    'Google Analytics Certified',
+  ];
+
+  // Additional Information (Updated)
+  const additionalInfo = `
+• Passionate about pioneering next-generation technology solutions and driving large-scale digital transformations.
+• Demonstrated success in leading and mentoring product marketing teams to exceed targets and optimize workflows.
+• Skilled at forging strategic partnerships with sales, presales, and industry analysts to amplify market visibility.
+• Advanced proficiency in English; experienced with global, cross-cultural teams in hybrid or distributed environments.
+• Open to hybrid work arrangements from local offices and eager to tackle complex technical solutions in a dynamic environment.
+`;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="container mx-auto px-4 py-8 max-w-5xl">
-        {/* Botão para Download de PDF */}
+        {/* PDF Download Button */}
         <div className="flex justify-end mb-4">
           <button
-            onClick={handleDownloadPDF}
+            onClick={downloadPDF}
             disabled={isGenerating}
             className={`px-6 py-2 rounded-lg bg-slate-900 text-white transition-colors ${
               isGenerating ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-800'
             }`}
           >
-            {isGenerating ? 'Gerando PDF...' : 'Baixar PDF'}
+            {isGenerating ? 'Generating PDF...' : 'Download PDF'}
           </button>
         </div>
 
-        {/* Cartão Principal do Currículo */}
+        {/* Main Resume Card */}
         <div className="bg-white shadow-xl rounded-xl p-8 md:p-12">
-          {/* Cabeçalho */}
+          {/* Header */}
           <header className="text-center mb-0">
             <h1 className="text-4xl font-light text-slate-900 mb-2">
               {contactInfo.name}
@@ -219,20 +235,20 @@ export default function ResumeAI() {
             </div>
           </header>
 
-          {/* Resumo Profissional */}
+          {/* Professional Summary */}
           <section className="mb-2">
             <h3 className="text-2xl font-light text-slate-900 tracking-wide uppercase mt-2">
-              Resumo Profissional
+              Professional Summary
             </h3>
             <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line mb-2">
               {professionalSummary}
             </p>
           </section>
 
-          {/* Experiência Profissional */}
+          {/* Professional Experience */}
           <section className="mb-1 pt-2">
             <h3 className="text-2xl font-light text-slate-900 mb-2 tracking-wide uppercase">
-              Experiência Profissional
+              Professional Experience
             </h3>
             {professionalExperience.map((exp, idx) => (
               <div key={idx} className="mb-6 pt-2">
@@ -258,12 +274,12 @@ export default function ResumeAI() {
             ))}
           </section>
 
-          {/* Competências e Habilidades */}
-          <section className="mb-4 pt-2">
+          {/* Skills & Competencies */}
+          <section className="mb-12 pt-4">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Competências e Habilidades
+              Skills & Competencies
             </h3>
-            <ul className="grid grid-cols-2 gap-2 text-slate-600 font-light list-inside list-disc">
+            <ul className="grid grid-cols-2 gap-4 text-slate-600 font-light list-inside list-disc">
               {skillsCompetencies.map((skill, idx) => (
                 <li key={idx} className="text-base leading-relaxed">
                   {skill}
@@ -272,10 +288,10 @@ export default function ResumeAI() {
             </ul>
           </section>
 
-          {/* Educação */}
+          {/* Education */}
           <section className="mb-4 pt-12">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Educação
+              Education
             </h3>
             {education.map((edu, idx) => (
               <div key={idx} className="mb-2">
@@ -294,10 +310,10 @@ export default function ResumeAI() {
             ))}
           </section>
 
-          {/* Idiomas */}
+          {/* Languages */}
           <section className="mb-6">
             <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
-              Idiomas
+              Languages
             </h3>
             <ul className="space-y-2 text-slate-600 font-light">
               {languages.map((lang, idx) => (
@@ -314,10 +330,10 @@ export default function ResumeAI() {
             </ul>
           </section>
 
-          {/* Ferramentas e Certificações */}
+          {/* Tools & Certifications */}
           <section className="mb-6">
-            <h3 className="text-2xl font-light text-slate-900 mb-4 tracking-wide uppercase">
-              Ferramentas e Certificações
+            <h3 className="text-2xl font-light text-slate-900 mb-6 tracking-wide uppercase">
+              Tools & Certifications
             </h3>
             <ul className="list-disc list-inside space-y-2 text-slate-600 font-light">
               {toolsCertifications.map((cert, idx) => (
@@ -328,10 +344,10 @@ export default function ResumeAI() {
             </ul>
           </section>
 
-          {/* Informações Adicionais */}
+          {/* Additional Information */}
           <section className="border-t border-slate-200 pt-2">
-            <h3 className="text-2xl font-light text-slate-900 mb-0">
-              Informações Adicionais
+            <h3 className="text-2xl font-light text-slate-900 mb-2">
+              Additional Information
             </h3>
             <p className="text-md text-slate-600 font-light leading-relaxed whitespace-pre-line">
               {additionalInfo}
